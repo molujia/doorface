@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客诉处理 - VocSeek</title>
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="page4105.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <div id="header-container"><div class="header-component">
+  <header class="site-header">
+<meta charset="UTF-8">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="home.html" class="logo-link"><img src="https://pic3.zhimg.com/100/v2-0b170946e6e58a96b940d5314c5b34f2_r.jpg" alt="网站LOGO" class="logo-image"></a>
+      </div>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="home.html" class="nav-link">首页</a></li>
+          <li class="nav-item"><a href="dashboard.html" class="nav-link">控制台</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/insights.html?_t=1762343478472" class="nav-link">消费者洞察</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/page4105.html?_t=1762343950818" class="nav-link">客诉处理</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/setup.html?_t=1762344716175" class="nav-link" target="_blank">AI 客服设置</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/reports.html?_t=1762344433224" class="nav-link">月度总结</a></li>
+        </ul>
+      </nav>
+      
+      <div class="user-actions">
+        <div class="search-container">
+          <input type="text" placeholder="搜索..." class="search-input">
+          <button class="search-button">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21L16.65 16.65" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-login">登录</a>
+          <a href="register.html" class="btn btn-primary">注册</a>
+        </div>
+        
+        <div class="user-menu hidden">
+          <button class="user-avatar">
+            <img loading="lazy" src="https://placeholder.pics/svg/40x40/DEDEDE/555555/头像" alt="用户头像">
+          </button>
+          <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-item">控制台</a>
+            <a href="#" class="dropdown-item">账户设置</a>
+            <a href="#" class="dropdown-item">退出登录</a>
+          </div>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+</div></div>
+  
+  <main class="complaint-container">
+    <div class="page-header">
+      <h1>客诉处理</h1>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label for="status-filter">状态筛选</label>
+          <select id="status-filter">
+            <option value="all">全部</option>
+            <option value="pending">待处理</option>
+            <option value="processing">处理中</option>
+            <option value="resolved">已解决</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="priority-filter">优先级</label>
+          <select id="priority-filter">
+            <option value="all">全部</option>
+            <option value="high">高</option>
+            <option value="medium">中</option>
+            <option value="low">低</option>
+          </select>
+        </div>
+        <button class="search-btn"><i class="bi bi-search"></i> 搜索</button>
+      </div>
+    </div>
+
+    <div class="complaint-list">
+      <div class="complaint-item">
+        <div class="complaint-header">
+          <span class="order-id">ORD-2023-001</span>
+          <span class="complaint-type">商品破损</span>
+          <span class="priority high">高优先级</span>
+          <span class="status pending">待处理</span>
+          <span class="date">2023-06-15 14:30</span>
+        </div>
+        <div class="complaint-summary">
+          <p>客户反映收到的商品外包装破损，内部商品有轻微损坏。客户提供了照片证明，希望获得赔偿或换货。</p>
+        </div>
+        <div class="complaint-actions">
+          <button class="btn view-details" data-id="1"><i class="bi bi-eye"></i> 查看详情</button>
+          <button class="btn resolve"><i class="bi bi-check-circle"></i> 标记解决</button>
+          <button class="btn transfer"><i class="bi bi-person"></i> 转人工</button>
+        </div>
+      </div>
+
+      <div class="complaint-item">
+        <div class="complaint-header">
+          <span class="order-id">ORD-2023-002</span>
+          <span class="complaint-type">商品不符</span>
+          <span class="priority medium">中优先级</span>
+          <span class="status processing">处理中</span>
+          <span class="date">2023-06-14 09:15</span>
+        </div>
+        <div class="complaint-summary">
+          <p>客户反映收到的商品与描述不符，颜色和尺寸都有差异。客户要求退货退款。</p>
+        </div>
+        <div class="complaint-actions">
+          <button class="btn view-details" data-id="2"><i class="bi bi-eye"></i> 查看详情</button>
+          <button class="btn resolve"><i class="bi bi-check-circle"></i> 标记解决</button>
+          <button class="btn reopen"><i class="bi bi-arrow-counterclockwise"></i> 重新打开</button>
+        </div>
+      </div>
+
+      <div class="complaint-item">
+        <div class="complaint-header">
+          <span class="order-id">ORD-2023-003</span>
+          <span class="complaint-type">物流延迟</span>
+          <span class="priority low">低优先级</span>
+          <span class="status resolved">已解决</span>
+          <span class="date">2023-06-10 16:45</span>
+        </div>
+        <div class="complaint-summary">
+          <p>客户反映订单物流信息超过3天未更新，担心商品丢失。已提供物流补偿方案。</p>
+        </div>
+        <div class="complaint-actions">
+          <button class="btn view-details" data-id="3"><i class="bi bi-eye"></i> 查看详情</button>
+          <button class="btn reopen"><i class="bi bi-arrow-counterclockwise"></i> 重新打开</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 客诉详情弹窗 -->
+  <div class="modal-overlay" id="complaint-modal">
+    <div class="modal-content">
+      <button class="close-modal"><i class="bi bi-x-lg"></i></button>
+      <div class="modal-header">
+        <h2>客诉详情</h2>
+        <div class="modal-status">
+          <span class="order-id">ORD-2023-001</span>
+          <span class="status pending">待处理</span>
+        </div>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="basic-info">基本信息</button>
+        <button class="tab-btn" data-tab="call-records">通话记录</button>
+        <button class="tab-btn" data-tab="customer-info">客户信息</button>
+        <button class="tab-btn" data-tab="suggestions">处理建议</button>
+      </div>
+
+      <div class="tab-content active" id="basic-info">
+        <div class="info-section">
+          <h3>客诉信息</h3>
+          <div class="info-grid">
+            <div><strong>订单编号:</strong> ORD-2023-001</div>
+            <div><strong>客诉类型:</strong> 商品破损</div>
+            <div><strong>提交时间:</strong> 2023-06-15 14:30</div>
+            <div><strong>优先级:</strong> 高优先级</div>
+            <div><strong>状态:</strong> 待处理</div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>问题描述</h3>
+          <p>客户反映收到的商品外包装破损，内部商品有轻微损坏。客户提供了照片证明，希望获得赔偿或换货。</p>
+        </div>
+
+        <div class="info-section">
+          <h3>相关图片</h3>
+          <div class="image-gallery">
+            <img loading="lazy" src="https://placeholder.pics/svg/300x200/DEDEDE/555555/商品破损" alt="商品破损图片">
+            <img loading="lazy" src="https://placeholder.pics/svg/300x200/DEDEDE/555555/包装破损" alt="包装破损图片">
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>处理记录</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2025-06-15 14:35</div>
+              <div class="timeline-content">AI客服初步响应</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025-06-15 14:30</div>
+              <div class="timeline-content">客诉提交</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="call-records">
+        <div class="audio-player">
+          <h3>通话记录 1</h3>
+          <audio controls>
+            <source src="#" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+          </audio>
+          <button class="btn transcript-toggle">显示文字记录 <i class="bi bi-chevron-down"></i></button>
+          <div class="transcript">
+            <div class="transcript-item ai">
+              <div class="transcript-time">00:00 - 00:30</div>
+              <div class="transcript-content">
+                <strong>AI客服:</strong> 您好，这里是VocSeek客服中心，请问有什么可以帮您？
+              </div>
+            </div>
+            <div class="transcript-item customer">
+              <div class="transcript-time">00:31 - 01:15</div>
+              <div class="transcript-content">
+                <strong>客户:</strong> 我收到的商品包装破损，里面的商品也有损坏。我已经拍了照片...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="customer-info">
+        <div class="info-section">
+          <h3>客户基本信息</h3>
+          <div class="info-grid">
+            <div><strong>姓名:</strong> Linda</div>
+            <div><strong>电话:</strong> 138****1234</div>
+            <div><strong>地区:</strong> 美国纽约州xxx</div>
+            <div><strong>平台:</strong> amazon</div>
+            <div><strong>注册时间:</strong> 2024-03-15</div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>历史记录</h3>
+          <div class="info-grid">
+            <div><strong>订单总数:</strong> 12</div>
+            <div><strong>客诉次数:</strong> 2 (含本次)</div>
+            <div><strong>平均评分:</strong> 4.5/5.0</div>
+            <div><strong>最近购买:</strong> 2025-06-10</div>
+          </div>
+          <div class="order-links">
+            <a href="#">订单链接1</a>, <a href="#">订单链接2</a>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>客户画像</h3>
+          <div class="customer-tags">
+            <span class="tag">高消费力</span>
+            <span class="tag">偏好电子产品</span>
+            <span class="tag">周末活跃</span>
+            <span class="tag">注重售后服务</span>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>备注</h3>
+          <div class="notes-list">
+            <div class="note-item">
+              <div class="note-meta">
+                <span class="note-author">客服张明</span>
+                <span class="note-date">2025-06-15 15:30</span>
+              </div>
+              <div class="note-content">客户情绪稳定，愿意等待解决方案。</div>
+            </div>
+          </div>
+          <div class="add-note">
+            <textarea placeholder="添加备注..."></textarea>
+            <button class="btn">保存备注</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="suggestions">
+        <div class="info-section">
+          <h3>AI处理建议</h3>
+          <div class="suggestion-item">
+            <h4>建议方案</h4>
+            <p>1. 提供全额退款并允许客户保留商品</p>
+            <p>2. 提供换货服务并承担往返运费</p>
+            <p>3. 提供20%折扣券作为补偿</p>
+          </div>
+          <div class="suggestion-item">
+            <h4>风险评估</h4>
+            <p>客户历史评分良好，本次投诉证据充分，建议优先考虑客户满意度。</p>
+          </div>
+          <div class="suggestion-item">
+            <h4>最优方案</h4>
+            <p>建议选择方案1：全额退款并允许客户保留商品，预计客户满意度提升95%。</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="btn primary">采纳建议</button>
+          <button class="btn">自定义处理</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"><div class="footer-component">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo-container">
+          <a href="#" class="footer-logo-link">
+            <img src="https://pic3.zhimg.com/100/v2-0b170946e6e58a96b940d5314c5b34f2_r.jpg" alt="VocSeek Logo" class="footer-logo">
+          </a>
+        </div>
+        <p class="footer-text">AI客服解决方案提供商</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">联系方式</h4>
+        <p class="footer-text">邮箱: michaelpeng1025@gmail.com</p>
+        <p class="footer-text">电话: +86 138 1234 5678</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">友情链接</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Amazon</a></li>
+          <li><a href="#" class="footer-link">Temu</a></li>
+          <li><a href="#" class="footer-link">Tiktok</a></li>
+          <li><a href="#" class="footer-link">Shopify</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© 2023 VocSeek. All rights reserved.</p>
+      <p class="record">备案号: 津ICP备0810232307号-3</p>
+    </div>
+  </div>
+</div></div>
+  <script src="page4105.js"></script>
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

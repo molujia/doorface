@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocSeek | Data Security / 数据安全</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root { --brand-blue: #0071e3; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+    .tech-bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,113,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,113,227,0.03) 1px,transparent 1px); background-size: 50px 50px; z-index: -1; }
+    .logo-img { height: 32px; width: auto; object-fit: contain; }
+    .lang-btn { padding: 6px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+    .lang-btn.active { background: #0071e3; color: white; }
+    .lang-btn:not(.active) { background: white; color: #6b7280; border-color: #e5e7eb; }
+    .lang-btn:not(.active):hover { border-color: #0071e3; color: #0071e3; }
+    /* 导航栏语言切换按钮（移动端紧凑版） */
+    .nav-lang-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+        cursor: pointer; transition: all 0.2s; border: none; background: transparent;
+        color: #9ca3af; white-space: nowrap;
+    }
+    .nav-lang-btn.active { background: #0071e3; color: white; }
+    .nav-lang-btn:not(.active):hover { color: #0071e3; }
+    @media (min-width: 768px) {
+        .nav-lang-btn { padding: 5px 14px; font-size: 12px; }
+    }
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .tech-btn { background: linear-gradient(135deg, #0071e3, #0051a8); color: white; transition: all 0.3s; }
+    .tech-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,113,227,0.35); }
+    .hero-section { background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a1628 100%); color: white; padding: 60px 0 50px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.15) 0%, transparent 60%); }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #0071e3; padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+    .commit-card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; padding: 28px; transition: all 0.3s; }
+    .commit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,113,227,0.1); border-color: #bfdbfe; }
+    .commit-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #0071e3, #0051a8); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+    .measure-item { display: flex; gap: 20px; align-items: flex-start; padding: 28px; background: white; border-radius: 20px; border: 1px solid #e5e7eb; margin-bottom: 16px; }
+    .measure-num { width: 48px; height: 48px; background: linear-gradient(135deg, #0071e3, #0051a8); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; flex-shrink: 0; }
+    .policy-item { background: white; border-radius: 16px; border: 1px solid #e5e7eb; padding: 20px 24px; display: flex; align-items: center; gap: 16px; margin-bottom: 12px; transition: all 0.3s; }
+    .policy-item:hover { border-color: #bfdbfe; box-shadow: 0 4px 16px rgba(0,113,227,0.08); }
+    .nav-link { font-size: 14px; color: #374151; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #0071e3; }
+  </style>
+</head>
+<body class="antialiased">
+<div class="tech-bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-4 md:px-8 py-4 sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100/80 bg-white/80">
+  <a href="index.html"><img src="logo02.png" alt="VocSeek Logo" class="logo-img" style="height:28px;"></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="index.html" class="nav-link" id="nav-home">Home</a>
+    <a href="product.html" class="nav-link" id="nav-product">Product</a>
+    <a href="security.html" class="nav-link active text-blue-600 font-bold border-b-2 border-blue-600" id="nav-security">Data Security</a>
+    <a href="about.html" class="nav-link" id="nav-about">About Us</a>
+    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- 语言切换：移动端紧凑 -->
+    <div class="flex items-center bg-gray-100 rounded-full p-0.5 gap-0.5">
+      <button class="nav-lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+      <button class="nav-lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+    <!-- Login -->
+    <a href="https://www.vocseek.ai/web-pages/login" target="_blank"
+       class="tech-btn rounded-full font-bold shadow-md
+              text-xs px-3 py-1.5 md:text-sm md:px-5 md:py-2">
+      <span class="hidden sm:inline">Login / Sign Up</span>
+      <span class="sm:hidden">Login</span>
+    </a>
+    <!-- 汉堡：仅 md~lg -->
+    <button class="hidden md:flex lg:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb1"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb2"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb3"></span>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-gray-100 px-6 py-4 space-y-3 sticky top-[65px] z-40">
+  <a href="index.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-home">Home</a>
+  <a href="product.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-product">Product</a>
+  <a href="security.html" class="block text-sm font-bold text-blue-600" id="mob-security">Data Security</a>
+  <a href="about.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-about">About Us</a>
+  <a href="contact.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-contact">Contact</a>
+  <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="block text-sm font-bold text-blue-600">Login / Sign Up</a>
+</div>
+
+<!-- ===== ENGLISH CONTENT ===== -->
+<div class="content-section active" id="section-en">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-shield-lock-fill"></i> Security &amp; Privacy
+      </div>
+      <h1 class="text-5xl font-black mb-6">Data Security &amp; Privacy Protection</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">We are committed to providing the highest level of security for your data</p>
+    </div>
+  </section>
+
+  <!-- Security Commitments -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge"><i class="bi bi-award-fill"></i> Our Commitment</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">Security Commitments</h2>
+      <p class="text-gray-500 text-lg">Privacy-first and minimal permissions — your data is always safe</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-shield-lock-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">End-to-End Encryption</h3>
+        <p class="text-gray-500 text-sm">All data transmissions use end-to-end encryption to prevent interception or tampering during transit.</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-key-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">Minimal Permissions</h3>
+        <p class="text-gray-500 text-sm">Strict access control — we only grant the minimum permissions necessary to deliver functionality.</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-patch-check-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">Compliance Certified</h3>
+        <p class="text-gray-500 text-sm">Compliant with GDPR, CCPA, and Amazon's data protection policies to ensure lawful data processing.</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-clipboard2-pulse-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">Regular Security Audits</h3>
+        <p class="text-gray-500 text-sm">Periodic security audits and vulnerability scans to proactively identify and remediate potential risks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Measures -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge"><i class="bi bi-gear-fill"></i> Technical Measures</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">Security Measures</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="measure-item">
+          <div class="measure-num">01</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Data Encryption</h3>
+            <p class="text-gray-500 mb-3">AES-256 encryption for data at rest, TLS 1.3 protocol for data in transit.</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>Data at rest encrypted with AES-256</li>
+              <li>Data in transit protected by TLS 1.3</li>
+              <li>Key management via Hardware Security Modules (HSM)</li>
+              <li>Regular encryption key rotation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">02</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Access Control</h3>
+            <p class="text-gray-500 mb-3">Strict authentication and access control mechanisms to ensure only authorized users can access data.</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>Multi-Factor Authentication (MFA)</li>
+              <li>Role-Based Access Control (RBAC)</li>
+              <li>Session management and timeout controls</li>
+              <li>Access logging and audit trails</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">03</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Data Backup &amp; Recovery</h3>
+            <p class="text-gray-500 mb-3">Comprehensive backup and disaster recovery mechanisms to ensure data is never lost.</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>Daily automated backups with multi-version history</li>
+              <li>Geographically distributed backup storage</li>
+              <li>Regular restore testing to verify backup integrity</li>
+              <li>Fast disaster recovery (RTO &lt; 4 hours)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">04</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Security Monitoring</h3>
+            <p class="text-gray-500 mb-3">24/7 security monitoring with real-time detection and response to security threats.</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>Real-time Intrusion Detection System (IDS)</li>
+              <li>Anomaly behavior analysis and alerting</li>
+              <li>Security Operations Center (SOC) team</li>
+              <li>Regular security assessments and penetration testing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Highlights -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <div class="section-badge"><i class="bi bi-file-earmark-lock-fill"></i> Privacy</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">Privacy Policy Highlights</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">Data Collection</h3>
+          <p class="text-sm text-gray-500">We only collect data necessary to provide the service and do not collect irrelevant personal information.</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">View Details</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">Data Use</h3>
+          <p class="text-sm text-gray-500">Data is used solely to provide and improve the service — never for other commercial purposes or sold to third parties.</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">View Details</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">Data Sharing</h3>
+          <p class="text-sm text-gray-500">We do not share your data with third parties without your explicit consent, except as required by law.</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">View Details</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">User Rights</h3>
+          <p class="text-sm text-gray-500">You have the right to access, modify, or delete your data, or request that we stop processing it.</p>
+        </div>
+        <a href="service.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">View Details</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">Need Help?</h2>
+      <p class="text-blue-200 mb-6">If you have any questions about data security or need to report a security issue, contact our security team</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">support@vocseek.ai</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== CHINESE CONTENT ===== -->
+<div class="content-section" id="section-zh">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-shield-lock-fill"></i> 安全与隐私
+      </div>
+      <h1 class="text-5xl font-black mb-6">数据安全与隐私保护</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">我们致力于为您的数据提供最高级别的安全保障</p>
+    </div>
+  </section>
+
+  <!-- Security Commitments -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge"><i class="bi bi-award-fill"></i> 我们的承诺</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">安全承诺</h2>
+      <p class="text-gray-500 text-lg">隐私优先与最小权限原则，确保您的数据安全无忧</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-shield-lock-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">端到端加密</h3>
+        <p class="text-gray-500 text-sm">所有数据传输采用端到端加密技术，确保数据在传输过程中不被窃取或篡改。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-key-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">最小权限原则</h3>
+        <p class="text-gray-500 text-sm">严格控制数据访问权限，仅授予实现功能所必要的最小访问权限。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-patch-check-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">合规认证</h3>
+        <p class="text-gray-500 text-sm">符合 GDPR、CCPA 等国际数据保护法规及亚马逊数据政策，确保数据处理合法合规。</p>
+      </div>
+      <div class="commit-card">
+        <div class="commit-icon"><i class="bi bi-clipboard2-pulse-fill"></i></div>
+        <h3 class="font-bold text-gray-900 mb-2">定期安全审计</h3>
+        <p class="text-gray-500 text-sm">定期进行安全审计和漏洞扫描，主动发现并修复潜在的安全隐患。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Measures -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge"><i class="bi bi-gear-fill"></i> 技术措施</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">安全措施</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="measure-item">
+          <div class="measure-num">01</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">数据加密</h3>
+            <p class="text-gray-500 mb-3">采用 AES-256 加密算法对存储数据进行加密，使用 TLS 1.3 协议保护数据传输安全。</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>静态数据采用 AES-256 加密存储</li>
+              <li>传输数据使用 TLS 1.3 协议加密</li>
+              <li>密钥管理采用硬件安全模块（HSM）</li>
+              <li>定期轮换加密密钥</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">02</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">访问控制</h3>
+            <p class="text-gray-500 mb-3">实施严格的身份认证和访问控制机制，确保只有授权用户才能访问数据。</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>多因素身份认证（MFA）</li>
+              <li>基于角色的访问控制（RBAC）</li>
+              <li>会话管理和超时控制</li>
+              <li>访问日志记录和审计</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">03</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">数据备份与恢复</h3>
+            <p class="text-gray-500 mb-3">建立完善的数据备份和灾难恢复机制，确保数据不丢失。</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>每日自动备份，保留多版本历史</li>
+              <li>异地备份存储，防止单点故障</li>
+              <li>定期恢复测试，确保备份可用</li>
+              <li>快速灾难恢复机制（RTO &lt; 4 小时）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-num">04</div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">安全监控</h3>
+            <p class="text-gray-500 mb-3">7×24 小时安全监控，实时检测和响应安全威胁。</p>
+            <ul class="text-sm text-gray-400 space-y-1 list-disc list-inside">
+              <li>实时入侵检测系统（IDS）</li>
+              <li>异常行为分析和告警</li>
+              <li>安全事件响应团队（SOC）</li>
+              <li>定期安全评估和渗透测试</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Highlights -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <div class="section-badge"><i class="bi bi-file-earmark-lock-fill"></i> 隐私政策</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">隐私政策要点</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">数据收集</h3>
+          <p class="text-sm text-gray-500">我们仅收集提供服务所必需的数据，不会收集无关的个人信息。</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">查看详细</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">数据使用</h3>
+          <p class="text-sm text-gray-500">数据仅用于提供和改进服务，不会用于其他商业目的或出售给第三方。</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">查看详细</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">数据共享</h3>
+          <p class="text-sm text-gray-500">未经您明确同意，我们不会与第三方共享您的数据，除非法律要求。</p>
+        </div>
+        <a href="privacy.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">查看详细</a>
+      </div>
+      <div class="policy-item">
+        <i class="bi bi-check-circle-fill text-blue-500 text-xl flex-shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-bold text-gray-900">用户权利</h3>
+          <p class="text-sm text-gray-500">您有权访问、修改、删除您的数据，或要求我们停止处理您的数据。</p>
+        </div>
+        <a href="service.html" class="text-xs text-blue-600 hover:underline whitespace-nowrap">查看详细</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">需要帮助？</h2>
+      <p class="text-blue-200 mb-6">如果您对数据安全有任何疑问或需要报告安全问题，请联系我们的安全团队</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">support@vocseek.ai</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-gray-100 bg-white mt-4">
+  <div class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="logo02.png" alt="VocSeek Logo" class="h-7 mb-4">
+        <p class="text-sm text-gray-400" id="footer-desc">AI Customer Service Solution Provider</p>
+        <div class="flex gap-3 mt-4">
+          <a href="privacy.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-privacy">Privacy Policy</a>
+          <a href="service.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-terms">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-contact-title">Contact</h4>
+        <p class="text-sm text-gray-400 mb-2"><a href="mailto:support@vocseek.ai" class="text-sm text-gray-400 hover:text-blue-600">support@vocseek.ai</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-links-title">Quick Links</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-home">Home</a></li>
+          <li><a href="product.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-product">Product</a></li>
+          <li><a href="security.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-security-link">Data Security</a></li>
+          <li><a href="about.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-about">About Us</a></li>
+          <li><a href="contact.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm">VocSeek</h4>
+        <p class="text-xs text-gray-400">© 2026 VOCSEEK INC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.getElementById('section-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('section-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'VocSeek | 数据安全 / Data Security' : 'VocSeek | Data Security / 数据安全';
+    const navMap = {
+      'nav-home': ['首页', 'Home'], 'nav-product': ['产品介绍', 'Product'],
+      'nav-security': ['数据安全', 'Data Security'], 'nav-about': ['关于我们', 'About Us'],
+      'nav-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(navMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+    const footerMap = {
+      'footer-desc': ['AI客服解决方案提供商', 'AI Customer Service Solution Provider'],
+      'footer-privacy': ['隐私政策', 'Privacy Policy'], 'footer-terms': ['服务条款', 'Terms of Service'],
+      'footer-contact-title': ['联系方式', 'Contact'],
+      'footer-links-title': ['资源链接', 'Quick Links'],
+      'footer-home': ['首页', 'Home'], 'footer-product': ['产品介绍', 'Product'],
+      'footer-security-link': ['数据安全', 'Data Security'], 'footer-about': ['关于我们', 'About Us'],
+      'footer-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(footerMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+  }
+  switchLang('en');
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const hb1 = document.getElementById('hb1');
+    const hb2 = document.getElementById('hb2');
+    const hb3 = document.getElementById('hb3');
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    hb1.style.transform = isOpen ? '' : 'translateY(8px) rotate(45deg)';
+    hb2.style.opacity = isOpen ? '1' : '0';
+    hb3.style.transform = isOpen ? '' : 'translateY(-8px) rotate(-45deg)';
+  }
+</script>
+</body>
+</html>

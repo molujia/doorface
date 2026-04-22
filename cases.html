@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客诉详情 - VocSeek</title>
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="cases.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <div id="header-container"><div class="header-component">
+  <header class="site-header">
+<meta charset="UTF-8">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="home.html" class="logo-link">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21M6 9V15M9 7V17M12 5V19M15 7V17M18 9V15" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="logo-gradient" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#1890FF"/>
+                  <stop offset="1" stop-color="#722ED1"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text">VocSeek</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="home.html" class="nav-link">首页</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">服务介绍</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">客户案例</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">帮助中心</a></li>
+        </ul>
+      </nav>
+      
+      <div class="user-actions">
+        <div class="search-container">
+          <input type="text" placeholder="搜索..." class="search-input">
+          <button class="search-button">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21L16.65 16.65" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-login">登录</a>
+          <a href="register.html" class="btn btn-primary">注册</a>
+        </div>
+        
+        <div class="user-menu hidden">
+          <button class="user-avatar">
+            <img loading="lazy" src="https://placeholder.pics/svg/40x40/DEDEDE/555555/头像" alt="用户头像">
+          </button>
+          <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-item">控制台</a>
+            <a href="#" class="dropdown-item">账户设置</a>
+            <a href="#" class="dropdown-item">退出登录</a>
+          </div>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+</div></div>
+  
+  <!-- 弹窗结构 -->
+  <div class="modal-overlay" id="caseModal" style="display: none;">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>客诉详情</h3>
+        <button class="close-btn">&times;</button>
+      </div>
+      
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="basic">基本信息</button>
+        <button class="tab-btn" data-tab="calls">通话记录</button>
+        <button class="tab-btn" data-tab="customer">客户信息</button>
+        <button class="tab-btn" data-tab="suggestion">处理建议</button>
+      </div>
+      
+      <div class="modal-content">
+        <!-- 基本信息标签页 -->
+        <div class="tab-content active" id="basic-tab">
+          <div class="info-section">
+            <h4>客诉信息</h4>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="bold-blue">订单号:</span>
+                <span class="bold-blue" id="order-id"></span>
+              </div>
+              <div class="info-item">
+                <span class="bold-blue">客诉类型:</span>
+                <span class="bold-blue" id="complaint-type"></span>
+              </div>
+              <div class="info-item">
+                <span class="bold-blue">提交时间:</span>
+                <span class="bold-blue" id="submit-time"></span>
+              </div>
+              <div class="info-item">
+                <span class="bold-blue">优先级:</span>
+                <span class="bold-blue" id="priority"></span>
+              </div>
+              <div class="info-item">
+                <span class="bold-blue">状态:</span>
+                <span class="bold-blue" id="process-status"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-section">
+            <h4>问题描述</h4>
+            <p class="bold-blue" id="problem-description"></p>
+          </div>
+          
+          <div class="info-section">
+            <h4 class="bold-blue">相关图片</h4>
+            <div class="image-gallery" id="complaint-images"></div>
+          </div>
+          
+          <div class="info-section">
+            <h4 class="bold-blue">处理记录</h4>
+            <div class="progress-tracker" id="progress-tracker"></div>
+          </div>
+        </div>
+        
+        <!-- 通话记录标签页 -->
+        <div class="tab-content" id="calls-tab">
+          <div class="call-list" id="call-records">
+            <div class="call-item">
+              <div class="call-header">
+                <span class="call-date">2025-06-15 14:30</span>
+                <span class="call-duration">5分32秒</span>
+              </div>
+              <div class="audio-player">
+                <button class="play-btn">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 0%"></div>
+                </div>
+                <span class="time">0:00 / 5:32</span>
+                <audio src="https://example.com/audio1.mp3" preload="none"></audio>
+              </div>
+              <div class="transcript">
+                <div class="message ai">
+                  <span class="time">00:05</span>
+                  <div class="content">您好，这里是客服中心，请问有什么可以帮您？</div>
+                </div>
+                <div class="message customer">
+                  <span class="time">00:12</span>
+                  <div class="content">我收到的商品有破损，包装都烂了</div>
+                </div>
+                <button class="btn-text expand-btn">
+                  <i class="bi bi-chevron-down"></i> 展开全部
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 客户信息标签页 -->
+        <div class="tab-content" id="customer-tab">
+          <div class="info-section">
+            <h4>基本信息</h4>
+            <div class="info-grid" id="customer-basic"></div>
+          </div>
+          
+          <div class="info-section">
+            <h4>历史交易记录</h4>
+            <div class="transaction-list" id="transaction-history"></div>
+          </div>
+          
+          <div class="info-section">
+            <h4>历史客诉记录</h4>
+            <div class="complaint-history" id="complaint-history"></div>
+          </div>
+          
+          <div class="info-section">
+            <h4>客户画像</h4>
+            <div class="customer-profile" id="customer-profile"></div>
+          </div>
+          
+          <div class="info-section">
+            <h4>备注信息</h4>
+            <div class="notes-section">
+              <div id="customer-notes"></div>
+              <textarea id="new-note" placeholder="添加备注..."></textarea>
+              <button class="btn-primary" id="add-note-btn">添加备注</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 处理建议标签页 -->
+        <div class="tab-content" id="suggestion-tab">
+          <div class="ai-suggestion">
+            <h4>AI处理建议</h4>
+            <div class="suggestion-content" id="ai-suggestion"></div>
+            
+            <div class="suggestion-stats">
+              <div class="stat-item">
+                <span>预估成本:</span>
+                <span id="estimated-cost"></span>
+              </div>
+              <div class="stat-item">
+                <span>预期满意度:</span>
+                <span id="expected-satisfaction"></span>
+              </div>
+            </div>
+            
+            <div class="suggestion-actions">
+              <button class="btn-primary" id="accept-suggestion">接收建议并解决</button>
+              <button class="btn-secondary" id="modify-suggestion">修改建议</button>
+              <button class="btn-secondary" id="manual-process">转人工处理</button>
+              <button class="btn-danger" id="reject-suggestion">拒绝请求</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <main class="cases-container">
+    <div class="page-header">
+      <h1>客诉管理</h1>
+      <p>查看和处理客户投诉，提升客户满意度</p>
+    </div>
+
+    <div class="cases-content">
+      <section class="filters-section">
+        <div class="filter-group">
+          <label for="date-filter">日期范围</label>
+          <select id="date-filter" class="filter-select">
+            <option value="all">全部</option>
+            <option value="today">今天</option>
+            <option value="week">本周</option>
+            <option value="month">本月</option>
+            <option value="custom">自定义</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="status-filter">状态</label>
+          <select id="status-filter" class="filter-select">
+            <option value="all">全部</option>
+            <option value="pending">待处理</option>
+            <option value="processing">处理中</option>
+            <option value="resolved">已解决</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="keyword-filter">关键词</label>
+          <input type="text" id="keyword-filter" class="filter-select" placeholder="输入关键词...">
+        </div>
+
+        <button class="search-btn">
+          <i class="bi bi-search"></i> 搜索
+        </button>
+      </section>
+
+      <section class="cases-section">
+        <div class="section-header">
+          <h2>待处理客诉</h2>
+          <span class="badge">5</span>
+        </div>
+
+        <div class="cases-list">
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-date">2025-06-15 14:30</span>
+              <span class="case-status pending">待处理</span>
+            </div>
+            <div class="case-summary">
+              <h3>订单 #12345 - 商品损坏</h3>
+              <p>客户收到商品时发现外包装破损，内部商品也有轻微损坏，要求换货或退款...</p>
+            </div>
+            <div class="case-actions">
+              <button class="btn-primary">
+                <i class="bi bi-eye-fill"></i> 查看详情
+              </button>
+              <button class="btn-secondary">
+                <i class="bi bi-clock-history"></i> 稍后处理
+              </button>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-date">2025-06-14 10:15</span>
+              <span class="case-status pending">待处理</span>
+            </div>
+            <div class="case-summary">
+              <h3>订单 #12344 - 商品与描述不符</h3>
+              <p>客户反映收到的商品颜色与网站展示不符，尺寸也有差异，要求退货退款...</p>
+            </div>
+            <div class="case-actions">
+              <button class="btn-primary">
+                <i class="bi bi-eye-fill"></i> 查看详情
+              </button>
+              <button class="btn-secondary">
+                <i class="bi bi-clock-history"></i> 稍后处理
+              </button>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-date">2025-06-13 16:45</span>
+              <span class="case-status pending">待处理</span>
+            </div>
+            <div class="case-summary">
+              <h3>订单 #12343 - 物流延迟</h3>
+              <p>客户下单已超过5天仍未收到商品，物流信息显示异常，要求了解具体情况...</p>
+            </div>
+            <div class="case-actions">
+              <button class="btn-primary">
+                <i class="bi bi-eye-fill"></i> 查看详情
+              </button>
+              <button class="btn-secondary">
+                <i class="bi bi-clock-history"></i> 稍后处理
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <div class="section-header">
+          <h2>历史通话记录</h2>
+          <button class="btn-icon">
+            <i class="bi bi-filter"></i> 筛选
+          </button>
+        </div>
+
+        <div class="history-list">
+          <div class="history-item">
+            <div class="history-header">
+              <span class="history-date">2025-06-10 11:20</span>
+              <span class="history-duration">5分32秒</span>
+            </div>
+            <div class="history-content">
+              <div class="audio-player">
+                <button class="play-btn">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 30%"></div>
+                </div>
+                <span class="time">1:42 / 5:32</span>
+              </div>
+              <div class="transcript">
+                <h3>订单 #12342 - 商品质量问题</h3>
+                <p>客户：我收到的商品有明显质量问题，边缘有毛刺...</p>
+                <p>AI客服：非常抱歉给您带来不便，我们可以为您提供换货服务...</p>
+                <button class="btn-text">
+                  <i class="bi bi-chevron-down"></i> 展开全部
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="history-item">
+            <div class="history-header">
+              <span class="history-date">2025-06-08 09:15</span>
+              <span class="history-duration">3分45秒</span>
+            </div>
+            <div class="history-content">
+              <div class="audio-player">
+                <button class="play-btn">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 0%"></div>
+                </div>
+                <span class="time">0:00 / 3:45</span>
+              </div>
+              <div class="transcript">
+                <h3>订单 #12341 - 退货流程咨询</h3>
+                <p>客户：我想了解如何退货，商品已经收到但不符合预期...</p>
+                <p>AI客服：我们可以为您提供退货服务，请按照以下步骤操作...</p>
+                <button class="btn-text">
+                  <i class="bi bi-chevron-down"></i> 展开全部
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"><div class="footer-component">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">VocSeek</h3>
+        <p class="footer-text">AI客服解决方案提供商</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">联系方式</h4>
+        <p class="footer-text">邮箱: michaelpeng1025@gmail.com</p>
+        <p class="footer-text">电话: +86 138 1234 5678</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">友情链接</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Amazon</a></li>
+          <li><a href="#" class="footer-link">Temu</a></li>
+          <li><a href="#" class="footer-link">Tiktok</a></li>
+          <li><a href="#" class="footer-link">Shopify</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© 2023 VocSeek. All rights reserved.</p>
+      <p class="record">备案号: 津ICP备0810232307号-3</p>
+    </div>
+  </div>
+</div></div>
+
+  <script src="cases.js"></script>
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

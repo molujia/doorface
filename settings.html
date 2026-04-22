@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI助理设置 - VocSeek</title>
+  <link rel="stylesheet" href="settings.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <script src="settings.js"></script>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <div id="header-container"><div class="header-component">
+  <header class="site-header">
+<meta charset="UTF-8">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="home.html" class="logo-link"><img src="https://pic3.zhimg.com/100/v2-0b170946e6e58a96b940d5314c5b34f2_r.jpg" alt="网站LOGO" class="logo-image"></a>
+      </div>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="home.html" class="nav-link">首页</a></li>
+          <li class="nav-item"><a href="dashboard.html" class="nav-link">控制台</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/insights.html?_t=1762343478472" class="nav-link">消费者洞察</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/page4105.html?_t=1762343950818" class="nav-link">客诉处理</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/setup.html?_t=1762344716175" class="nav-link" target="_blank">AI 客服设置</a></li>
+          <li class="nav-item"><a href="https://static.pm-ai.cn/projectproto/20251104/proj4b81f1d5be82/reports.html?_t=1762344433224" class="nav-link">月度总结</a></li>
+        </ul>
+      </nav>
+      
+      <div class="user-actions">
+        <div class="search-container">
+          <input type="text" placeholder="搜索..." class="search-input">
+          <button class="search-button">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21L16.65 16.65" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-login">登录</a>
+          <a href="register.html" class="btn btn-primary">注册</a>
+        </div>
+        
+        <div class="user-menu hidden">
+          <button class="user-avatar">
+            <img loading="lazy" src="https://placeholder.pics/svg/40x40/DEDEDE/555555/头像" alt="用户头像">
+          </button>
+          <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-item">控制台</a>
+            <a href="#" class="dropdown-item">账户设置</a>
+            <a href="#" class="dropdown-item">退出登录</a>
+          </div>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+</div></div>
+  
+  <main class="settings-container">
+    <div class="settings-header">
+      <h1><i class="bi bi-robot"></i> AI助理设置</h1>
+      <p class="subtitle">配置您的AI客服助理，提升客户服务体验</p>
+    </div>
+
+    <div class="settings-steps">
+      <div class="step-indicator">
+        <div class="step active" data-step="1">
+          <span class="step-number">1</span>
+          <span class="step-title">店铺关联</span>
+        </div>
+        <div class="step" data-step="2">
+          <span class="step-number">2</span>
+          <span class="step-title">电话绑定</span>
+        </div>
+        <div class="step" data-step="3">
+          <span class="step-number">3</span>
+          <span class="step-title">知识库</span>
+        </div>
+        <div class="step" data-step="4">
+          <span class="step-number">4</span>
+          <span class="step-title">确认支付</span>
+        </div>
+      </div>
+
+      <div class="step-content">
+        <!-- 步骤1: 店铺关联 -->
+        <div class="step-panel active" id="step-1">
+          <h2><i class="bi bi-shop"></i> 关联您的店铺</h2>
+          <div class="form-group">
+            <label for="platform">选择电商平台</label>
+            <select id="platform" class="form-control">
+              <option value="">请选择平台</option>
+              <option value="amazon">亚马逊</option>
+              <option value="ebay">eBay</option>
+              <option value="shopee">Shopee</option>
+              <option value="lazada">Lazada</option>
+              <option value="taobao">淘宝</option>
+              <option value="jd">京东</option>
+              <option value="other">其他平台</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>授权方式</label>
+            <div class="auth-options">
+              <button class="auth-btn" data-type="oauth">
+                <i class="bi bi-shield-lock"></i> OAuth授权
+              </button>
+              <button class="auth-btn" data-type="api">
+                <i class="bi bi-code-slash"></i> API密钥
+              </button>
+            </div>
+            <p class="form-hint">
+              <i class="bi bi-info-circle"></i> 通过 SP-API OAuth 完成对接后，AI 可读取ASIN子目录和父目录，店铺订单、买家站内信及物流状态，用于自动识别客户与工单合并。
+            </p>
+          </div>
+
+          <div class="form-group api-key-group" style="display: none;">
+            <label for="api-key">API密钥</label>
+            <input type="text" id="api-key" class="form-control" placeholder="输入您的店铺API密钥">
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-next" data-next="2">下一步</button>
+          </div>
+        </div>
+
+        <!-- 步骤2: 电话绑定 -->
+        <div class="step-panel" id="step-2">
+          <h2><i class="bi bi-telephone"></i> 绑定客服电话号码</h2>
+          
+          <div class="phone-binding">
+            <div class="phone-list">
+              <div class="phone-item">
+                <div class="phone-info">
+                  <span class="phone-number">+86 138****1234</span>
+                  <span class="phone-status">已验证</span>
+                </div>
+                <button class="btn btn-sm btn-edit"><i class="bi bi-pencil"></i> 编辑</button>
+              </div>
+              <button class="btn btn-add-phone">
+                <i class="bi bi-plus"></i> 添加新号码
+              </button>
+            </div>
+
+            <div class="phone-form" style="display: none;">
+              <div class="form-group">
+                <label for="country-code">国家/地区</label>
+                <select id="country-code" class="form-control">
+                  <option value="+86">中国 (+86)</option>
+                  <option value="+1">美国 (+1)</option>
+                  <option value="+44">英国 (+44)</option>
+                  <option value="+81">日本 (+81)</option>
+                  <option value="+65">新加坡 (+65)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="phone-number">电话号码</label>
+                <input type="tel" id="phone-number" class="form-control" placeholder="输入电话号码">
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-cancel">取消</button>
+                <button class="btn btn-primary">保存</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="catalog-binding">
+            <h3><i class="bi bi-tags"></i> 关联产品目录</h3>
+            <div class="catalog-list">
+              <div class="catalog-item">
+                <div class="catalog-info">
+                  <span class="catalog-name">电子产品</span>
+                  <span class="catalog-id">ASIN: B08*******</span>
+                </div>
+                <div class="phone-selector">
+                  <select class="form-control">
+                    <option value="">选择绑定号码</option>
+                    <option value="1">+86 138****1234</option>
+                  </select>
+                </div>
+              </div>
+              <div class="catalog-item">
+                <div class="catalog-info">
+                  <span class="catalog-name">家居用品</span>
+                  <span class="catalog-id">ASIN: B07*******</span>
+                </div>
+                <div class="phone-selector">
+                  <select class="form-control">
+                    <option value="">选择绑定号码</option>
+                    <option value="1">+86 138****1234</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <p class="form-hint">
+              <i class="bi bi-info-circle"></i> 您可以将一个目录关联多个电话号码，也可以将一个电话号码关联多个目录。
+            </p>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-prev" data-prev="1">上一步</button>
+            <button class="btn btn-next" data-next="3">下一步</button>
+          </div>
+        </div>
+
+        <!-- 步骤3: 知识库 -->
+        <div class="step-panel" id="step-3">
+          <h2><i class="bi bi-book"></i> 知识库设置</h2>
+          
+          <div class="knowledge-section">
+            <h3><i class="bi bi-chat-left-text"></i> 自定义Prompt</h3>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="输入您的自定义Prompt，指导AI如何更好地处理客户咨询..."></textarea>
+            </div>
+            <p class="form-hint">
+              <i class="bi bi-info-circle"></i> 通过自定义Prompt可以优化AI助理的行为和响应方式。
+            </p>
+          </div>
+
+          <div class="knowledge-section">
+            <h3><i class="bi bi-file-earmark-text"></i> 上传文档到知识库</h3>
+            <div class="upload-area">
+              <div class="upload-box">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <p>拖放文件到此处或点击上传</p>
+                <input type="file" id="knowledge-upload" multiple style="display: none;">
+                <button class="btn btn-upload">选择文件</button>
+              </div>
+              <div class="uploaded-files">
+                <div class="file-item">
+                  <i class="bi bi-file-earmark-text"></i>
+                  <span class="file-name">产品说明书.pdf</span>
+                  <span class="file-size">2.4MB</span>
+                  <button class="btn btn-sm btn-delete"><i class="bi bi-trash"></i></button>
+                </div>
+                <div class="file-item">
+                  <i class="bi bi-file-earmark-text"></i>
+                  <span class="file-name">售后政策.docx</span>
+                  <span class="file-size">1.1MB</span>
+                  <button class="btn btn-sm btn-delete"><i class="bi bi-trash"></i></button>
+                </div>
+              </div>
+            </div>
+            <p class="form-hint">
+              <i class="bi bi-info-circle"></i> 上传文档可以丰富AI助理的知识，也可以获取AI对文档的修改建议。
+            </p>
+          </div>
+
+          <div class="knowledge-section">
+            <h3><i class="bi bi-envelope"></i> 邮箱关联</h3>
+            <div class="form-group">
+              <label for="email">邮箱地址</label>
+              <input type="email" id="email" class="form-control" placeholder="输入您的客服邮箱">
+            </div>
+            <div class="form-group">
+              <label for="email-password">邮箱密码</label>
+              <div class="password-input">
+                <input type="password" id="email-password" class="form-control" placeholder="输入邮箱密码">
+                <button class="btn btn-show-password"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <p class="form-hint">
+              <i class="bi bi-info-circle"></i> 关联邮箱后，AI可以自动处理客户邮件咨询。
+            </p>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-prev" data-prev="2">上一步</button>
+            <button class="btn btn-next" data-next="4">下一步</button>
+          </div>
+        </div>
+
+        <!-- 步骤4: 确认支付 -->
+        <div class="step-panel" id="step-4">
+          <h2><i class="bi bi-credit-card"></i> 确认支付</h2>
+          
+          <div class="summary-section">
+            <div class="summary-card">
+              <h3><i class="bi bi-check-circle"></i> 设置摘要</h3>
+              <ul class="summary-list">
+                <li>
+                  <span class="summary-label">关联平台:</span>
+                  <span class="summary-value">亚马逊</span>
+                </li>
+                <li>
+                  <span class="summary-label">绑定号码:</span>
+                  <span class="summary-value">+86 138****1234</span>
+                </li>
+                <li>
+                  <span class="summary-label">关联目录:</span>
+                  <span class="summary-value">电子产品, 家居用品</span>
+                </li>
+                <li>
+                  <span class="summary-label">知识库文档:</span>
+                  <span class="summary-value">2个文件</span>
+                </li>
+                <li>
+                  <span class="summary-label">关联邮箱:</span>
+                  <span class="summary-value">example@example.com</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="payment-card">
+              <h3><i class="bi bi-cash-stack"></i> 支付信息</h3>
+              <div class="price-summary">
+                <div class="price-item">
+                  <span>基础服务费</span>
+                  <span>¥199/月</span>
+                </div>
+                <div class="price-item">
+                  <span>额外号码</span>
+                  <span>¥50/月</span>
+                </div>
+                <div class="price-item total">
+                  <span>总计</span>
+                  <span>¥249/月</span>
+                </div>
+              </div>
+
+              <div class="payment-methods">
+                <div class="payment-method active">
+                  <i class="bi bi-credit-card"></i>
+                  <span>信用卡/借记卡</span>
+                </div>
+                <div class="payment-method">
+                  <i class="bi bi-paypal"></i>
+                  <span>PayPal</span>
+                </div>
+                <div class="payment-method">
+                  <i class="bi bi-alipay"></i>
+                  <span>支付宝</span>
+                </div>
+              </div>
+
+              <div class="card-form">
+                <div class="form-group">
+                  <label for="card-number">卡号</label>
+                  <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="card-expiry">有效期</label>
+                    <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY">
+                  </div>
+                  <div class="form-group">
+                    <label for="card-cvv">CVV</label>
+                    <input type="text" id="card-cvv" class="form-control" placeholder="123">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="card-name">持卡人姓名</label>
+                  <input type="text" id="card-name" class="form-control" placeholder="与卡片一致">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-prev" data-prev="3">上一步</button>
+            <button class="btn btn-primary btn-confirm">确认支付并完成设置</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"><div class="footer-component">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo-container">
+          <a href="#" class="footer-logo-link">
+            <img src="https://pic3.zhimg.com/100/v2-0b170946e6e58a96b940d5314c5b34f2_r.jpg" alt="VocSeek Logo" class="footer-logo">
+          </a>
+        </div>
+        <p class="footer-text">AI客服解决方案提供商</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">联系方式</h4>
+        <p class="footer-text">邮箱: michaelpeng1025@gmail.com</p>
+        <p class="footer-text">电话: +86 138 1234 5678</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">友情链接</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Amazon</a></li>
+          <li><a href="#" class="footer-link">Temu</a></li>
+          <li><a href="#" class="footer-link">Tiktok</a></li>
+          <li><a href="#" class="footer-link">Shopify</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© 2023 VocSeek. All rights reserved.</p>
+      <p class="record">备案号: 津ICP备0810232307号-3</p>
+    </div>
+  </div>
+</div></div>
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

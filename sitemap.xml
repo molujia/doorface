@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.vocseek.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/product.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/about.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/contact.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/privacy.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/service.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+</urlset>

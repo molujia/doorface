@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VocSeek AI unifies customer messages, phone support, and order data into one intelligent after-sales system. Resolve faster, reduce returns, and build loyalty — 24/7.">
+    <meta name="keywords" content="AI after-sales, e-commerce customer service, Amazon seller tools, multi-channel support, VocSeek">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="VocSeek | AI After-Sales Platform for Global E-Commerce Sellers">
+    <meta property="og:description" content="VocSeek AI unifies customer messages, phone support, and order data into one intelligent after-sales system. Resolve faster, reduce returns, and build loyalty — 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vocseek.ai/">
+    <meta property="og:image" content="https://www.vocseek.ai/logo02.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VocSeek | AI After-Sales Platform for Global E-Commerce Sellers">
+    <meta name="twitter:description" content="VocSeek AI unifies customer messages, phone support, and order data into one intelligent after-sales system. Resolve faster, reduce returns, and build loyalty — 24/7.">
+    <title id="page-title">VocSeek | 全球品牌售后神经中枢 - 专业级 AI 基础设施</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap');
+        :root { --brand-blue: #0071e3; --brand-cyan: #00f2ff; --bg-white: #ffffff; --text-main: #1d1d1f; }
+        body { background: transparent; color: var(--text-main); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        .tech-bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,113,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,113,227,0.03) 1px,transparent 1px); background-size: 50px 50px; z-index: -2; animation: gridMove 30s linear infinite; }
+        @keyframes gridMove { from { background-position: 0 0; } to { background-position: 50px 50px; } }
+        .tech-orb { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.4; animation: orbFloat 15s ease-in-out infinite alternate; }
+        .orb-1 { top: -10%; left: -10%; width: 600px; height: 600px; background: var(--brand-blue); }
+        .orb-2 { bottom: -20%; right: -20%; width: 500px; height: 500px; background: var(--brand-cyan); animation-delay: -5s; }
+        @keyframes orbFloat { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,50px) scale(1.1); } }
+        .apple-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(0,113,227,0.08); border-radius: 32px; transition: all 0.5s cubic-bezier(0.2,0.8,0.2,1); position: relative; overflow: hidden; }
+        .apple-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,113,227,0.1); border-color: rgba(0,242,255,0.3); }
+        .hero-heading { font-weight: 900; letter-spacing: -0.04em; background: linear-gradient(135deg,#1d1d1f 30%,#0071e3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: 0.15em;}
+        /* hero-title 在移动端字号自适应：英文3行时防止爆版 */
+        @media (max-width: 480px)  { .hero-title { font-size: clamp(2rem, 11vw, 3.2rem) !important; } }
+        @media (min-width: 481px) and (max-width: 767px) { .hero-title { font-size: clamp(2.8rem, 10vw, 4.2rem) !important; } }
+        .scenario-container { display: grid; grid-template-columns: 1fr 0.4fr 1fr; gap: 20px; align-items: center; max-width: 1000px; margin: 0 auto; }
+        @media (max-width: 768px) { .scenario-container { grid-template-columns: 1fr; gap: 20px; } }
+        /* 移动端：中间连接器重排 */
+        @media (max-width: 768px) {
+            .scenario-mid { flex-direction: row !important; justify-content: center; align-items: center; gap: 12px; padding: 4px 0; height: auto !important; }
+            .scenario-mid .scenario-mid-arrow-left,
+            .scenario-mid .scenario-mid-arrow-right,
+            .scenario-mid .scenario-mid-line { display: none !important; }
+            .scenario-mid .scenario-mid-badge { margin-top: 0 !important; }
+        }
+        .sleep-z { position: absolute; opacity: 0; font-weight: bold; color: #374151; animation: floatZ 3s infinite ease-in; }
+        .z1 { right: 30px; top: 30px; animation-delay: 0s; font-size: 10px; }
+        .z2 { right: 25px; top: 20px; animation-delay: 1s; font-size: 14px; }
+        .z3 { right: 20px; top: 10px; animation-delay: 2s; font-size: 18px; }
+        @keyframes floatZ { 0% { transform: translateY(0) translateX(0); opacity: 0; } 20% { opacity: 0.8; } 100% { transform: translateY(-20px) translateX(10px); opacity: 0; } }
+        .call-pulse { position: absolute; border-radius: 50%; border: 2px solid var(--brand-blue); opacity: 0; animation: pulseRing 2s infinite; }
+        @keyframes pulseRing { 0% { width: 100%; height: 100%; opacity: 0.8; transform: scale(0.8); } 100% { width: 150%; height: 150%; opacity: 0; transform: scale(1.5); } }
+        .wave-container { display: flex; gap: 4px; height: 30px; align-items: center; justify-content: center; }
+        .wave-bar { width: 4px; height: 6px; background: var(--brand-blue); border-radius: 10px; transition: all 0.3s ease; }
+        .playing .wave-bar { animation: wave 0.8s infinite ease-in-out alternate; background: var(--brand-cyan); }
+        @keyframes wave { 0% { height: 6px; } 100% { height: 28px; } }
+        .animate-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s forwards cubic-bezier(0.2,0.8,0.2,1); }
+        .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .tech-btn { background: linear-gradient(135deg,#000000,#1a1a1a); color: white; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .tech-btn:hover { box-shadow: 0 10px 20px rgba(0,113,227,0.3); }
+        .logo-img { height: 36px; width: auto; object-fit: contain; }
+        .lang-btn { display: inline-flex; align-items: center; justify-content: center; width: 72px; padding: 7px 0; border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+        .lang-btn.active { background: #0071e3; color: white; }
+        .lang-btn:not(.active) { background: white; color: #374151; border-color: #e5e7eb; }
+        .lang-btn:not(.active):hover { border-color: #0071e3; color: #0071e3; }
+        /* 导航栏语言切换按钮（移动端紧凑版） */
+        .nav-lang-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s; border: none; background: transparent;
+            color: #374151; white-space: nowrap;
+        }
+        .nav-lang-btn.active { background: #0071e3; color: white; }
+        .nav-lang-btn:not(.active):hover { color: #0071e3; }
+        @media (min-width: 768px) {
+            .nav-lang-btn { padding: 5px 14px; font-size: 12px; }
+        }
+
+        .hero-desc { word-break: keep-all; overflow-wrap: break-word; color: #374151; }  /* text-gray-700 */
+        .audio-player-ui { user-select: none; }
+        #progress-track-a1, #progress-track-a2 { touch-action: none; }
+        .audio-card { transition: box-shadow 0.3s ease; }
+        @keyframes bounceDown {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(6px); }
+        }
+        .hub-arrow { display:flex;justify-content:center;align-items:center;padding:2px 0;cursor:default; }
+        .hub-arrow i { font-size:28px;color:rgba(0,113,227,0.35);transition:color 0.2s; }
+        .hub-arrow:hover i { color:rgba(0,113,227,0.75);animation:bounceDown 0.8s ease-in-out infinite; }
+        /* Results section text sizes (+2号) */
+        .results-card-heading { font-size: 1.875rem; } /* text-3xl */
+        .results-card-label   { font-size: 1.25rem; }  /* text-xl */
+        .results-card-small   { font-size: 1rem;    }  /* text-base */
+        .audio-card-hover {
+            transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.6s ease, background 0.6s ease, border-color 0.6s ease;
+        }
+        .audio-card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(0,113,227,0.07) !important;
+            box-shadow: 0 28px 56px rgba(0,113,227,0.15);
+            border-color: rgba(0,113,227,0.22) !important;
+        }
+        .audio-card-hover:hover .card-text-main  { color: #0051a8 !important; }
+        .audio-card-hover:hover .card-text-sub   { color: #4a90d9 !important; }
+        .audio-card-hover:hover .card-text-story { color: #1d3d6b !important; }
+        .audio-card-hover:hover .card-text-quote { color: #4a90d9 !important; border-left-color: rgba(0,113,227,0.35) !important; }
+        .audio-card-hover:hover .card-bg-inner   { background: rgba(0,113,227,0.05) !important; }
+        .audio-card-hover:hover .card-tag        { background: rgba(0,113,227,0.09) !important; color: #0051a8 !important; }
+        .audio-card-hover:hover .card-progress-track { background: rgba(0,113,227,0.12) !important; }
+        .audio-card-hover:hover .card-time       { color: #4a90d9 !important; }
+        p, h1, h2, h3, h4, h5 { word-break: keep-all; overflow-wrap: break-word; }
+        /* Single source of truth for page background */
+        html, body { margin:0; padding:0; }
+        html {
+            background:
+                radial-gradient(ellipse 160% 50% at 50%   0%,  rgba(0,113,227,0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 110% 40% at  5%  35%,  rgba(0,113,227,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 130% 45% at 95%  55%,  rgba(0,200,255,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 160% 50% at 40% 100%,  rgba(0,113,227,0.07) 0%, transparent 65%),
+                #f7faff;
+            min-height: 100%;
+        }
+        body { background: transparent !important; min-height: 100vh; }
+        #progress-track-a1, #progress-track-a2 {
+            position: relative;
+            z-index: 10;
+        }
+        /* ── 合规模块：覆盖全局 keep-all，允许中文在汉字间换行，避免移动端溢出 ── */
+        #infra h1, #infra h2, #infra h3, #infra h4, #infra h5, #infra p,
+        #infra-evidence h1, #infra-evidence h2, #infra-evidence h3, #infra-evidence h4, #infra-evidence h5, #infra-evidence p,
+        #infra-pls h1, #infra-pls h2, #infra-pls h3, #infra-pls h4, #infra-pls h5, #infra-pls p {
+            word-break: normal;
+            overflow-wrap: anywhere;
+            line-break: auto;
+        }
+
+        /* ── 排版优化：避免段落末尾出现 1-2 字"孤字"，标题多行长度均衡 ── */
+        p, li { text-wrap: pretty; }
+        h1, h2, h3, h4, h5 { text-wrap: balance; }
+
+    </style>
+</head>
+<body class="antialiased">
+<div class="tech-bg-grid"></div>
+<div class="tech-orb orb-1"></div>
+<div class="tech-orb orb-2"></div>
+
+<nav class="flex justify-between items-center px-4 md:px-10 py-3 md:py-4 sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100/50 bg-white/70 animate-in" id="main-nav">
+    <!-- Logo -->
+    <div class="flex items-center group flex-shrink-0">
+        <a href="index.html"><img src="logo02.png" alt="VocSeek Logo" class="logo-img" style="height:28px;"></a>
+    </div>
+    <!-- 桌面端中间导航链接 -->
+    <div class="hidden lg:flex space-x-10 text-[13px] font-bold uppercase tracking-[0.3em] text-gray-700">
+        <a href="#audio-lab" class="hover:text-blue-600 transition-colors nav-audio">通话录音</a>
+        <a href="#infra" class="hover:text-blue-600 transition-colors nav-infra">官方入口</a>
+        <a href="#llm" class="hover:text-blue-600 transition-colors nav-llm">AI 引擎</a>
+        <a href="#hub" class="hover:text-blue-600 transition-colors nav-hub">证据链归一</a>
+    </div>
+    <!-- 右侧操作区 -->
+    <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
+        <!-- 语言切换：移动端更紧凑 -->
+        <div class="flex items-center bg-gray-100 rounded-full p-0.5 gap-0.5">
+            <button class="nav-lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+            <button class="nav-lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+        </div>
+        <!-- 产品介绍：仅桌面 -->
+        <a href="product.html" class="hidden md:inline-block text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium nav-product">产品介绍</a>
+        <!-- Login 按钮：移动端显示为图标+文字小按钮 -->
+        <a href="https://www.vocseek.ai/web-pages/login" target="_blank"
+           class="tech-btn rounded-full font-bold shadow-md nav-login
+                  text-xs px-3 py-1.5
+                  md:text-sm md:px-5 md:py-2
+                  lg:text-base lg:px-6 lg:py-2">
+            <span class="hidden sm:inline">Login / Sign Up</span>
+            <span class="sm:hidden">Login</span>
+        </a>
+        <!-- 汉堡菜单：仅桌面 lg 以下显示，但移动端(< md)隐藏 -->
+        <button class="hidden md:flex lg:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb1"></span>
+            <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb2"></span>
+            <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb3"></span>
+        </button>
+    </div>
+</nav>
+<div id="mobile-menu" class="hidden bg-white/95 backdrop-blur border-b border-gray-100 px-6 py-4 space-y-3 sticky top-[65px] z-40">
+    <a href="#audio-lab" class="block text-base font-semibold text-gray-700 hover:text-blue-600 nav-audio" onclick="toggleMobileMenu()">通话录音</a>
+    <a href="#infra" class="block text-base font-semibold text-gray-700 hover:text-blue-600 nav-infra" onclick="toggleMobileMenu()">官方入口</a>
+    <a href="#llm" class="block text-base font-semibold text-gray-700 hover:text-blue-600 nav-llm" onclick="toggleMobileMenu()">AI 引擎</a>
+    <a href="#hub" class="block text-base font-semibold text-gray-700 hover:text-blue-600 nav-hub" onclick="toggleMobileMenu()">证据链归一</a>
+    <a href="product.html" class="block text-base font-semibold text-gray-700 hover:text-blue-600 nav-product">产品介绍</a>
+    <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="block text-base font-bold text-blue-600 nav-login">Login / Sign Up</a>
+</div>
+
+<section class="max-w-7xl mx-auto px-4 md:px-6 pt-16 md:pt-32 pb-20 md:pb-40 text-center animate-in">
+    <div class="inline-flex items-center space-x-3 bg-white/80 backdrop-blur border border-blue-100 px-4 py-1.5 rounded-full text-[13px] font-bold text-blue-600 mb-8 shadow-sm">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+        </span>
+        <span class="tracking-widest hero-badge">全天候 AI 智能在线</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl hero-heading leading-[1.15] mb-8 md:mb-12 tracking-tighter hero-title">
+        让售后服务<br>体现品牌温度
+    </h1>
+    <p class="text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto font-light leading-relaxed mb-10 md:mb-20 delay-1 animate-in hero-desc">
+        VocSeek AI 为中国品牌构建一套即便在深夜也能自主运作的全球售后神经系统
+        <span class="text-black font-semibold hero-desc-bold">地道母语接听，官方入口入驻，全渠道数据归一</span>
+    </p>
+
+    <div class="scenario-container delay-2 animate-in relative">
+        <div class="apple-card p-8 text-white border-gray-800 flex flex-col items-center relative shadow-2xl" style="background:rgba(10,10,15,0.85);">
+            <div class="absolute top-4 right-8">
+                <span class="sleep-z z1">Z</span><span class="sleep-z z2">Z</span><span class="sleep-z z3">Z</span>
+            </div>
+            <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4 text-gray-700 backdrop-blur-md">
+                <i class="bi bi-moon-stars-fill text-2xl"></i>
+            </div>
+            <div class="text-center z-10">
+                <p class="text-[14px] uppercase tracking-[0.2em] text-white mb-1 scenario-china-label">China Headquarters</p>
+                <p class="text-4xl font-light mb-2 font-mono">03:45</p>
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-gray-800 text-white text-[13px] border border-gray-700 mt-2">
+                    <span class="w-1.5 h-1.5 bg-gray-500 rounded-full mr-2"></span><span class="scenario-china-status">Office Closed</span>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gray-800"></div>
+        </div>
+        <div class="scenario-mid flex flex-col items-center justify-center relative h-full">
+            <div class="scenario-mid-arrow-left absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 text-gray-300 text-base font-mono bg-white px-2 z-10 border border-gray-100 rounded shadow-sm"><i class="bi bi-arrow-right text-gray-700"></i></div>
+            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center shadow-2xl shadow-blue-300/50 z-10">
+                <i class="bi bi-cpu-fill text-white text-3xl"></i>
+            </div>
+            <div class="scenario-mid-arrow-right absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-blue-600 text-sm font-mono bg-white px-2 z-10 border border-blue-100 rounded shadow-sm">
+                <i class="bi bi-lightning-charge-fill mr-1"></i><span class="scenario-mid-status">Solving</span>
+            </div>
+            <div class="scenario-mid-line absolute top-1/2 left-0 w-full -z-10 flex items-center">
+                <div class="h-[2px] bg-gray-200 w-1/2"></div>
+                <div class="h-[2px] bg-blue-100 w-1/2 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-blue-500 w-1/2" style="animation: packetMove 1s infinite linear;"></div>
+                </div>
+            </div>
+            <p class="scenario-mid-badge mt-4 text-[14px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2 py-1 rounded">VocSeek AI Agent</p>
+        </div>
+        <div class="apple-card p-8 border-blue-100 flex flex-col items-center relative overflow-hidden" style="background:rgba(255,255,255,0.72);">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 call-pulse"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 call-pulse" style="animation-delay: 0.5s"></div>
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4 text-white shadow-lg shadow-blue-300 z-10 relative">
+                <i class="bi bi-telephone-fill text-2xl animate-bounce"></i>
+            </div>
+            <div class="text-center z-10">
+                <p class="text-[13px] uppercase tracking-[0.2em] text-gray-700 mb-1 scenario-usa-label">USA Customer</p>
+                <p class="text-4xl font-light mb-2 font-mono text-black">14:45</p>
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-[13px] border border-blue-100 mt-2 font-bold">
+                    <span class="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 animate-pulse"></span><span class="scenario-usa-status">Active Call In Progress</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-base text-gray-700 mt-8 animate-in delay-2 font-mono hero-status">
+        <i class="bi bi-check-circle-fill text-blue-500 mr-2"></i>系统状态：中国团队 0 打扰 / 美国客户 0 等待
+    </p>
+</section>
+<div id="audio-lab-anchor"></div>
+<section id="audio-lab" class="py-32 animate-in hidden md:block" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold hero-heading leading-tight audio-title">聆听AI处理售后问题的真实通话录音</h2>
+        </div>
+        <!-- Carousel wrapper -->
+        <div id="audio-carousel" style="position:relative; max-width:80%; margin:0 auto;">
+            <!-- Prev arrow -->
+            <button id="carousel-prev" onclick="carouselMove(-1)" aria-label="Previous"
+                style="position:absolute;left:-56px;top:50%;transform:translateY(-50%);z-index:10;
+                       width:44px;height:44px;border-radius:50%;
+                       background:rgba(255,255,255,0.9);border:1px solid rgba(0,113,227,0.15);
+                       box-shadow:0 4px 16px rgba(0,113,227,0.12);
+                       display:flex;align-items:center;justify-content:center;cursor:pointer;
+                       transition:all 0.2s;">
+                <i class="bi bi-chevron-left" style="color:#0071e3;font-size:18px;"></i>
+            </button>
+            <!-- Next arrow -->
+            <button id="carousel-next" onclick="carouselMove(1)" aria-label="Next"
+                style="position:absolute;right:-56px;top:50%;transform:translateY(-50%);z-index:10;
+                       width:44px;height:44px;border-radius:50%;
+                       background:rgba(255,255,255,0.9);border:1px solid rgba(0,113,227,0.15);
+                       box-shadow:0 4px 16px rgba(0,113,227,0.12);
+                       display:flex;align-items:center;justify-content:center;cursor:pointer;
+                       transition:all 0.2s;">
+                <i class="bi bi-chevron-right" style="color:#0071e3;font-size:18px;"></i>
+            </button>
+
+            <!-- Cards container -->
+            <div style="position:relative; min-height:420px;">
+
+            <!-- Card 1: 成功解决 -->
+            <div class="audio-slide" data-slide="0" id="a1"
+                style="position:absolute;inset:0;opacity:1;transition:opacity 0.5s ease;
+                       background:transparent;backdrop-filter:blur(16px);
+                       border-radius:32px;overflow:hidden;
+                       border:1px solid rgba(0,113,227,0.10);
+                       box-shadow:0 8px 40px rgba(0,113,227,0.09);
+                       display:flex;">
+                <!-- Left 1/3: gradient + image/icon toggle -->
+                <div style="flex:0 0 40%;background:linear-gradient(to right,#60a5fa 0%,#ffffff 100%);
+                            display:flex;flex-direction:column;padding:24px;position:relative;">
+                    <!-- 切换按钮（右上角独立区域） -->
+                    <div style="display:flex;justify-content:flex-end;margin-bottom:10px;flex-shrink:0;">
+                        <button onclick="desktopCardToggle('d1')"
+                            style="background:rgba(0,113,227,0.10);border:1px solid rgba(0,113,227,0.20);
+                                   border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                   color:#0071e3;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                   transition:all 0.2s;white-space:nowrap;backdrop-filter:blur(4px);">
+                            <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                            <span id="d1-toggle-label">View Text</span>
+                        </button>
+                    </div>
+                    <!-- 图片层（默认显示） -->
+                    <div id="d1-image" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+                        <i class="bi bi-telephone-fill" style="font-size:48px;color:rgba(0,113,227,0.55);"></i>
+                        <img src="good_example.png" style="width:100%;height:auto;object-fit:cover;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+                    </div>
+                    <!-- 文字层（默认隐藏） -->
+                    <div id="d1-text" style="flex:1;display:none;overflow-y:auto;flex-direction:column;gap:8px;
+                                scrollbar-width:thin;scrollbar-color:rgba(0,113,227,0.3) transparent;
+                                border:1px solid rgba(0,113,227,0.15);border-radius:12px;padding:8px;
+                                background:rgba(255,255,255,0.55);">
+                        <p style="font-size:12px;color:#374151;line-height:1.6;padding:4px;">技术排查：用户来电反映儿童自卸卡车玩具四驱功能故障，AI 客服快速给出专业排查建议并耐心安抚，用户按指引自查即可解决问题，事后主动留下了五星好评。</p>
+                    </div>
+                </div>
+                <!-- Right 2/3: content on white -->
+                <div style="flex:1;padding:36px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;">
+                    <div style="margin-bottom:12px;">
+                        <h3 class="font-bold text-gray-900 leading-snug audio-c1-title audio-card-title" style="margin-bottom:6px;">精准解忧止退差评，专业服务收获好评</h3>
+                        <p class="text-gray-700 audio-c1-sub audio-card-sub">技术排查解决客户问题，守住口碑赢得五星认可</p>
+                    </div>
+                    <div style="background:rgba(59,130,246,0.07);border-radius:16px;padding:18px;margin-bottom:12px;">
+                        <p class="text-base text-gray-600 leading-relaxed audio-c1-story">技术排查：用户来电反映儿童自卸卡车玩具四驱功能故障，AI 客服快速给出专业排查建议并耐心安抚，用户按指引自查即可解决问题，事后主动留下了五星好评</p>
+                    </div>
+                    <div style="background:rgba(248,250,252,0.9);border-radius:14px;padding:10px 14px;margin-bottom:16px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <button onclick="togglePlay('a1')" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-md transition-all flex-shrink-0">
+                                <i class="bi bi-play-fill text-lg ml-0.5"></i>
+                            </button>
+                            <span class="text-[11px] text-gray-700 font-mono" id="time-a1">0:00</span>
+                            <div style="flex:1;position:relative;height:28px;display:flex;align-items:center;">
+                                <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-a1">
+                                    <div class="h-full bg-blue-500 rounded-full" id="progress-fill-a1" style="width:0%"></div>
+                                    <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-a1" style="left:0%"></div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] text-gray-700 font-mono" id="dur-a1">--:--</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-a1" src="good_example.wav"></audio>
+            </div>
+
+            <!-- Card 2: 安全紧急处理 -->
+            <div class="audio-slide" data-slide="1" id="a2"
+                style="position:absolute;inset:0;opacity:0;transition:opacity 0.5s ease;
+                       background:transparent;backdrop-filter:blur(16px);
+                       border-radius:32px;overflow:hidden;
+                       border:1px solid rgba(0,113,227,0.10);
+                       box-shadow:0 8px 40px rgba(0,113,227,0.09);pointer-events:none;
+                       display:flex;">
+                <!-- Left 1/3: gradient + image/icon toggle -->
+                <div style="flex:0 0 40%;background:linear-gradient(to right,#fed7aa 0%,#ffffff 100%);
+                            display:flex;flex-direction:column;padding:24px;position:relative;">
+                    <!-- 切换按钮（右上角独立区域） -->
+                    <div style="display:flex;justify-content:flex-end;margin-bottom:10px;flex-shrink:0;">
+                        <button onclick="desktopCardToggle('d2')"
+                            style="background:rgba(234,88,12,0.10);border:1px solid rgba(234,88,12,0.22);
+                                   border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                   color:#ea580c;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                   transition:all 0.2s;white-space:nowrap;backdrop-filter:blur(4px);">
+                            <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                            <span id="d2-toggle-label">View Text</span>
+                        </button>
+                    </div>
+                    <!-- 图片层（默认显示） -->
+                    <div id="d2-image" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+                        <i class="bi bi-shield-exclamation" style="font-size:48px;color:rgba(234,88,12,0.60);"></i>
+                        <img src="burning_smell.png" style="width:100%;height:auto;object-fit:cover;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+                    </div>
+                    <!-- 文字层（默认隐藏） -->
+                    <div id="d2-text" style="flex:1;display:none;overflow-y:auto;flex-direction:column;gap:8px;
+                                scrollbar-width:thin;scrollbar-color:rgba(234,88,12,0.3) transparent;
+                                border:1px solid rgba(234,88,12,0.15);border-radius:12px;padding:8px;
+                                background:rgba(255,255,255,0.55);">
+                        <p style="font-size:12px;color:#374151;line-height:1.6;padding:4px;">客户反馈新购电动玩具卡车电机出现焦糊味，对产品安全十分担忧。系统自动研判安全风险并将工单升级至高优先级，人工客服第一时间介入核实处理，快速为客户解决问题。</p>
+                    </div>
+                </div>
+                <!-- Right 2/3: content on white -->
+                <div style="flex:1;padding:36px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;">
+                    <div style="margin-bottom:12px;">
+                        <h3 class="font-bold text-gray-900 leading-snug audio-c2-title audio-card-title" style="margin-bottom:6px;">安全问题自动升级，优先响应守护安心</h3>
+                        <p class="text-gray-700 audio-c2-sub audio-card-sub">智能研判风险等级，人工响应极速闭环</p>
+                    </div>
+                    <div style="background:rgba(251,146,60,0.07);border-radius:16px;padding:18px;margin-bottom:12px;">
+                        <p class="text-base text-gray-600 leading-relaxed audio-c2-story">客户反馈新购电动玩具卡车电机出现焦糊味，对产品安全十分担忧。系统自动研判安全风险并将工单升级至高优先级，人工客服第一时间介入核实处理，快速为客户解决问题。客户从焦虑担忧转为安心放心，对高效处置表达满意与感谢</p>
+                    </div>
+                    <div style="background:rgba(248,250,252,0.9);border-radius:14px;padding:10px 14px;margin-bottom:16px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <button onclick="togglePlay('a2')" class="w-10 h-10 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-white shadow-md transition-all flex-shrink-0">
+                                <i class="bi bi-play-fill text-lg ml-0.5"></i>
+                            </button>
+                            <span class="text-[11px] text-gray-700 font-mono" id="time-a2">0:00</span>
+                            <div style="flex:1;position:relative;height:28px;display:flex;align-items:center;">
+                                <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-a2">
+                                    <div class="h-full bg-orange-500 rounded-full" id="progress-fill-a2" style="width:0%"></div>
+                                    <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-orange-500 rounded-full shadow -translate-x-1/2" id="progress-thumb-a2" style="left:0%"></div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] text-gray-700 font-mono" id="dur-a2">--:--</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-a2" src="burning_smell.wav"></audio>
+            </div>
+
+            <!-- Card 3: 情绪价值 + 好评 -->
+            <div class="audio-slide" data-slide="2" id="a3"
+                style="position:absolute;inset:0;opacity:0;transition:opacity 0.5s ease;
+                       background:transparent;backdrop-filter:blur(16px);
+                       border-radius:32px;overflow:hidden;
+                       border:1px solid rgba(0,113,227,0.10);
+                       box-shadow:0 8px 40px rgba(0,113,227,0.09);pointer-events:none;
+                       display:flex;">
+                <!-- Left 1/3: gradient + image/icon toggle -->
+                <div style="flex:0 0 40%;background:linear-gradient(to right,#ddd6fe 0%,#ffffff 100%);
+                            display:flex;flex-direction:column;padding:24px;position:relative;">
+                    <!-- 切换按钮（右上角独立区域） -->
+                    <div style="display:flex;justify-content:flex-end;margin-bottom:10px;flex-shrink:0;">
+                        <button onclick="desktopCardToggle('d3')"
+                            style="background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.20);
+                                   border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                   color:#7c3aed;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                   transition:all 0.2s;white-space:nowrap;backdrop-filter:blur(4px);">
+                            <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                            <span id="d3-toggle-label">View Text</span>
+                        </button>
+                    </div>
+                    <!-- 图片层（默认显示） -->
+                    <div id="d3-image" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+                        <i class="bi bi-heart-fill" style="font-size:48px;color:rgba(109,40,217,0.55);"></i>
+                        <img src="promise.png" style="width:100%;height:auto;object-fit:cover;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+                    </div>
+                    <!-- 文字层（默认隐藏） -->
+                    <div id="d3-text" style="flex:1;display:none;overflow-y:auto;flex-direction:column;gap:8px;
+                                scrollbar-width:thin;scrollbar-color:rgba(109,40,217,0.3) transparent;
+                                border:1px solid rgba(109,40,217,0.15);border-radius:12px;padding:8px;
+                                background:rgba(255,255,255,0.55);">
+                        <p style="font-size:12px;color:#374151;line-height:1.6;padding:4px;">用户申请儿童电动拖拉机电池与充电器更换，客服完整收集信息、记录诉求并转交人工，承诺 12 小时内跟进安抚。后续补发配件解决问题，客户高度满意，成功避免差评。</p>
+                    </div>
+                </div>
+                <!-- Right 2/3: content on white -->
+                <div style="flex:1;padding:36px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;">
+                    <div style="margin-bottom:12px;">
+                        <h3 class="font-bold text-gray-900 leading-snug audio-c3-title audio-card-title" style="margin-bottom:6px;">主动收集信息，人工后续跟进</h3>
+                        <p class="text-gray-700 audio-c3-sub audio-card-sub">工单升级，配件补发，客户满意</p>
+                    </div>
+                    <div style="background:rgba(147,51,234,0.06);border-radius:16px;padding:18px;margin-bottom:12px;">
+                        <p class="text-base text-gray-600 leading-relaxed audio-c3-story">用户申请儿童电动拖拉机电池与充电器更换，客服完整收集信息、记录诉求并转交人工，承诺 12 小时内跟进安抚。后续补发配件解决问题，客户高度满意，成功避免差评</p>
+                    </div>
+                    <div style="background:rgba(248,250,252,0.9);border-radius:14px;padding:10px 14px;margin-bottom:16px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <button onclick="togglePlay('a3')" class="w-10 h-10 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow-md transition-all flex-shrink-0">
+                                <i class="bi bi-play-fill text-lg ml-0.5"></i>
+                            </button>
+                            <span class="text-[11px] text-gray-700 font-mono" id="time-a3">0:00</span>
+                            <div style="flex:1;position:relative;height:28px;display:flex;align-items:center;">
+                                <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-a3">
+                                    <div class="h-full bg-purple-500 rounded-full" id="progress-fill-a3" style="width:0%"></div>
+                                    <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-purple-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-a3" style="left:0%"></div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] text-gray-700 font-mono" id="dur-a3">--:--</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-a3" src="promise.wav"></audio>
+            </div>
+
+            <!-- Card 4: 行李箱密码锁 -->
+            <div class="audio-slide" data-slide="3" id="a4"
+                style="position:absolute;inset:0;opacity:0;transition:opacity 0.5s ease;
+                       background:transparent;backdrop-filter:blur(16px);
+                       border-radius:32px;overflow:hidden;
+                       border:1px solid rgba(16,185,129,0.15);
+                       box-shadow:0 8px 40px rgba(16,185,129,0.10);
+                       display:flex;pointer-events:none;">
+                <!-- Left 40%: scrollable conversation -->
+                <div style="flex:0 0 40%;background:linear-gradient(to right,#6ee7b7 0%,#ffffff 100%);
+                            display:flex;flex-direction:column;padding:20px;overflow:hidden;">
+                    <div style="font-size:11px;font-weight:700;color:rgba(5,150,105,0.85);
+                                text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;
+                                display:flex;align-items:center;gap:6px;">
+                        <i class="bi bi-chat-left-text-fill"></i> Transcript
+                    </div>
+                    <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;
+                                scrollbar-width:thin;scrollbar-color:rgba(16,185,129,0.3) transparent;
+                                border:1px solid rgba(16,185,129,0.25);border-radius:12px;padding:8px;
+                                background:rgba(255,255,255,0.55);">
+                        <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#059669;font-size:11px;">AI</span><br>Hi there. This is Alex from **** customer support. Can I help you today?</div>
+                        <div style="background:rgba(16,185,129,0.10);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#374151;font-size:11px;">User</span><br>Hi. I bought a carry on but I don't know how to open it.</div>
+                        <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#059669;font-size:11px;">AI</span><br>Thank you for reaching out. I understand how frustrating it can be when you can't open your new carry on. Before we get started, may I ask how you would like to be addressed during our conversation?</div>
+                        <div style="background:rgba(16,185,129,0.10);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#374151;font-size:11px;">User</span><br>I yeah, because there's a code on it. So I don't know about the quote. And how to set up a quote.</div>
+                        <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#059669;font-size:11px;">AI</span><br>Thank you for explaining that. Just to confirm, you're having trouble opening your carry on suitcase because of the code lock. And you'd also like to know how to set or reset the code. Is that correct?</div>
+                        <div style="background:rgba(16,185,129,0.10);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#374151;font-size:11px;">User</span><br>Yeah.</div>
+                        <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#059669;font-size:11px;">AI</span><br>Please try the default code, which is usually 0-0-0.</div>
+                        <div style="background:rgba(16,185,129,0.10);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#374151;font-size:11px;">User</span><br>Okay. Now it's open!</div>
+                        <div style="background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 11px;font-size:12px;color:#374151;line-height:1.5;"><span style="font-weight:700;color:#059669;font-size:11px;">AI</span><br>That's great to hear.</div>
+                    </div>
+                </div>
+                <!-- Right 60%: content -->
+                <div style="flex:1;padding:36px;display:flex;flex-direction:column;justify-content:center;background:#ffffff;">
+                    <div style="margin-bottom:12px;">
+                        <h3 class="font-bold text-gray-900 leading-snug audio-c4-title audio-card-title" style="margin-bottom:6px;">高效引导，顺畅解决</h3>
+                        <p class="text-gray-700 audio-c4-sub audio-card-sub">步骤清晰，自助成功</p>
+                    </div>
+                    <div style="background:rgba(59,130,246,0.07);border-radius:16px;padding:18px;margin-bottom:12px;">
+                        <p class="text-base text-gray-600 leading-relaxed audio-c4-story">The customer called in unable to open their new carry-on suitcase. Alex identified the default code, guided them through unlocking the bag, and then walked them step by step through setting a new custom code. The issue was fully resolved on the first call — no escalation, no frustration.</p>
+                    </div>
+                    <div style="background:rgba(248,250,252,0.9);border-radius:14px;padding:10px 14px;margin-bottom:16px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <button onclick="togglePlay('a4')" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow-md transition-all flex-shrink-0">
+                                <i class="bi bi-play-fill text-lg ml-0.5"></i>
+                            </button>
+                            <span class="text-[11px] text-gray-700 font-mono" id="time-a4">0:00</span>
+                            <div style="flex:1;position:relative;height:28px;display:flex;align-items:center;">
+                                <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-a4">
+                                    <div class="h-full bg-blue-500 rounded-full" id="progress-fill-a4" style="width:0%"></div>
+                                    <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-a4" style="left:0%"></div>
+                                </div>
+                            </div>
+                            <span class="text-[11px] text-gray-700 font-mono" id="dur-a4">--:--</span>
+                        </div>
+                    </div>
+                </div>
+                <audio id="audio-a4" src="suitcase_new.wav"></audio>
+            </div>
+            </div><!-- /cards container -->
+
+            <!-- Dots indicator -->
+            <div style="display:flex;justify-content:center;gap:8px;margin-top:24px;">
+                <button class="carousel-dot" data-dot="0" onclick="carouselGo(0)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:#0071e3;transition:all 0.3s;padding:0;"></button>
+                <button class="carousel-dot" data-dot="1" onclick="carouselGo(1)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,113,227,0.25);transition:all 0.3s;padding:0;"></button>
+                <button class="carousel-dot" data-dot="2" onclick="carouselGo(2)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,113,227,0.25);transition:all 0.3s;padding:0;"></button>
+                <button class="carousel-dot" data-dot="3" onclick="carouselGo(3)" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:rgba(0,113,227,0.25);transition:all 0.3s;padding:0;"></button>
+            </div>
+        </div><!-- /carousel wrapper -->
+    </div>
+</section>
+<!-- ══════════ 移动端专用轮播 ══════════ -->
+<section id="audio-lab-mobile" class="py-14 md:hidden" style="background:transparent;">
+    <div class="px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold hero-heading leading-tight audio-title">聆听AI处理售后问题的真实通话录音</h2>
+        </div>
+
+        <!-- 滑动轨道 -->
+        <div id="mob-carousel-track" class="relative overflow-hidden">
+            <div id="mob-carousel-inner" style="display:flex;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;">
+
+                <!-- Mobile Card 1 -->
+                <div class="mob-slide" style="min-width:100%;box-sizing:border-box;padding:0 2px;">
+                    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(0,113,227,0.12);box-shadow:0 6px 24px rgba(0,113,227,0.08);background:#fff;">
+                        <!-- 顶部色带 -->
+                        <div style="background:linear-gradient(to right,#60a5fa 0%,#dbeafe 100%);padding:20px;display:flex;align-items:center;gap:14px;">
+                            <div style="width:44px;height:44px;background:rgba(0,113,227,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="bi bi-telephone-fill" style="font-size:20px;color:rgba(0,113,227,0.70);"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-base leading-snug audio-c1-title">精准解忧止退差评，专业服务收获好评</h3>
+                                <p class="text-xs text-gray-700 mt-0.5 audio-c1-sub">技术排查解决客户问题，守住口碑赢得五星认可</p>
+                            </div>
+                        </div>
+                        <!-- 切换按钮独立区域（右上角，不覆盖内容） -->
+                        <div style="display:flex;justify-content:flex-end;padding:8px 12px 0 12px;">
+                            <button id="mob-c1-toggle-btn" onclick="mobC1Toggle()"
+                                style="background:rgba(0,113,227,0.08);border:1px solid rgba(0,113,227,0.18);
+                                       border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                       color:#0071e3;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                       transition:all 0.2s;white-space:nowrap;">
+                                <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                                <span id="mob-c1-toggle-label">View Image</span>
+                            </button>
+                        </div>
+                        <!-- 内容区：文字/图片切换容器 -->
+                        <div style="padding:8px 16px 16px 16px;">
+                            <!-- 文字层（默认显示） -->
+                            <div id="mob-c1-text" style="transition:opacity 0.4s;">
+                                <div style="background:rgba(59,130,246,0.06);border-radius:12px;padding:12px;margin-bottom:12px;">
+                                    <p class="text-sm text-gray-600 leading-relaxed audio-c1-story">技术排查：用户来电反映儿童自卸卡车玩具四驱功能故障，AI 客服快速给出专业排查建议并耐心安抚，用户按指引自查即可解决问题，事后主动留下了五星好评</p>
+                                </div>
+                                <!-- 播放器 -->
+                                <div style="background:#f8fafc;border-radius:12px;padding:10px 12px;">
+                                    <div style="display:flex;align-items:center;gap:10px;">
+                                        <button onclick="togglePlay('ma1')" class="w-9 h-9 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow flex-shrink-0 transition-all">
+                                            <i class="bi bi-play-fill text-base ml-0.5"></i>
+                                        </button>
+                                        <span class="text-[10px] text-gray-700 font-mono" id="time-ma1">0:00</span>
+                                        <div style="flex:1;position:relative;height:24px;display:flex;align-items:center;">
+                                            <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-ma1">
+                                                <div class="h-full bg-blue-500 rounded-full" id="progress-fill-ma1" style="width:0%"></div>
+                                                <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-ma1" style="left:0%"></div>
+                                            </div>
+                                        </div>
+                                        <span class="text-[10px] text-gray-700 font-mono" id="dur-ma1">--:--</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 图片层（默认隐藏） -->
+                            <div id="mob-c1-image" style="display:none;">
+                                <img src="good_example.png"
+                                     style="width:100%;height:auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.10);display:block;">
+                            </div>
+
+                            <audio id="audio-ma1" src="good_example.wav"></audio>
+                        </div><!-- /内容区 -->
+                    </div>
+                </div>
+
+                <!-- Mobile Card 2 -->
+                <div class="mob-slide" style="min-width:100%;box-sizing:border-box;padding:0 2px;">
+                    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(234,88,12,0.15);box-shadow:0 6px 24px rgba(234,88,12,0.08);background:#fff;">
+                        <div style="background:linear-gradient(to right,#fed7aa 0%,#fff7ed 100%);padding:20px;display:flex;align-items:center;gap:14px;">
+                            <div style="width:44px;height:44px;background:rgba(234,88,12,0.10);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="bi bi-shield-exclamation" style="font-size:20px;color:rgba(234,88,12,0.70);"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-base leading-snug audio-c2-title">安全问题自动升级，优先响应守护安心</h3>
+                                <p class="text-xs text-gray-700 mt-0.5 audio-c2-sub">智能研判风险等级，人工响应极速闭环</p>
+                            </div>
+                        </div>
+                        <!-- 切换按钮独立区域 -->
+                        <div style="display:flex;justify-content:flex-end;padding:8px 12px 0 12px;">
+                            <button id="mob-c2-toggle-btn" onclick="mobC2Toggle()"
+                                style="background:rgba(234,88,12,0.08);border:1px solid rgba(234,88,12,0.18);
+                                       border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                       color:#ea580c;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                       transition:all 0.2s;white-space:nowrap;">
+                                <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                                <span id="mob-c2-toggle-label">View Image</span>
+                            </button>
+                        </div>
+                        <div style="padding:8px 16px 16px 16px;">
+                            <!-- 文字层（默认显示） -->
+                            <div id="mob-c2-text">
+                            <div style="background:rgba(251,146,60,0.06);border-radius:12px;padding:12px;margin-bottom:12px;">
+                                <p class="text-sm text-gray-600 leading-relaxed audio-c2-story">客户反馈新购电动玩具卡车电机出现焦糊味，对产品安全十分担忧。系统自动研判安全风险并将工单升级至高优先级，人工客服第一时间介入核实处理，快速为客户解决问题。</p>
+                            </div>
+                            <div style="background:#f8fafc;border-radius:12px;padding:10px 12px;">
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <button onclick="togglePlay('ma2')" class="w-9 h-9 bg-orange-500 hover:bg-orange-600 rounded-full flex items-center justify-center text-white shadow flex-shrink-0 transition-all">
+                                        <i class="bi bi-play-fill text-base ml-0.5"></i>
+                                    </button>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="time-ma2">0:00</span>
+                                    <div style="flex:1;position:relative;height:24px;display:flex;align-items:center;">
+                                        <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-ma2">
+                                            <div class="h-full bg-orange-500 rounded-full" id="progress-fill-ma2" style="width:0%"></div>
+                                            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-orange-500 rounded-full shadow -translate-x-1/2" id="progress-thumb-ma2" style="left:0%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="dur-ma2">--:--</span>
+                                </div>
+                            </div>
+                            </div><!-- /mob-c2-text -->
+                            <!-- 图片层（默认隐藏） -->
+                            <div id="mob-c2-image" style="display:none;">
+                                <img src="burning_smell.png"
+                                     style="width:100%;height:auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.10);display:block;">
+                            </div>
+                            <audio id="audio-ma2" src="burning_smell.wav"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Card 3 -->
+                <div class="mob-slide" style="min-width:100%;box-sizing:border-box;padding:0 2px;">
+                    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(109,40,217,0.15);box-shadow:0 6px 24px rgba(109,40,217,0.07);background:#fff;">
+                        <div style="background:linear-gradient(to right,#ddd6fe 0%,#f5f3ff 100%);padding:20px;display:flex;align-items:center;gap:14px;">
+                            <div style="width:44px;height:44px;background:rgba(109,40,217,0.10);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="bi bi-heart-fill" style="font-size:20px;color:rgba(109,40,217,0.65);"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-base leading-snug audio-c3-title">主动收集信息，人工后续跟进</h3>
+                                <p class="text-xs text-gray-700 mt-0.5 audio-c3-sub">工单升级，配件补发，客户满意</p>
+                            </div>
+                        </div>
+                        <!-- 切换按钮独立区域 -->
+                        <div style="display:flex;justify-content:flex-end;padding:8px 12px 0 12px;">
+                            <button id="mob-c3-toggle-btn" onclick="mobC3Toggle()"
+                                style="background:rgba(109,40,217,0.08);border:1px solid rgba(109,40,217,0.18);
+                                       border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;
+                                       color:#7c3aed;cursor:pointer;display:flex;align-items:center;gap:4px;
+                                       transition:all 0.2s;white-space:nowrap;">
+                                <i class="bi bi-arrow-left-right" style="font-size:10px;"></i>
+                                <span id="mob-c3-toggle-label">View Image</span>
+                            </button>
+                        </div>
+                        <div style="padding:8px 16px 16px 16px;">
+                            <!-- 文字层（默认显示） -->
+                            <div id="mob-c3-text">
+                            <div style="background:rgba(147,51,234,0.05);border-radius:12px;padding:12px;margin-bottom:12px;">
+                                <p class="text-sm text-gray-600 leading-relaxed audio-c3-story">用户申请儿童电动拖拉机电池与充电器更换，客服完整收集信息、记录诉求并转交人工，承诺 12 小时内跟进安抚。后续补发配件解决问题，客户高度满意，成功避免差评</p>
+                            </div>
+                            <div style="background:#f8fafc;border-radius:12px;padding:10px 12px;">
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <button onclick="togglePlay('ma3')" class="w-9 h-9 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center text-white shadow flex-shrink-0 transition-all">
+                                        <i class="bi bi-play-fill text-base ml-0.5"></i>
+                                    </button>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="time-ma3">0:00</span>
+                                    <div style="flex:1;position:relative;height:24px;display:flex;align-items:center;">
+                                        <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-ma3">
+                                            <div class="h-full bg-purple-500 rounded-full" id="progress-fill-ma3" style="width:0%"></div>
+                                            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-purple-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-ma3" style="left:0%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="dur-ma3">--:--</span>
+                                </div>
+                            </div>
+                            </div><!-- /mob-c3-text -->
+                            <!-- 图片层（默认隐藏） -->
+                            <div id="mob-c3-image" style="display:none;">
+                                <img src="promise.png"
+                                     style="width:100%;height:auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.10);display:block;">
+                            </div>
+                            <audio id="audio-ma3" src="promise.wav"></audio>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Card 4 -->
+                <div class="mob-slide" style="min-width:100%;box-sizing:border-box;padding:0 2px;">
+                    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(16,185,129,0.18);box-shadow:0 6px 24px rgba(16,185,129,0.08);background:#fff;">
+                        <div style="background:linear-gradient(to right,#a7f3d0 0%,#ecfdf5 100%);padding:20px;display:flex;align-items:center;gap:14px;">
+                            <div style="width:44px;height:44px;background:rgba(16,185,129,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i class="bi bi-chat-left-text-fill" style="font-size:18px;color:rgba(5,150,105,0.80);"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-base leading-snug audio-c4-title">高效引导，顺畅解决</h3>
+                                <p class="text-xs text-gray-700 mt-0.5 audio-c4-sub">步骤清晰，自助成功</p>
+                            </div>
+                        </div>
+                        <div style="padding:16px;">
+                            <div style="background:rgba(16,185,129,0.05);border-radius:12px;padding:12px;margin-bottom:12px;">
+                                <p class="text-sm text-gray-600 leading-relaxed audio-c4-story">The customer called in unable to open their new carry-on suitcase. Alex identified the default code, guided them through unlocking the bag, and then walked them step by step through setting a new custom code. Issue resolved on the first call.</p>
+                            </div>
+                            <div style="background:#f8fafc;border-radius:12px;padding:10px 12px;">
+                                <div style="display:flex;align-items:center;gap:10px;">
+                                    <button onclick="togglePlay('ma4')" class="w-9 h-9 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white shadow flex-shrink-0 transition-all">
+                                        <i class="bi bi-play-fill text-base ml-0.5"></i>
+                                    </button>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="time-ma4">0:00</span>
+                                    <div style="flex:1;position:relative;height:24px;display:flex;align-items:center;">
+                                        <div class="w-full h-1.5 bg-gray-200 rounded-full relative cursor-pointer" id="progress-track-ma4">
+                                            <div class="h-full bg-blue-500 rounded-full" id="progress-fill-ma4" style="width:0%"></div>
+                                            <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-blue-600 rounded-full shadow -translate-x-1/2" id="progress-thumb-ma4" style="left:0%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] text-gray-700 font-mono" id="dur-ma4">--:--</span>
+                                </div>
+                            </div>
+                            <audio id="audio-ma4" src="suitcase_new.wav"></audio>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /inner -->
+        </div><!-- /track -->
+
+        <!-- 左右按钮 + dots -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;">
+            <button onclick="mobCarouselMove(-1)" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,113,227,0.20);background:rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,113,227,0.10);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                <i class="bi bi-chevron-left" style="color:#0071e3;font-size:14px;"></i>
+            </button>
+            <div id="mob-dots" style="display:flex;gap:6px;align-items:center;">
+                <span class="mob-dot" data-dot="0" onclick="mobCarouselGo(0)" style="width:8px;height:8px;border-radius:50%;background:#0071e3;cursor:pointer;display:inline-block;transition:all 0.3s;"></span>
+                <span class="mob-dot" data-dot="1" onclick="mobCarouselGo(1)" style="width:6px;height:6px;border-radius:50%;background:rgba(0,113,227,0.25);cursor:pointer;display:inline-block;transition:all 0.3s;"></span>
+                <span class="mob-dot" data-dot="2" onclick="mobCarouselGo(2)" style="width:6px;height:6px;border-radius:50%;background:rgba(0,113,227,0.25);cursor:pointer;display:inline-block;transition:all 0.3s;"></span>
+                <span class="mob-dot" data-dot="3" onclick="mobCarouselGo(3)" style="width:6px;height:6px;border-radius:50%;background:rgba(0,113,227,0.25);cursor:pointer;display:inline-block;transition:all 0.3s;"></span>
+            </div>
+            <button onclick="mobCarouselMove(1)" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,113,227,0.20);background:rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,113,227,0.10);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                <i class="bi bi-chevron-right" style="color:#0071e3;font-size:14px;"></i>
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     模块一：亚马逊官方政策背书（破除"违规"误解）+ 三大数据
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="infra" class="py-12 md:py-32 relative overflow-hidden animate-in">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <!-- 顶部：标题区 -->
+        <div class="text-center mb-8 md:mb-16">
+            <div class="inline-flex items-center gap-2 bg-[#232f3e] text-[#ff9900] px-3 md:px-4 py-1.5 md:py-2 rounded-full font-bold text-[11px] md:text-sm shadow-md mb-4 md:mb-6 tracking-wider compliance-badge-top">
+                <i class="bi bi-amazon"></i>
+                <span class="compliance-badge-text">亚马逊官方认证合规</span>
+            </div>
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight hero-heading mb-3 md:mb-6 infra-title">
+                不是灰色地带，<br>是亚马逊主动推广的官方工具
+            </h2>
+            <p class="text-gray-700 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed infra-desc" style="overflow-wrap:break-word;word-break:break-word;">
+                亚马逊官方推出的<span class="font-bold text-gray-900">「商品生命周期支持（PLS）」</span>项目鼓励卖家通过电话或网址主动提供售后支持，以降低退货率、提升买家满意度
+            </p>
+        </div>
+
+        <!-- 三大核心数据（移动端 70% 居中堆叠 / sm 起恢复三列满宽） -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6 max-w-[70%] mx-auto sm:max-w-none">
+            <!-- Stat 1: 68% -->
+            <div class="p-4 md:p-8 text-center relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)]" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="absolute top-0 left-0 right-0 h-1" style="background:linear-gradient(90deg,#ff9900,#ffcc66);"></div>
+                <p class="font-black hero-heading mb-1 md:mb-3" style="font-size:clamp(1.8rem,6vw,3.75rem);line-height:1;">68%</p>
+                <p class="text-[11px] md:text-base text-gray-700 leading-snug font-semibold compliance-stat1-label">顾客使用 PLS 后<br>未再申请退货</p>
+                <p class="text-[10px] md:text-[11px] text-gray-500 mt-2 md:mt-3 compliance-stat-source">来源：亚马逊官方研究 · gs.amazon.cn</p>
+            </div>
+            <!-- Stat 2: 91% -->
+            <div class="p-4 md:p-8 text-center relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)]" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="absolute top-0 left-0 right-0 h-1" style="background:linear-gradient(90deg,#ff9900,#ffcc66);"></div>
+                <p class="font-black hero-heading mb-1 md:mb-3" style="font-size:clamp(1.8rem,6vw,3.75rem);line-height:1;">91%</p>
+                <p class="text-[11px] md:text-base text-gray-700 leading-snug font-semibold compliance-stat2-label">PLS 用户的<br>平均买家满意度</p>
+                <p class="text-[10px] md:text-[11px] text-gray-500 mt-2 md:mt-3 compliance-stat-source">来源：亚马逊官方研究 · gs.amazon.cn</p>
+            </div>
+            <!-- Stat 3: 40% -->
+            <div class="p-4 md:p-8 text-center relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)]" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="absolute top-0 left-0 right-0 h-1" style="background:linear-gradient(90deg,#ff9900,#ffcc66);"></div>
+                <p class="font-black hero-heading mb-1 md:mb-3" style="font-size:clamp(1.8rem,6vw,3.75rem);line-height:1;">40%</p>
+                <p class="text-[11px] md:text-base text-gray-700 leading-snug font-semibold compliance-stat3-label">卖家接入 PLS 后<br>4 个月内退货率下降</p>
+                <p class="text-[10px] md:text-[11px] text-gray-500 mt-2 md:mt-3 compliance-stat-source">来源：亚马逊卖家案例 · gs.amazon.cn</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     模块二：亚马逊官方原文证据（Official Article + Official Policy）
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="infra-evidence" class="py-12 md:py-32 relative overflow-hidden animate-in" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <!-- 标题 -->
+        <div class="text-center mb-8 md:mb-16">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight hero-heading mb-3 md:mb-6 evidence-title">
+                亚马逊官方原文背书
+            </h2>
+            <p class="text-gray-700 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed evidence-desc" style="overflow-wrap:break-word;word-break:break-word;">
+                以下两份内容均出自亚马逊全球开店官网（gs.amazon.cn），点击卡片中链接可直接查看原文
+            </p>
+        </div>
+
+        <!-- 两份官方政策原文引用 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <!-- Evidence 1 -->
+            <div class="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(35,47,62,0.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(35,47,62,0.15)] group" style="background:#ffffff;border:1px solid rgba(35,47,62,0.10);">
+                <!-- 顶部金色渐变线 -->
+                <div class="absolute top-0 left-0 right-0 h-1.5" style="background:linear-gradient(90deg,#ff9900 0%,#ffcc66 50%,#ff9900 100%);"></div>
+                <!-- 装饰性大引号（右上角） -->
+                <div class="absolute top-3 right-4 md:top-4 md:right-6 text-5xl md:text-7xl font-black leading-none select-none pointer-events-none" style="color:rgba(255,153,0,0.10);font-family:Georgia,serif;">"</div>
+                <div class="p-5 md:p-7 relative">
+                    <!-- 卡片头：徽章 + 来源 -->
+                    <div class="flex items-center gap-2 md:gap-3 flex-wrap mb-4 md:mb-5">
+                        <span class="inline-flex items-center gap-1.5 bg-[#232f3e] text-[#ff9900] text-[11px] md:text-xs font-extrabold px-2.5 md:px-3 py-1 md:py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                            <i class="bi bi-amazon"></i>
+                            <span class="compliance-tag1">官方文章</span>
+                        </span>
+                        <span class="text-[11px] md:text-xs text-gray-500 font-medium compliance-source1">gs.amazon.cn · 2025-03-13</span>
+                    </div>
+                    <!-- 引文 -->
+                    <p class="text-sm md:text-base text-gray-800 leading-relaxed pl-3 md:pl-4 mb-5 md:mb-6 compliance-quote1 font-medium" style="border-left:3px solid #ff9900;">
+                        「商品生命周期支持（PLS）是亚马逊推出的售后支持工具，也被卖家称为退货率"拯救者"！卖家留下售后电话/官网网址，专业团队接盘疑难杂症。」
+                    </p>
+                    <!-- 链接按钮 -->
+                    <a class="inline-flex items-center gap-2 text-xs md:text-sm font-bold px-3.5 md:px-4 py-2 md:py-2.5 rounded-full transition-all bg-[#232f3e] text-white hover:bg-[#0071e3] hover:shadow-md compliance-link1" href="https://gs.amazon.cn/news/news-brand-250313" target="_blank" rel="noopener">
+                        <i class="bi bi-link-45deg text-base"></i>
+                        <span>查看亚马逊官方原文</span>
+                        <i class="bi bi-arrow-up-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Evidence 2 -->
+            <div class="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(35,47,62,0.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(35,47,62,0.15)] group" style="background:#ffffff;border:1px solid rgba(35,47,62,0.10);">
+                <!-- 顶部金色渐变线 -->
+                <div class="absolute top-0 left-0 right-0 h-1.5" style="background:linear-gradient(90deg,#ff9900 0%,#ffcc66 50%,#ff9900 100%);"></div>
+                <!-- 装饰性大引号（右上角） -->
+                <div class="absolute top-3 right-4 md:top-4 md:right-6 text-5xl md:text-7xl font-black leading-none select-none pointer-events-none" style="color:rgba(255,153,0,0.10);font-family:Georgia,serif;">"</div>
+                <div class="p-5 md:p-7 relative">
+                    <!-- 卡片头：徽章 + 来源 -->
+                    <div class="flex items-center gap-2 md:gap-3 flex-wrap mb-4 md:mb-5">
+                        <span class="inline-flex items-center gap-1.5 bg-[#232f3e] text-[#ff9900] text-[11px] md:text-xs font-extrabold px-2.5 md:px-3 py-1 md:py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                            <i class="bi bi-shield-check"></i>
+                            <span class="compliance-tag2">官方政策</span>
+                        </span>
+                        <span class="text-[11px] md:text-xs text-gray-500 font-medium compliance-source2">gs.amazon.cn · 2024-02-28</span>
+                    </div>
+                    <!-- 引文 -->
+                    <p class="text-sm md:text-base text-gray-800 leading-relaxed pl-3 md:pl-4 mb-5 md:mb-6 compliance-quote2 font-medium" style="border-left:3px solid #ff9900;">
+                        「OEM 售后服务：顾客可通过卖家在 OEM 板块中留下的官方售后网址或售后电话，直接联系卖家，高效解决售后问题。」
+                    </p>
+                    <!-- 链接按钮 -->
+                    <a class="inline-flex items-center gap-2 text-xs md:text-sm font-bold px-3.5 md:px-4 py-2 md:py-2.5 rounded-full transition-all bg-[#232f3e] text-white hover:bg-[#0071e3] hover:shadow-md compliance-link2" href="https://gs.amazon.cn/news/news-brand-240228" target="_blank" rel="noopener">
+                        <i class="bi bi-link-45deg text-base"></i>
+                        <span>查看亚马逊官方原文</span>
+                        <i class="bi bi-arrow-up-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     模块三：PLS 三大入口 + VocSeek 合规承诺
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="infra-pls" class="py-12 md:py-32 relative overflow-hidden animate-in" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <!-- 标题 -->
+        <div class="text-center mb-8 md:mb-16">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight hero-heading mb-3 md:mb-6 pls-title">
+                亚马逊 PLS 三大官方入口
+            </h2>
+            <p class="text-gray-700 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed pls-desc" style="overflow-wrap:break-word;word-break:break-word;">
+                买家可在订单页、退货流程、客服中心三个关键节点直接联系卖家，每一个入口都是亚马逊官方为品牌打造的退货拦截阵地
+            </p>
+        </div>
+
+        <!-- 三大入口卡片（移动端单列堆叠） -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-8 md:mb-14">
+            <!-- 入口 1 -->
+            <div class="p-5 md:p-8 text-center group rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)] transition-transform hover:-translate-y-1" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-5 rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform" style="background:rgba(255,153,0,0.12);color:#ff9900;">
+                    <i class="bi bi-box-seam-fill"></i>
+                </div>
+                <div class="inline-block bg-blue-50 text-blue-600 text-xs md:text-sm font-bold px-3 md:px-3.5 py-1 md:py-1.5 rounded-full uppercase tracking-wider mb-2.5 md:mb-3 pls-entry1-tag">入口 1 · 订单页面</div>
+                <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1.5 md:mb-2 pls-entry1-title">点击「获取产品支持」</h4>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed pls-entry1-desc">买家从订单详情页一键直达 PLS 联系页面</p>
+            </div>
+            <!-- 入口 2 -->
+            <div class="p-5 md:p-8 text-center group rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)] transition-transform hover:-translate-y-1" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-5 rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform" style="background:rgba(255,153,0,0.12);color:#ff9900;">
+                    <i class="bi bi-arrow-return-left"></i>
+                </div>
+                <div class="inline-block bg-blue-50 text-blue-600 text-xs md:text-sm font-bold px-3 md:px-3.5 py-1 md:py-1.5 rounded-full uppercase tracking-wider mb-2.5 md:mb-3 pls-entry2-tag">入口 2 · 退货流程</div>
+                <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1.5 md:mb-2 pls-entry2-title">退货意图触发拦截</h4>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed pls-entry2-desc">买家选择退货原因后，PLS 页面自动弹出</p>
+            </div>
+            <!-- 入口 3 -->
+            <div class="p-5 md:p-8 text-center group rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.08)] transition-transform hover:-translate-y-1" style="background:#ffffff;border:1px solid rgba(0,113,227,0.08);">
+                <div class="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-5 rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform" style="background:rgba(255,153,0,0.12);color:#ff9900;">
+                    <i class="bi bi-headset"></i>
+                </div>
+                <div class="inline-block bg-blue-50 text-blue-600 text-xs md:text-sm font-bold px-3 md:px-3.5 py-1 md:py-1.5 rounded-full uppercase tracking-wider mb-2.5 md:mb-3 pls-entry3-tag">入口 3 · 客服中心</div>
+                <h4 class="font-bold text-lg md:text-xl text-gray-900 mb-1.5 md:mb-2 pls-entry3-title">客服中心直接跳转</h4>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed pls-entry3-desc">买家点击「获取商品支持」跳转 PLS 页面</p>
+            </div>
+        </div>
+
+        <!-- VocSeek 合规承诺卡片（更深的绿色调，强化合规感） -->
+        <div class="p-5 md:p-10 relative overflow-hidden rounded-2xl md:rounded-3xl shadow-[0_10px_40px_rgba(22,163,74,0.18)]" style="background:linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%);border:1.5px solid rgba(22,163,74,0.35);">
+            <!-- 右上角装饰图标（与左侧勋章不同：用盾牌） -->
+            <div class="absolute top-3 right-4 md:top-6 md:right-8 text-5xl md:text-7xl select-none pointer-events-none" style="color:rgba(22,163,74,0.10);">
+                <i class="bi bi-shield-fill-check"></i>
+            </div>
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 relative">
+                <!-- 左侧：VocSeek Logo -->
+                <div class="w-14 h-14 md:w-20 md:h-20 rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto md:mx-0 shadow-md p-2 md:p-3" style="background:#ffffff;">
+                    <img src="logo02.png" alt="VocSeek Logo" class="w-full h-full object-contain">
+                </div>
+                <!-- 右侧：文字 -->
+                <div class="flex-1 min-w-0 text-left">
+                    <h4 class="font-bold text-lg md:text-2xl mb-2 md:mb-3 pls-pledge-title text-center md:text-left" style="color:#14532d;">VocSeek AI 完全符合亚马逊 PLS 政策</h4>
+                    <p class="text-sm md:text-base leading-relaxed pls-pledge-desc" style="color:#166534;">
+                        VocSeek 提供美国本地合规电话号码，无缝对接亚马逊 PLS「联系制造商」功能。买家在订单页点击「Get Product Support」即可直拨，AI 7×24 小时自动接听，完全符合亚马逊品牌注册要求，<span class="font-extrabold" style="color:#14532d;background:rgba(255,255,255,0.5);padding:1px 6px;border-radius:4px;">零违规风险</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="results" class="py-16 md:py-32 relative animate-in" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="text-[11px] font-bold uppercase tracking-[0.4em] text-blue-500 flex items-center justify-center gap-2 mb-4">
+            </span>
+            <h2 class="text-3xl md:text-5xl font-bold hero-heading leading-tight results-title">真实卖家使用数据</h2>
+            <p class="text-gray-700 text-lg mt-4 max-w-2xl mx-auto results-desc">以下数据均来自已接入 VocSeek AI 的真实卖家，非预测或承诺</p>
+        </div>
+        <!-- 2/3 + 1/3 layout -->
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
+            <!-- Return Rate Card: 2/3 -->
+            <div class="apple-card p-8" style="background:rgba(255,255,255,0.75);">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-100/70">
+                        <i class="bi bi-graph-down-arrow text-blue-600 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 results-return-title results-card-heading">退货率改善</h3>
+                </div>
+                <!-- Description text -->
+                <p class="text-gray-600 leading-relaxed mb-5 results-return-desc" style="font-size:1rem;">自客户接入 VocSeek 引擎后，退货率整体呈持续下行趋势，初期峰值较后续峰值水平降幅超 60%，退货压力得到显著缓解</p>
+                <!-- Real chart image -->
+                <div class="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm">
+                    <img src="refund_real_pic.png" alt="退货率趋势图"
+                         class="w-full h-auto block object-contain">
+                </div>
+                <p class="text-xs text-gray-700 mt-2 text-center results-chart-note">* 真实卖家退货率趋势，数据来源：亚马逊卖家后台</p>
+            </div>
+            <!-- Review Rate Card: 1/3 -->
+            <div class="apple-card p-8 flex flex-col" style="background:rgba(255,255,255,0.75);">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-yellow-100/60">
+                        <i class="bi bi-star-fill text-yellow-500 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 results-review-title results-card-heading">好评率增长</h3>
+                </div>
+                <!-- Vertical bar chart area -->
+                <div class="flex-1 flex flex-col justify-start gap-4">
+                    <!-- Bar 1: 好评率提升 -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1.5">
+                            <span class="text-gray-700 results-v1-label results-card-small">好评率提升</span>
+                            <span class="font-black text-yellow-500" style="font-size:1.25rem;">14%</span>
+                        </div>
+                        <div class="h-2.5 rounded-full overflow-hidden" style="background:rgba(234,179,8,0.12);">
+                            <div class="h-full rounded-full" style="width:65%;background:linear-gradient(to right,rgba(234,179,8,0.6),rgba(234,179,8,1));"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 2: 每季度新增好评 -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1.5">
+                            <span class="text-gray-700 results-v2-label results-card-small">季度新增好评</span>
+                            <span class="font-black text-yellow-500" style="font-size:1.25rem;">15%</span>
+                        </div>
+                        <div class="h-2.5 rounded-full overflow-hidden" style="background:rgba(234,179,8,0.12);">
+                            <div class="h-full rounded-full" style="width:48%;background:linear-gradient(to right,rgba(234,179,8,0.6),rgba(234,179,8,1));"></div>
+                        </div>
+                    </div>
+                    <!-- Divider + bottom stats -->
+                    <div class="border-t border-black/[0.06] pt-4 flex flex-col gap-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700 results-v3-label results-card-small">季度新增好评数</span>
+                            <span class="font-black text-yellow-500 results-v3-num" style="font-size:1.5rem;">29条</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700 results-v4-label results-card-small">增长趋势</span>
+                            <span class="font-black text-yellow-500" style="font-size:1.5rem;">↑</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="llm" class="py-16 md:py-32 relative animate-in" style="background:transparent;">
+    <div class="absolute inset-0 bg-[radial-gradient(#0071e3_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.03]"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-24">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 hero-heading llm-title">不仅仅是 AI<br>更是您的数字工程师</h2>
+            <p class="text-xl text-gray-700 font-light max-w-3xl mx-auto llm-desc">基于三层数据架构，为每个 SKU 提供精准答复，拒绝机械式问答</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="apple-card p-6 md:p-12 group" style="background:rgba(255,255,255,0.72);">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 text-3xl group-hover:scale-110 transition-transform"><i class="bi bi-book-half"></i></div>
+                <h4 class="text-2xl font-bold mb-4 llm-c1-title">类目通用库</h4>
+                <p class="text-base text-gray-700 leading-relaxed llm-c1-desc">内置 3C、母婴、家具等 12 大行业售后语料，AI 天生懂得"充电不进"、"漏水"等类目痛点</p>
+            </div>
+            <div class="apple-card p-6 md:p-12 bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-200/50 z-10">
+                <div class="w-16 h-16 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-8 text-3xl"><i class="bi bi-database-fill-down"></i></div>
+                <h4 class="text-2xl font-bold mb-4 llm-c2-title">品牌专属知识库</h4>
+                <p class="text-base text-blue-100 leading-relaxed llm-c2-desc">支持多格式文件一键上传，可导入产品说明书、保修政策等各类品牌资料，通过 AI 智能解析与深度内化，自动搭建专属品牌知识库，依托知识库精准响应客户咨询</p>
+            </div>
+            <div class="apple-card p-6 md:p-12 group" style="background:rgba(255,255,255,0.72);">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-8 text-3xl group-hover:scale-110 transition-transform"><i class="bi bi-heart-pulse-fill"></i></div>
+                <h4 class="text-2xl font-bold mb-4 llm-c3-title">情绪舒缓智能引擎</h4>
+                <p class="text-base text-gray-700 leading-relaxed llm-c3-desc">实时感知客户情绪状态，运用母语化共情沟通逻辑，主动疏导负面情绪、缓解焦虑与不满，帮助客户平复心绪</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hub" class="py-16 md:py-32 animate-in" style="background:transparent;">
+    <div class="w-full max-w-full md:max-w-[75%] mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 hero-heading hub-title">拒绝碎片化，证据链归一</h2>
+            <p class="text-gray-700 text-lg hub-desc">VocSeek 将电话录音、站内信、售后邮件编织成一条可追溯的数字化时间线</p>
+        </div>
+
+        <div class="space-y-6">
+
+            <!-- Step 1 -->
+            <div class="flex flex-col md:flex-row w-full md:max-w-[80%] mx-auto rounded-[32px] overflow-hidden border border-blue-100/40 shadow-lg bg-white">
+                <div class="w-full md:w-[40%] flex items-center justify-center p-5" style="background:linear-gradient(to right,#bfdbfe 0%,#ffffff 100%);">
+                    <img src="first_step.png" class="max-w-full max-h-64 md:max-h-[401px] w-auto h-auto object-contain rounded-xl shadow-md">
+                </div>
+                <div class="flex-1 flex flex-col justify-center p-5 md:p-8 bg-white">
+                    <div class="inline-flex items-center gap-2 text-[11px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 w-fit px-3 py-1 rounded-full mb-4">
+                        <i class="bi bi-soundwave"></i><span class="hub-badge1">AI 来电通话 · 5:48</span>
+                    </div>
+                    <h5 class="font-bold text-xl mb-2 hub-t1-title">智能预诊完成</h5>
+                    <p class="text-base text-gray-700 mb-5 hub-t1-sub">AI 结构化记录买家诉求</p>
+                    <div style="background:rgba(59,130,246,0.07);border-radius:14px;padding:14px;">
+                        <p class="text-base text-gray-600 leading-relaxed hub-t1-quote">VocSeek AI 完成通话处理，用户反馈产品运行时出现烧焦异味，AI 判定问题涉及安全风险，自动生成紧急工单</p>
+                    </div>
+                    <div class="mt-4 flex items-center gap-2 text-[12px] font-bold text-blue-500 bg-blue-50 w-fit px-3 py-1 rounded-full">
+                        <i class="bi bi-soundwave"></i><span>Recording_8892.mp3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hub-arrow"><i class="bi bi-chevron-double-down"></i></div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col-reverse md:flex-row w-full md:max-w-[80%] mx-auto rounded-[32px] overflow-hidden border border-gray-200/50 shadow-lg bg-white">
+                <div class="flex-1 flex flex-col justify-center p-5 md:p-8 bg-white">
+                    <div class="inline-flex items-center gap-2 text-[11px] font-bold text-gray-700 uppercase tracking-widest bg-gray-100 w-fit px-3 py-1 rounded-full mb-4">
+                        <i class="bi bi-stack"></i><span class="hub-badge2">数据聚合中</span>
+                    </div>
+                    <h5 class="font-bold text-xl mb-2 hub-t2-title">全渠道回溯</h5>
+                    <p class="text-base text-gray-700 mb-5 hub-t2-sub">自动关联历史沟通记录</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-between px-4 py-3 rounded-xl" style="background:rgba(0,0,0,0.03);">
+                            <span class="text-gray-700 hub-t2-item1">站内信历史记录</span>
+                            <i class="bi bi-check-circle-fill text-blue-500"></i>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-3 rounded-xl" style="background:rgba(0,0,0,0.03);">
+                            <span class="text-gray-700 hub-t2-item2">售后邮件历史记录</span>
+                            <i class="bi bi-check-circle-fill text-blue-500"></i>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-3 rounded-xl" style="background:rgba(0,0,0,0.03);">
+                            <span class="text-gray-700 hub-t2-item3">短信通信</span>
+                            <i class="bi bi-check-circle-fill text-blue-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-[40%] flex items-center justify-center p-5" style="background:linear-gradient(to left,#60a5fa 0%,#ffffff 100%);">
+                    <img src="second_step.png" class="max-w-full max-h-64 md:max-h-[401px] w-auto h-auto object-contain rounded-xl shadow-md">
+                </div>
+            </div>
+
+            <div class="hub-arrow"><i class="bi bi-chevron-double-down"></i></div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col md:flex-row w-full md:max-w-[80%] mx-auto rounded-[32px] overflow-hidden border border-blue-100/50 shadow-lg bg-white">
+                <div class="w-full md:w-[40%] flex items-center justify-center p-5" style="background:linear-gradient(to right,#60a5fa 0%,#ffffff 100%);">
+                    <img src="third_step.png" class="max-w-full max-h-64 md:max-h-[401px] w-auto h-auto object-contain rounded-xl shadow-md">
+                </div>
+                <div class="flex-1 flex flex-col justify-center p-5 md:p-8 bg-white">
+                    <div class="inline-flex items-center gap-2 text-[11px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 w-fit px-3 py-1 rounded-full mb-4">
+                        <i class="bi bi-person-check-fill"></i><span class="hub-badge3">人工客服介入</span>
+                    </div>
+                    <h5 class="font-bold text-xl text-blue-700 mb-2 hub-t3-title">精准转化闭环</h5>
+                    <p class="text-base text-gray-700 mb-5 hub-t3-sub">人工快速决策，留存证据</p>
+                    <div style="background:rgba(59,130,246,0.06);border-radius:14px;padding:14px;">
+                        <p class="text-base font-semibold text-blue-700 leading-relaxed hub-t3-quote">
+                            <i class="bi bi-check2-all mr-2"></i>人工客服第一时间介入核实处理，快速为客户解决问题，完成售后闭环
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 数据统计：无边框，加深阴影 -->
+<section class="py-16 md:py-32 animate-in" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- 声明标注 -->
+        <p class="text-center text-xs text-gray-700 mb-6 stat-disclaimer">* 以下数据基于实际客户使用的真实历史数据统计得出</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-12 text-center">
+            <div class="p-3 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.10)]" style="background:rgba(255,255,255,0.70);"><p class="font-black mb-1 md:mb-2 hero-heading stat-num" style="font-size:clamp(1.4rem,6vw,3.75rem)">24/7</p><p class="text-[11px] md:text-[13px] text-gray-700 uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold stat-1">全时段守护</p></div>
+            <div class="p-3 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.10)]" style="background:rgba(255,255,255,0.70);"><p class="font-black mb-1 hero-heading stat-num" style="font-size:clamp(1.4rem,6vw,3.75rem)">40%</p><p class="text-[11px] md:text-[13px] text-gray-700 uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold stat-2">拦截退货冲动</p></div>
+            <div class="p-3 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.10)]" style="background:rgba(255,255,255,0.70);"><p class="font-black mb-1 hero-heading stat-num" style="font-size:clamp(1.4rem,6vw,3.75rem)">0.9s</p><p class="text-[11px] md:text-[13px] text-gray-700 uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold stat-3">沟通延迟</p></div>
+            <div class="p-3 md:p-8 rounded-2xl md:rounded-3xl shadow-[0_6px_28px_rgba(0,0,0,0.10)]" style="background:rgba(255,255,255,0.70);"><p class="font-black mb-1 md:mb-2 hero-heading stat-num whitespace-nowrap" style="font-size:clamp(1.2rem,5.5vw,3.75rem)">100%</p><p class="text-[11px] md:text-[13px] text-gray-700 uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold stat-4">官方合规性</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 md:py-32" style="background:transparent;">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <p class="text-3xl uppercase tracking-[0.3em] text-gray-700 font-bold mb-10 platform-label">支持主流电商平台</p>
+
+        <!-- 统一展示：每个 logo 放入白色半透明 pill 卡片，桌面横排、移动端两列网格 -->
+        <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center md:items-center gap-3 md:gap-5">
+
+            <!-- Amazon -->
+            <div class="flex items-center justify-center px-5 py-4 rounded-2xl" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                <svg width="110" height="32" viewBox="0 0 132 38" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="30" font-family="Arial Black,sans-serif" font-size="29" font-weight="900" fill="#FF9900">amazon</text></svg>
+            </div>
+
+            <!-- eBay -->
+            <div class="flex items-center justify-center px-5 py-4 rounded-2xl" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                <svg width="62" height="30" viewBox="0 0 72 34" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="26" font-family="Arial,sans-serif" font-size="26" font-weight="900"><tspan fill="#E53238">e</tspan><tspan fill="#0064D2">B</tspan><tspan fill="#F5AF02">a</tspan><tspan fill="#86B817">y</tspan></text></svg>
+            </div>
+
+            <!-- Shopify -->
+            <div class="flex items-center justify-center px-5 py-4 rounded-2xl" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                <svg width="84" height="30" viewBox="0 0 96 34" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="26" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#96BF48">Shopify</text></svg>
+            </div>
+
+            <!-- TikTok Shop -->
+            <div class="flex items-center justify-center px-5 py-4 rounded-2xl" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                <div class="flex items-center gap-1.5">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#010101"/><path d="M15.5 5.5c.5 1.2 1.5 2 2.5 2.2v2.1c-.9-.1-1.8-.4-2.5-.9v4.6c0 2.3-1.9 4.1-4.1 4.1s-4.1-1.8-4.1-4.1 1.9-4.1 4.1-4.1c.2 0 .4 0 .6.1v2.2c-.2-.1-.4-.1-.6-.1-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2V5.5h2z" fill="white"/></svg>
+                    <span style="font-size:14px;font-weight:800;color:#1a1a1a;white-space:nowrap;letter-spacing:-0.01em;">TikTok Shop</span>
+                </div>
+            </div>
+
+            <!-- Walmart — 移动端跨两列居中 -->
+            <div class="col-span-2 md:col-span-1 flex items-center justify-center px-5 py-4 rounded-2xl" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+                <svg width="84" height="30" viewBox="0 0 96 34" fill="none" xmlns="http://www.w3.org/2000/svg"><text x="0" y="26" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0071CE">Walmart</text></svg>
+            </div>
+
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-14">
+            <div class="flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-base text-gray-700 font-semibold trust-badge1"><i class="bi bi-shield-check text-blue-500"></i> Amazon SP-API Compliant</div>
+            <div class="flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-base text-gray-700 font-semibold trust-badge2"><i class="bi bi-lock-fill text-blue-500"></i> 端到端加密</div>
+            <div class="flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-base text-gray-700 font-semibold trust-badge3"><i class="bi bi-globe text-blue-400"></i> GDPR &amp; CCPA Ready</div>
+            <div class="flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-2 rounded-full text-base text-gray-700 font-semibold trust-badge4"><i class="bi bi-clock-history text-orange-400"></i> 全天候运行保障</div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 md:py-32 text-center relative overflow-hidden" style="background:transparent;">
+    <h2 class="text-3xl md:text-6xl font-bold hero-heading mb-6 md:mb-10 leading-tight animate-in cta-title">完成品牌出海<br>构建您的本土品牌热线</h2>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 md:mt-16 delay-1 animate-in px-4">
+        <a href="https://www.vocseek.ai/web-pages/login" class="tech-btn px-8 py-4 md:px-12 md:py-5 rounded-full font-bold text-base md:text-lg shadow-xl inline-block cta-btn1 text-center">马上开始使用</a>
+        <a href="product.html" class="bg-white border-2 border-gray-100 text-black px-8 py-4 md:px-12 md:py-5 rounded-full font-bold text-base md:text-lg hover:border-blue-200 hover:bg-blue-50 transition-all inline-block cta-btn2 text-center">咨询解决方案</a>
+    </div>
+    <p class="mt-12 text-gray-700 text-base uppercase tracking-widest font-black delay-2 animate-in flex items-center justify-center"><i class="bi bi-globe-americas mr-2"></i>VocSeek Infrastructure · Link China to the World</p>
+</section>
+
+<footer class="bg-white border-t border-black/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div>
+                <img src="logo02.png" alt="VocSeek Logo" class="logo-img mb-4">
+                <p class="text-base text-gray-700 mb-4 footer-desc">AI客服解决方案提供商</p>
+                <div class="flex gap-4">
+                    <a href="privacy.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-privacy">隐私政策</a>
+                    <a href="service.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-terms">服务条款</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-base mb-4 text-gray-700 footer-contact-title">联系方式</h4>
+                <p class="text-sm text-gray-400 mb-2"><a href="mailto:support@vocseek.ai" class="text-sm text-gray-400 hover:text-blue-600">support@vocseek.ai</a></p>
+            </div>
+            <div>
+                <h4 class="font-bold text-base mb-4 text-gray-700 footer-links-title">资源链接</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-link-home">首页</a></li>
+                    <li><a href="product.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-link-product">产品介绍</a></li>
+                    <li><a href="security.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-link-security">数据安全</a></li>
+                    <li><a href="about.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-link-about">关于我们</a></li>
+                    <li><a href="contact.html" class="text-base text-gray-700 hover:text-blue-600 transition-colors footer-link-contact">联系方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 mt-12 pt-8 text-center">
+            <p class="text-base text-gray-700 footer-copyright">© 2026 VOCSEEK INC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const i18n = {
+        zh: {
+            pageTitle: 'VocSeek | 全球品牌售后神经中枢 - 专业级 AI 基础设施',
+            navInfra: '官方入口', navAudio: '通话录音', navLlm: 'AI 引擎', navHub: '证据链归一',
+            navProduct: '产品介绍', navLogin: '登录 / 注册',
+            heroTitle: '让售后服务<br>体现品牌温度',
+            heroDesc: 'VocSeek AI 为中国品牌构建一套即便在深夜也能自主运作的全球售后神经系统',
+            heroDescBold: '地道母语接听，官方入口入驻，全渠道数据归一',
+            heroStatus: '系统状态：中国团队 0 打扰 / 美国客户 0 等待',
+            heroBadge: '全天候 AI 智能在线',
+            scenarioChinaLabel: '中国总部',
+            scenarioChinaStatus: '办公室已下班',
+            scenarioMidBadge: 'VocSeek AI 智能体',
+            scenarioMidStatus: '处理中',
+            scenarioUsaLabel: '美国客户',
+            scenarioUsaStatus: '通话进行中',
+            // ─── 模块一：亚马逊官方政策背书 ───
+            complianceBadgeText: '亚马逊官方认证合规',
+            infraTitle: '不是灰色地带，<br>是亚马逊主动推广的官方工具',
+            infraDesc: '亚马逊官方推出的<span class="font-bold text-gray-900">「商品生命周期支持（PLS）」</span>项目鼓励卖家通过电话或网址主动提供售后支持，以降低退货率、提升买家满意度',
+            complianceStat1Label: '顾客使用 PLS 后<br>未再申请退货',
+            complianceStat2Label: 'PLS 用户的<br>平均买家满意度',
+            complianceStat3Label: '卖家接入 PLS 后<br>4 个月内退货率下降',
+            complianceStatSource1: '来源：亚马逊官方研究 · gs.amazon.cn',
+            complianceStatSource2: '来源：亚马逊官方研究 · gs.amazon.cn',
+            complianceStatSource3: '来源：亚马逊卖家案例 · gs.amazon.cn',
+            complianceTag1: '官方文章',
+            complianceTag2: '官方政策',
+            complianceSource1: 'gs.amazon.cn · 2025-03-13',
+            complianceSource2: 'gs.amazon.cn · 2024-02-28',
+            complianceQuote1: '「商品生命周期支持（PLS）是亚马逊推出的售后支持工具，也被卖家称为退货率"拯救者"！卖家留下售后电话/官网网址，专业团队接盘疑难杂症。」',
+            complianceQuote2: '「OEM 售后服务：顾客可通过卖家在 OEM 板块中留下的官方售后网址或售后电话，直接联系卖家，高效解决售后问题。」',
+            complianceLink: '查看亚马逊官方原文',
+            // ─── 模块二：亚马逊官方原文背书 ───
+            evidenceTitle: '亚马逊官方原文背书',
+            evidenceDesc: '以下两份内容均出自亚马逊全球开店官网（gs.amazon.cn），点击卡片中链接可直接查看原文',
+            // ─── 模块三：PLS 三大入口 + 合规承诺 ───
+            plsTitle: '亚马逊 PLS 三大官方入口',
+            plsDesc: '买家可在订单页、退货流程、客服中心三个关键节点直接联系卖家，每一个入口都是亚马逊官方为品牌打造的退货拦截阵地',
+            plsEntry1Tag: '入口 1 · 订单页面',
+            plsEntry1Title: '点击「获取产品支持」',
+            plsEntry1Desc: '买家从订单详情页一键直达 PLS 联系页面',
+            plsEntry2Tag: '入口 2 · 退货流程',
+            plsEntry2Title: '退货意图触发拦截',
+            plsEntry2Desc: '买家选择退货原因后，PLS 页面自动弹出',
+            plsEntry3Tag: '入口 3 · 客服中心',
+            plsEntry3Title: '客服中心直接跳转',
+            plsEntry3Desc: '买家点击「获取商品支持」跳转 PLS 页面',
+            plsPledgeTitle: 'VocSeek AI 完全符合亚马逊 PLS 政策',
+            plsPledgeDesc: 'VocSeek 提供美国本地合规电话号码，无缝对接亚马逊 PLS「联系制造商」功能。买家在订单页点击「Get Product Support」即可直拨，AI 7×24 小时自动接听，完全符合亚马逊品牌注册要求，<span class="font-extrabold" style="color:#14532d;background:rgba(255,255,255,0.5);padding:1px 6px;border-radius:4px;">零违规风险</span>',
+            audioTitle: '聆听AI处理售后问题的真实通话录音',
+            audioDesc: '',
+            audioLabBadge: '',
+            audioC1Tag: '', audioC1Title: '精准解忧止退差评，专业服务收获好评', audioC1Sub: '技术排查解决客户问题，守住口碑赢得五星认可',
+            audioC1Story: '技术排查：用户来电反映儿童自卸卡车玩具四驱功能故障，AI 客服快速给出专业排查建议并耐心安抚，用户按指引自查即可解决问题，事后主动留下了五星好评',
+            audioC1Quote: '',
+            audioC2Tag: '', audioC2Title: '安全问题自动升级，优先响应守护安心', audioC2Sub: '智能研判风险等级，人工响应极速闭环',
+            audioC2Story: '客户反馈新购电动玩具卡车电机出现焦糊味，对产品安全十分担忧。系统自动研判安全风险并将工单升级至高优先级，人工客服第一时间介入核实处理，快速为客户解决问题。客户从焦虑担忧转为安心放心，对高效处置表达满意与感谢',
+            audioC2Quote: '',
+            audioC3Tag: '', audioC3Title: '主动收集信息，人工后续跟进', audioC3Sub: '工单升级，配件补发，客户满意',
+            audioC3Story: '用户申请儿童电动拖拉机电池与充电器更换，客服完整收集信息、记录诉求并转交人工，承诺 12 小时内跟进安抚。后续补发配件解决问题，客户高度满意，成功避免差评',
+            audioC4Tag: '', audioC4Title: '高效引导，顺畅解决', audioC4Sub: '步骤清晰，自助成功',
+            audioC4Story: '客户咨询如何打开密码锁行李箱，客服 Alex 先进行同理回应并确认问题，引导客户使用默认密码成功开锁。客户对服务表示感谢并结束通话，全程无升级或后续问题。',
+            resultsBadge: '', resultsTitle: '真实卖家使用数据', resultsDesc: '以下数据均来自已接入 VocSeek AI 的真实卖家',
+            resultsReturnTitle: '退货率改善', resultsReturnDesc: '自客户接入 VocSeek 引擎后，退货率整体呈持续下行趋势，初期峰值较后续峰值水平降幅超 60%，退货压力得到显著缓解', resultsReviewTitle: '好评率增长',
+            resultsR1Label: '整体退货率下降', resultsR2Label: '峰值退货率下降',
+            resultsR3Label: '多周期实现零退货', resultsR4Sub: '波动显著降低',
+            resultsV1Label: '好评率提升', resultsV2Label: '季度新增好评',
+            resultsV3Num: '29', resultsV3Label: '季度新增好评数', resultsV4Label: '持续稳定增长', resultsChartNote: '* 真实卖家退货率趋势，数据来源：亚马逊卖家后台',
+            llmTitle: '不仅仅是 AI<br>更是您的数字工程师',
+            llmDesc: '基于三层数据架构，为每个 SKU 提供精准答复，拒绝机械式问答',
+            llmC1Title: '类目通用库', llmC1Desc: '内置 3C、母婴、家具等 12 大行业售后语料，AI 能够理解"充电不进"、"漏水"等类目痛点',
+            llmC2Title: '品牌专属知识库', llmC2Desc: '一键上传您的产品说明书、保修政策AI 深度内化，根据您的手册帮助客户排查并提供建议',
+            llmC3Title: '情绪舒缓智能引擎', llmC3Desc: '实时监测买家焦虑指数，通过母语共情话术，将愤怒值在 3 分钟内降低 40% 以上',
+            hubTitle: '拒绝碎片化，证据链归一',
+            hubDesc: 'VocSeek 将电话录音、站内信、售后邮件编织成一条可追溯的数字化时间线',
+            hubT1Quote: 'VocSeek AI 完成通话处理，用户反馈产品运行时出现烧焦异味，AI 判定问题涉及安全风险，自动生成紧急工单',
+            hubBadge1: 'AI 来电通话 · 5:48', hubBadge2: '数据聚合中', hubBadge3: '人工客服介入',
+            hubT1Title: '智能预诊完成', hubT1Sub: 'AI 结构化记录买家诉求',
+            hubT2Item1: '站内信历史记录', hubT2Item2: '售后邮件历史记录', hubT2Item3: '短信通信',
+            hubT2Title: '全渠道回溯', hubT2Sub: '自动关联历史沟通记录',
+            hubT3Quote: '人工客服第一时间介入核实处理，快速为客户解决问题，完成售后闭环',
+            hubT3Title: '精准转化闭环', hubT3Sub: '人工快速决策，留存证据',
+            statMark: '★ 真实历史数据', statDisclaimer: '* 以下数据基于实际客户使用的真实历史数据统计得出', stat1: '全时段守护', stat2: '拦截退货冲动', stat3: '沟通延迟', stat4: '官方合规性',
+            platformLabel: '支持主流电商平台',
+            trustBadge1: 'Amazon SP-API 合规', trustBadge2: '端到端加密', trustBadge3: 'GDPR &amp; CCPA 合规', trustBadge4: '24/7 运行保障',
+            ctaTitle: '完成品牌出海<br>构建您的本土品牌热线',
+            ctaBtn1: '马上开始使用', ctaBtn2: '咨询解决方案',
+            footerDesc: 'AI客服解决方案提供商', footerPrivacy: '隐私政策', footerTerms: '服务条款',
+            footerContactTitle: '联系方式',
+            footerLinksTitle: '资源链接', footerLinkHome: '首页', footerLinkProduct: '产品介绍',
+            footerLinkSecurity: '数据安全', footerLinkAbout: '关于我们', footerLinkContact: '联系方式',
+            footerCopyright: '© 2026 VOCSEEK INC. All rights reserved.',
+        },
+        en: {
+            pageTitle: 'VocSeek | AI After-Sales Platform for Global E-Commerce Sellers',
+            navInfra: 'Official Entry', navAudio: 'Call Recordings', navLlm: 'AI Engine', navHub: 'Evidence Hub',
+            navProduct: 'Product', navLogin: 'Login / Sign Up',
+            heroTitle: 'Resolve Faster<br>Reduce Returns<br>Build Loyalty',
+            heroDesc: 'VocSeek AI is an after-sales platform built for global e-commerce sellers, bringing together customer messages, phone support, and order data in one intelligent system',
+            heroDescBold: 'Respond faster, reduce workload, and deliver consistent service across every channel, around the clock',
+            heroStatus: 'Status: AI Active — 0 Customer Waiting',
+            heroBadge: '24/7 AI AGENT ACTIVE',
+            scenarioChinaLabel: 'China Headquarters',
+            scenarioChinaStatus: 'Office Closed',
+            scenarioMidBadge: 'VocSeek AI Agent',
+            scenarioMidStatus: 'Solving',
+            scenarioUsaLabel: 'USA Customer',
+            scenarioUsaStatus: 'Active Call In Progress',
+            // ─── Block 1: Amazon official compliance endorsement ───
+            complianceBadgeText: 'Amazon Officially Endorsed',
+            infraTitle: "Not a Grey Area:<br>Amazon's Officially Promoted Tool",
+            infraDesc: "Amazon's official <span class=\"font-bold text-gray-900\">Product Lifecycle Support (PLS)</span> program encourages sellers to provide after-sales support via phone or website, reducing returns and improving buyer satisfaction.",
+            complianceStat1Label: 'of customers who used PLS<br>did not return their item',
+            complianceStat2Label: 'Average buyer satisfaction<br>among PLS users',
+            complianceStat3Label: 'Return rate drop within<br>4 months of enabling PLS',
+            complianceStatSource1: 'Source: Amazon Official Research · gs.amazon.cn',
+            complianceStatSource2: 'Source: Amazon Official Research · gs.amazon.cn',
+            complianceStatSource3: 'Source: Amazon Seller Case Study · gs.amazon.cn',
+            complianceTag1: 'Official Article',
+            complianceTag2: 'Official Policy',
+            complianceSource1: 'gs.amazon.cn · 2025-03-13',
+            complianceSource2: 'gs.amazon.cn · 2024-02-28',
+            complianceQuote1: '"Product Lifecycle Support (PLS) is Amazon\'s after-sales support tool, dubbed by sellers as the \'return rate savior.\' Sellers can list their support phone number or website URL so customers can directly contact them."',
+            complianceQuote2: '"OEM After-Sales Service: Customers can contact sellers directly via the official after-sales website or phone number provided by sellers in the OEM section, efficiently resolving post-purchase issues."',
+            complianceLink: 'View Amazon Official Article',
+            // ─── Block 2: Amazon official evidence ───
+            evidenceTitle: "Backed by Amazon's Own Words",
+            evidenceDesc: "Both excerpts below come directly from Amazon Global Selling's official website (gs.amazon.cn). Click the link inside either card to view the original article.",
+            // ─── Block 3: PLS three official entry points + compliance pledge ───
+            plsTitle: "Amazon PLS · 3 Official Entry Points",
+            plsDesc: 'Buyers can contact sellers directly at three critical moments (order page, return flow, and customer service). Each one is an Amazon-built channel for sellers to intercept returns.',
+            plsEntry1Tag: 'Entry 1 · Order Page',
+            plsEntry1Title: 'Click "Get Product Support"',
+            plsEntry1Desc: 'Buyers reach the PLS contact page directly from order details with one click.',
+            plsEntry2Tag: 'Entry 2 · Return Flow',
+            plsEntry2Title: 'Return Intent Triggers Intercept',
+            plsEntry2Desc: 'After buyers select a return reason, the PLS page pops up automatically.',
+            plsEntry3Tag: 'Entry 3 · Customer Service',
+            plsEntry3Title: 'Direct Jump from Help Center',
+            plsEntry3Desc: 'Buyers click "Get Product Support" and are routed to the PLS page.',
+            plsPledgeTitle: 'VocSeek AI is Fully Compliant with Amazon PLS Policy',
+            plsPledgeDesc: 'VocSeek provides US-local compliant phone numbers that seamlessly integrate with Amazon PLS\'s "Contact the Manufacturer" feature. Buyers click "Get Product Support" on the order page and are connected instantly. AI answers 24/7, fully meeting Amazon Brand Registry requirements with <span class="font-extrabold" style="color:#14532d;background:rgba(255,255,255,0.5);padding:1px 6px;border-radius:4px;">zero compliance risk</span>.',
+            audioTitle: 'Listen to Real AI After-Sales Calls',
+            audioDesc: '',
+            audioLabBadge: '',
+            audioC1Tag: "", audioC1Title: "Resolve Issues, Prevent Returns and Earn 5-Star Reviews", audioC1Sub: "Fast Technical Support, Retain Customers and Boost Reputation",
+            audioC1Story: "A customer called about a 4WD malfunction on their child's dump truck toy. The AI quickly provided professional troubleshooting guidance and patiently reassured the buyer. The customer resolved the issue by following the instructions and later left a 5-star review.",
+            audioC1Quote: "",
+            audioC2Tag: "", audioC2Title: "Intelligent Upgrade for Safety Issues, Priority Response", audioC2Sub: "Smart risk assessment, rapid manual resolution",
+            audioC2Story: "A customer reported a burning smell from their newly purchased electric toy truck motor. The agent responded immediately, collected information accurately, created a ticket, and escalated it to high priority. Protecting user safety and trust.",
+            audioC2Quote: "",
+            audioC3Tag: "", audioC3Title: "Proactive Info Collection, Human Follow-Up", audioC3Sub: "Ticket escalated, parts resent, customer satisfied",
+            audioC3Story: "The customer applied for battery and charger replacement for a kids' electric tractor. VocSeek agent collected full details, escalated the request, and promised 12-hour follow-up with reassurance. The seller provided replacement parts to resolve the issue, satisfying the customer and avoiding negative reviews.",
+            audioC4Tag: "", audioC4Title: "Efficient guidance, seamless resolution.", audioC4Sub: "Clear steps, successful self-service.",
+            audioC4Story: "A customer inquired about opening a combination-lock suitcase. Agent Alex first responded with empathy and verified the issue, then guided the customer to unlock the case successfully using the default combination. The customer expressed gratitude for the service and ended the call. No escalation or follow-up problems arose during the entire interaction.",
+            resultsBadge: '', resultsTitle: 'Real Seller Data', resultsDesc: 'Data sourced from actual sellers using VocSeek AI',
+            resultsReturnTitle: 'Return Rate Improvement', resultsReturnDesc: 'Since integrating the VocSeek engine, return rates have shown a sustained downward trend. The initial peak has dropped by over 60% compared to subsequent peak levels, significantly easing return pressure.', resultsReviewTitle: 'Review Growth',
+            resultsR1Label: 'Overall return rate drop', resultsR2Label: 'Peak return rate drop',
+            resultsR3Label: 'Multiple cycles at 0% returns', resultsR4Sub: 'Volatility significantly reduced',
+            resultsV1Label: 'Review rate increase', resultsV2Label: 'New reviews per quarter',
+            resultsV3Num: '29', resultsV3Label: 'Quarterly new review volume', resultsV4Label: 'Sustained steady growth', resultsChartNote: '* Real seller return rate trend — data source: Amazon Seller Central',
+            llmTitle: 'Not Just an AI<br>but Your Digital Engineer',
+            llmDesc: 'Based on a three-layer data architecture, it provides precise answers for each SKU, rejecting robotic Q&A',
+            llmC1Title: 'Category General Library', llmC1Desc: "Built-in after-sales corpus for 12 major industries like 3C, mother & baby, and furniture. The AI inherently understands category pain points like \"not charging\" or \"leaking\"",
+            llmC2Title: 'Brand Knowledge Base', llmC2Desc: 'Support one-click upload of multi-format files and import of various brand materials such as product manuals and warranty policies. Through AI intelligent analysis and deep internalization, it automatically builds a dedicated brand knowledge base',
+            llmC3Title: 'Emotion Relief Intelligent Engine', llmC3Desc: 'It perceives customers\' emotional states in real time, adopts native-language empathic communication logic to actively ease negative emotions, anxiety and dissatisfaction, helps customers calm down',
+            hubTitle: 'No Fragmentation, Unified Evidence Chain',
+            hubDesc: 'VocSeek weave phone recordings, internal messages, and after-sales emails into a traceable digital timeline',
+            hubT1Quote: 'VocSeek AI completed the call. The customer reported a burning smell during product operation. AI identified the issue as a safety risk and automatically created an urgent ticket.',
+            hubBadge1: 'AI Inbound Call · 5:48', hubBadge2: 'Data Merge Active', hubBadge3: 'Human Agent Review',
+            hubT1Title: 'Intelligent Pre-diagnosis Complete', hubT1Sub: "AI structurally records the buyer's request.",
+            hubT2Item1: 'Internal Message History', hubT2Item2: 'After-sales Email History', hubT2Item3: 'SMS Communication',
+            hubT2Title: 'Omni-channel Retrospection', hubT2Sub: 'Automatically associates historical communication records',
+            hubT3Quote: 'A human agent immediately stepped in to verify and resolve the issue, completing the after-sales cycle efficiently.',
+            hubT3Title: 'Precise Conversion Closure', hubT3Sub: 'Manual quick decision-making, evidence retention',
+            statMark: '★ Real Historical Data', statDisclaimer: '* Data sourced from real historical usage by actual customers', stat1: '24/7 Guardian', stat2: 'Return Impulses Intercepted', stat3: 'Communication Delay', stat4: 'Official Compliance',
+            platformLabel: 'Compatible with Major E-Commerce Platforms',
+            trustBadge1: 'Amazon SP-API Compliant', trustBadge2: 'End-to-End Encrypted', trustBadge3: 'GDPR &amp; CCPA Ready', trustBadge4: '24/7 Uptime SLA',
+            ctaTitle: "Complete Your Global Expansion<br>Build Your Local Brand Hotline",
+            ctaBtn1: 'Get Started Now', ctaBtn2: 'Explore Solutions',
+            footerDesc: 'AI Customer Service Solution Provider', footerPrivacy: 'Privacy Policy', footerTerms: 'Terms of Service',
+            footerContactTitle: 'Contact Info',
+            footerLinksTitle: 'Resources', footerLinkHome: 'Home', footerLinkProduct: 'Product',
+            footerLinkSecurity: 'Data Security', footerLinkAbout: 'About Us', footerLinkContact: 'Contact',
+            footerCopyright: '© 2026 VOCSEEK INC. All rights reserved',
+        }
+    };
+
+    function switchLang(lang) {
+        const t = i18n[lang];
+        refreshMarkers(lang);
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.getElementById('page-title').textContent = t.pageTitle;
+        ['btn-zh','btn-en'].forEach(id=>document.getElementById(id).classList.remove('active'));
+        document.getElementById(lang==='zh'?'btn-zh':'btn-en').classList.add('active');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        const set = (sel, val, html = false) => {
+            document.querySelectorAll(sel).forEach(el => { if (html) el.innerHTML = val; else el.textContent = val; });
+        };
+        set('.nav-infra', t.navInfra); set('.nav-audio', t.navAudio);
+        set('.nav-llm', t.navLlm); set('.nav-hub', t.navHub);
+        const navLinks = document.querySelector('#main-nav .hidden.lg\\:flex');
+        if (navLinks) {
+            if (lang === 'zh') { navLinks.style.fontSize = '20px'; navLinks.style.gap = '2.5rem'; navLinks.style.letterSpacing = '0.05em'; }
+            else { navLinks.style.fontSize = '13px'; navLinks.style.gap = '2rem'; navLinks.style.letterSpacing = '0.3em'; }
+        }
+        set('.nav-product', t.navProduct); set('.nav-login', t.navLogin);
+        set('.hero-title', t.heroTitle, true);
+        // font-size controlled by Tailwind responsive classes, not inline style
+        document.querySelectorAll('.hero-desc').forEach(el => {
+            el.innerHTML = t.heroDesc + '<br><span class="text-black font-semibold hero-desc-bold">' + t.heroDescBold + '</span>';
+        });
+        set('.hero-badge', t.heroBadge);
+        document.querySelectorAll('.hero-status').forEach(el => {
+            el.innerHTML = '<i class="bi bi-check-circle-fill text-blue-500 mr-2"></i>' + t.heroStatus;
+        });
+        set('.scenario-china-label', t.scenarioChinaLabel);
+        set('.scenario-china-status', t.scenarioChinaStatus);
+        set('.scenario-mid-badge', t.scenarioMidBadge);
+        set('.scenario-mid-status', t.scenarioMidStatus);
+        set('.scenario-usa-label', t.scenarioUsaLabel);
+        set('.scenario-usa-status', t.scenarioUsaStatus);
+        set('.infra-title', t.infraTitle, true);
+        set('.infra-desc', t.infraDesc, true);
+        // ─── 模块一：合规背书 ───
+        set('.compliance-badge-text', t.complianceBadgeText);
+        set('.compliance-stat1-label', t.complianceStat1Label, true);
+        set('.compliance-stat2-label', t.complianceStat2Label, true);
+        set('.compliance-stat3-label', t.complianceStat3Label, true);
+        document.querySelectorAll('.compliance-stat-source').forEach(function(el, i){
+            var arr = [t.complianceStatSource1, t.complianceStatSource2, t.complianceStatSource3];
+            if (arr[i]) el.textContent = arr[i];
+        });
+        set('.compliance-tag1', t.complianceTag1);
+        set('.compliance-tag2', t.complianceTag2);
+        set('.compliance-source1', t.complianceSource1);
+        set('.compliance-source2', t.complianceSource2);
+        set('.compliance-quote1', t.complianceQuote1);
+        set('.compliance-quote2', t.complianceQuote2);
+        document.querySelectorAll('.compliance-link1 span, .compliance-link2 span').forEach(function(el){
+            el.textContent = t.complianceLink;
+        });
+        // ─── 模块二：官方原文背书（标题/描述） ───
+        set('.evidence-title', t.evidenceTitle);
+        set('.evidence-desc', t.evidenceDesc);
+        // ─── 模块三：PLS 入口 + 承诺 ───
+        set('.pls-title', t.plsTitle);
+        set('.pls-desc', t.plsDesc);
+        set('.pls-entry1-tag', t.plsEntry1Tag);
+        set('.pls-entry1-title', t.plsEntry1Title);
+        set('.pls-entry1-desc', t.plsEntry1Desc);
+        set('.pls-entry2-tag', t.plsEntry2Tag);
+        set('.pls-entry2-title', t.plsEntry2Title);
+        set('.pls-entry2-desc', t.plsEntry2Desc);
+        set('.pls-entry3-tag', t.plsEntry3Tag);
+        set('.pls-entry3-title', t.plsEntry3Title);
+        set('.pls-entry3-desc', t.plsEntry3Desc);
+        set('.pls-pledge-title', t.plsPledgeTitle);
+        set('.pls-pledge-desc', t.plsPledgeDesc, true);
+        set('.audio-title', t.audioTitle, true);
+        // document.querySelectorAll('.audio-title').forEach(el => { el.style.fontSize = lang === 'zh' ? '' : '2rem'; });
+        set('.audio-desc', t.audioDesc);
+        set('.audio-lab-badge', t.audioLabBadge);
+        // Audio card title/sub font sizes
+        document.querySelectorAll('.audio-card-title').forEach(function(el){
+            el.style.fontSize = lang === 'zh' ? '1.875rem' : '1.5rem'; // zh:3xl en:2xl
+        });
+        document.querySelectorAll('.audio-card-sub').forEach(function(el){
+            el.style.fontSize = lang === 'zh' ? '1.125rem' : '1rem'; // zh:lg en:base
+        });
+        set('.audio-c1-tag', t.audioC1Tag, true); set('.audio-c1-title', t.audioC1Title); set('.audio-c1-sub', t.audioC1Sub);
+        set('.audio-c1-story', t.audioC1Story); set('.audio-c1-quote', t.audioC1Quote);
+        set('.audio-c2-tag', t.audioC2Tag, true); set('.audio-c2-title', t.audioC2Title); set('.audio-c2-sub', t.audioC2Sub);
+        set('.audio-c2-story', t.audioC2Story); set('.audio-c2-quote', t.audioC2Quote);
+        set('.audio-c3-tag', t.audioC3Tag, true); set('.audio-c3-title', t.audioC3Title); set('.audio-c3-sub', t.audioC3Sub);
+        set('.audio-c3-story', t.audioC3Story);
+        set('.audio-c4-tag', t.audioC4Tag, true); set('.audio-c4-title', t.audioC4Title); set('.audio-c4-sub', t.audioC4Sub);
+        set('.audio-c4-story', t.audioC4Story);
+        set('.results-badge', t.resultsBadge);
+        set('.results-title', t.resultsTitle);
+        set('.results-desc', t.resultsDesc);
+        set('.results-return-title', t.resultsReturnTitle);
+        set('.results-return-desc', t.resultsReturnDesc);
+        set('.results-review-title', t.resultsReviewTitle);
+        set('.results-r1-label', t.resultsR1Label);
+        set('.results-r2-label', t.resultsR2Label);
+        set('.results-r3-label', t.resultsR3Label);
+        set('.results-r4-sub', t.resultsR4Sub);
+        set('.results-v1-label', t.resultsV1Label);
+        set('.results-v2-label', t.resultsV2Label);
+        set('.results-v3-num', t.resultsV3Num);
+        set('.results-v3-label', t.resultsV3Label);
+        set('.results-v4-label', t.resultsV4Label);
+        set('.results-chart-note', t.resultsChartNote);
+        set('.llm-title', t.llmTitle, true); set('.llm-desc', t.llmDesc);
+        set('.llm-c1-title', t.llmC1Title); set('.llm-c1-desc', t.llmC1Desc);
+        set('.llm-c2-title', t.llmC2Title); set('.llm-c2-desc', t.llmC2Desc);
+        set('.llm-c3-title', t.llmC3Title); set('.llm-c3-desc', t.llmC3Desc);
+        set('.hub-title', t.hubTitle,true); set('.hub-desc', t.hubDesc);
+        document.querySelectorAll('.hub-t1-quote').forEach(el => { el.textContent = t.hubT1Quote; });
+        set('.hub-badge1', t.hubBadge1);
+        set('.hub-badge2', t.hubBadge2);
+        set('.hub-badge3', t.hubBadge3);
+        set('.hub-t1-title', t.hubT1Title); set('.hub-t1-sub', t.hubT1Sub);
+        set('.hub-t2-item1', t.hubT2Item1); set('.hub-t2-item2', t.hubT2Item2); set('.hub-t2-item3', t.hubT2Item3);
+        set('.hub-t2-title', t.hubT2Title); set('.hub-t2-sub', t.hubT2Sub);
+        document.querySelectorAll('.hub-t3-quote').forEach(el => { el.innerHTML = '<i class="bi bi-check2-all mr-2"></i>' + t.hubT3Quote; });
+        set('.hub-t3-title', t.hubT3Title); set('.hub-t3-sub', t.hubT3Sub);
+        set('.stat-mark', t.statMark);
+        set('.stat-disclaimer', t.statDisclaimer);
+        set('.stat-1', t.stat1); set('.stat-2', t.stat2); set('.stat-3', t.stat3); set('.stat-4', t.stat4);
+        set('.platform-label', t.platformLabel);
+        set('.trust-badge1', t.trustBadge1, true); set('.trust-badge2', t.trustBadge2, true);
+        set('.trust-badge3', t.trustBadge3, true); set('.trust-badge4', t.trustBadge4, true);
+        set('.cta-title', t.ctaTitle, true);
+        set('.cta-btn1', t.ctaBtn1); set('.cta-btn2', t.ctaBtn2);
+        set('.footer-desc', t.footerDesc); set('.footer-privacy', t.footerPrivacy); set('.footer-terms', t.footerTerms);
+        set('.footer-contact-title', t.footerContactTitle);
+        // 同步移动端卡片1/2/3切换按钮文字
+        var viewImg = lang === 'zh' ? '查看图片' : 'View Image';
+        var viewTxt = lang === 'zh' ? '查看文字' : 'View Text';
+        [1, 2, 3].forEach(function(n) {
+            var imgEl   = document.getElementById('mob-c' + n + '-image');
+            var labelEl = document.getElementById('mob-c' + n + '-toggle-label');
+            if (!labelEl) return;
+            var showingImage = imgEl && imgEl.style.display !== 'none';
+            labelEl.textContent = showingImage ? viewTxt : viewImg;
+        });
+        set('.footer-links-title', t.footerLinksTitle);
+        set('.footer-link-home', t.footerLinkHome); set('.footer-link-product', t.footerLinkProduct);
+        set('.footer-link-security', t.footerLinkSecurity); set('.footer-link-about', t.footerLinkAbout);
+        set('.footer-link-contact', t.footerLinkContact);
+        set('.footer-copyright', t.footerCopyright);
+    }
+
+    const audioPlayers = {};
+    const audioFiles = {
+        'a1': 'buring_smell.wav',
+    };
+
+    // 精彩时刻标记配置（time单位：秒，负数=距结尾）
+    const audioMarkers = {
+        'a1': {
+            zh: [
+                { time: 60,  label: 'AI 开始分析故障原因' },
+                { time: -60, label: 'AI 提供解决方案' }
+            ],
+            en: [
+                { time: 60,  label: 'AI starts diagnosing' },
+                { time: -60, label: 'AI provides solution' }
+            ]
+        },
+        'a2': {
+            zh: [
+                { time: 60,  label: 'AI 安抚买家情绪' },
+                { time: -60, label: 'AI 确认补发方案' }
+            ],
+            en: [
+                { time: 60,  label: 'AI calms the buyer' },
+                { time: -60, label: 'AI confirms resend plan' }
+            ]
+        }
+    };
+
+    let currentLang = 'en';
+
+    function fmtTime(s) {
+        if (!isFinite(s) || s < 0) return '0:00';
+        const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    function getMarkers(id) {
+        const entry = audioMarkers[id];
+        if (!entry) return [];
+        return entry[currentLang] || entry['en'] || [];
+    }
+
+    function initPlayer(id) {
+        const audio = new Audio(audioFiles[id]);
+        audioPlayers[id] = audio;
+
+        const track    = document.getElementById('progress-track-' + id);
+        const fill     = document.getElementById('progress-fill-' + id);
+        const thumb    = document.getElementById('progress-thumb-' + id);
+        const timeCur  = document.getElementById('time-' + id);
+        const timeDur  = document.getElementById('dur-' + id);
+        const markersEl = document.getElementById('markers-' + id);
+
+        audio.addEventListener('loadedmetadata', () => {
+            timeDur.textContent = fmtTime(audio.duration);
+            const markersEl = document.getElementById('markers-' + id);
+            if (markersEl) {  // 加判断
+                renderMarkers(id, audio.duration, markersEl);
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (!audio.duration) return;
+            const pct = (audio.currentTime / audio.duration) * 100;
+            fill.style.width = pct + '%';
+            thumb.style.left = pct + '%';
+            timeCur.textContent = fmtTime(audio.currentTime);
+        });
+
+        audio.addEventListener('ended', () => {
+            const card = document.getElementById(id);
+            const icon = card.querySelector('i.bi-play-fill, i.bi-pause-fill');
+            card.classList.remove('playing');
+            if (icon) icon.classList.replace('bi-pause-fill', 'bi-play-fill');
+            fill.style.width = '0%';
+            thumb.style.left = '0%';
+            timeCur.textContent = '0:00';
+        });
+
+        // 进度条拖拽 & 点击
+        let dragging = false;
+        function doSeek(clientX) {
+            const rect = track.getBoundingClientRect();
+            const pct  = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+            if (audio.duration) {
+                audio.currentTime = pct * audio.duration;
+            }
+        }
+        track.addEventListener('mousedown', e => {
+            dragging = true;
+            doSeek(e.clientX);
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        window.addEventListener('mousemove', e => {
+            if (dragging) doSeek(e.clientX);
+        });
+        window.addEventListener('mouseup', () => {
+            dragging = false;
+        });
+        // click 只在非拖拽时触发（mousedown 已处理）
+        track.addEventListener('click', e => {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    }
+
+    function renderMarkers(id, duration, container) {
+        const markers = getMarkers(id);
+        const colors  = { 'a1': '#2563eb', 'a2': '#7c3aed' };
+        container.innerHTML = '';
+        // markers 容器本身不拦截事件
+        container.style.pointerEvents = 'none';
+
+        markers.forEach(m => {
+            const t = m.time >= 0 ? m.time : Math.max(0, duration + m.time);
+            if (t > duration) return;
+            const pct = (t / duration) * 100;
+
+            // wrap: 定位锚点，恢复 pointer-events
+            const wrap = document.createElement('div');
+            wrap.style.cssText = [
+                'position:absolute',
+                'top:0',
+                'bottom:0',
+                'display:flex',
+                'align-items:center',
+                'pointer-events:auto',
+                'left:' + pct + '%'
+            ].join(';');
+
+            // diamond 菱形
+            const diamond = document.createElement('div');
+            diamond.style.cssText = [
+                'width:14px',
+                'height:14px',
+                'background:' + (colors[id] || '#2563eb'),
+                'border-radius:2px',
+                'cursor:pointer',
+                'transform:translateX(-50%) rotate(45deg)',
+                'box-shadow:0 1px 4px rgba(0,0,0,0.3)',
+                'transition:transform 0.15s',
+                'flex-shrink:0',
+                'position:relative',
+                'z-index:10'
+            ].join(';');
+            diamond.dataset.markerId = id;
+            diamond.dataset.markerTime = String(t);
+
+            // tooltip: 放在 wrap 里而非 diamond 里，避免继承旋转
+            const tip = document.createElement('div');
+            tip.textContent = m.label;
+            tip.style.cssText = [
+                'position:absolute',
+                'bottom:22px',
+                'left:0',
+                'transform:translateX(-50%)',
+                'background:rgba(17,17,17,0.9)',
+                'color:#fff',
+                'font-size:11px',
+                'font-style:normal',
+                'font-weight:500',
+                'white-space:nowrap',
+                'padding:4px 8px',
+                'border-radius:6px',
+                'pointer-events:none',
+                'opacity:0',
+                'transition:opacity 0.15s',
+                'z-index:50'
+            ].join(';');
+
+            wrap.appendChild(diamond);
+            wrap.appendChild(tip);   // tip 是 wrap 的子元素，不在 diamond 里
+
+            diamond.addEventListener('mouseenter', () => {
+                tip.style.opacity = '1';
+                diamond.style.transform = 'translateX(-50%) rotate(45deg) scale(1.3)';
+            });
+            diamond.addEventListener('mouseleave', () => {
+                tip.style.opacity = '0';
+                diamond.style.transform = 'translateX(-50%) rotate(45deg) scale(1)';
+            });
+            diamond.addEventListener('mousedown', e => {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            diamond.addEventListener('click', e => {
+                e.stopPropagation();
+                e.preventDefault();
+                const audio = audioPlayers[id];
+                if (!audio) return;
+                audio.currentTime = t;
+                const card = document.getElementById(id);
+                const icon = card && card.querySelector('i.bi-play-fill, i.bi-pause-fill');
+                if (!card.classList.contains('playing')) {
+                    card.classList.add('playing');
+                    if (icon) icon.classList.replace('bi-play-fill', 'bi-pause-fill');
+                }
+                audio.play();
+            });
+
+            container.appendChild(wrap);
+        });
+    }
+
+    // 语言切换时重新渲染标记文字
+    function refreshMarkers(lang) {
+        currentLang = lang;
+        ['a1', 'a2'].forEach(id => {
+            const audio = audioPlayers[id];
+            const markersEl = document.getElementById('markers-' + id);
+            if (audio && audio.duration && markersEl) {
+                renderMarkers(id, audio.duration, markersEl);
+            }
+        });
+    }
+
+    function togglePlay(id) {
+        const card = document.getElementById(id);
+        const icon = card.querySelector('i.bi-play-fill, i.bi-pause-fill');
+
+        ['a1', 'a2'].forEach(otherId => {
+            if (otherId === id) return;
+            const other = document.getElementById(otherId);
+            const otherIcon = other && other.querySelector('i.bi-play-fill, i.bi-pause-fill');
+            if (other) other.classList.remove('playing');
+            if (otherIcon) otherIcon.classList.replace('bi-pause-fill', 'bi-play-fill');
+            if (audioPlayers[otherId]) audioPlayers[otherId].pause();
+        });
+
+        const audio = audioPlayers[id];
+        if (!audio) return;
+
+        if (card.classList.contains('playing')) {
+            card.classList.remove('playing');
+            icon.classList.replace('bi-pause-fill', 'bi-play-fill');
+            audio.pause();
+        } else {
+            card.classList.add('playing');
+            icon.classList.replace('bi-play-fill', 'bi-pause-fill');
+            audio.play();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.style.animationPlayState = 'running'; });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // 页面加载完成后立即初始化所有播放器，使标记永久显示
+        ['a1', 'a2'].forEach(id => initPlayer(id));
+    });
+    switchLang('en');
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const hb1 = document.getElementById('hb1'), hb2 = document.getElementById('hb2'), hb3 = document.getElementById('hb3');
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        hb1.style.transform = isOpen ? '' : 'translateY(8px) rotate(45deg)';
+        hb2.style.opacity = isOpen ? '1' : '0';
+        hb3.style.transform = isOpen ? '' : 'translateY(-8px) rotate(-45deg)';
+    }
+
+// ══ 移动端卡片 文字/图片切换（卡片1、2、3） ══
+// 按钮文字跟随当前语言，无自动切换
+
+function mobCardToggle(cardNum) {
+    var textEl  = document.getElementById('mob-c' + cardNum + '-text');
+    var imgEl   = document.getElementById('mob-c' + cardNum + '-image');
+    var labelEl = document.getElementById('mob-c' + cardNum + '-toggle-label');
+    if (!textEl || !imgEl) return;
+    var isZh = document.getElementById('btn-zh') && document.getElementById('btn-zh').classList.contains('active');
+    var showingImage = imgEl.style.display !== 'none';
+    if (showingImage) {
+        textEl.style.display = 'block';
+        imgEl.style.display  = 'none';
+        if (labelEl) labelEl.textContent = isZh ? '查看图片' : 'View Image';
+    } else {
+        textEl.style.display = 'none';
+        imgEl.style.display  = 'block';
+        if (labelEl) labelEl.textContent = isZh ? '查看文字' : 'View Text';
+    }
+}
+
+// 保留 mobC1Toggle 别名，兼容现有 HTML onclick
+function mobC1Toggle() { mobCardToggle(1); }
+function mobC2Toggle() { mobCardToggle(2); }
+function mobC3Toggle() { mobCardToggle(3); }
+
+// ══ 桌面端卡片 图片/文字切换（卡片1、2、3） ══
+function desktopCardToggle(cardId) {
+    var imgEl   = document.getElementById(cardId + '-image');
+    var textEl  = document.getElementById(cardId + '-text');
+    var labelEl = document.getElementById(cardId + '-toggle-label');
+    if (!imgEl || !textEl) return;
+    var showingImage = imgEl.style.display !== 'none';
+    if (showingImage) {
+        imgEl.style.display  = 'none';
+        textEl.style.display = 'flex';
+        if (labelEl) labelEl.textContent = 'View Image';
+    } else {
+        imgEl.style.display  = 'flex';
+        textEl.style.display = 'none';
+        if (labelEl) labelEl.textContent = 'View Text';
+    }
+}
+
+</script>
+
+<script>
+var ALL_AUDIO_IDS = ["a1", "a2", "a3", "a4", "ma1", "ma2", "ma3", "ma4"];
+
+function initAudioPlayer(id) {
+    var audio = document.getElementById("audio-" + id);
+    var track = document.getElementById("progress-track-" + id);
+    var fill  = document.getElementById("progress-fill-" + id);
+    var thumb = document.getElementById("progress-thumb-" + id);
+    var time  = document.getElementById("time-" + id);
+    var dur   = document.getElementById("dur-" + id);
+
+    if (!audio || !track) return;
+
+    var dragging = false;
+
+    track.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var rect = track.getBoundingClientRect();
+        var percent = (e.clientX - rect.left) / rect.width;
+        if (audio.duration) audio.currentTime = Math.max(0, Math.min(1, percent)) * audio.duration;
+    });
+
+    thumb.addEventListener("pointerdown", function(e) {
+        dragging = true;
+        e.stopPropagation();
+        thumb.setPointerCapture(e.pointerId);
+    });
+    thumb.addEventListener("pointermove", function(e) {
+        if (!dragging) return;
+        e.stopPropagation();
+        var rect = track.getBoundingClientRect();
+        var percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        if (audio.duration) audio.currentTime = percent * audio.duration;
+    });
+    thumb.addEventListener("pointerup", function() { dragging = false; });
+
+    audio.addEventListener("timeupdate", function() {
+        if (!audio.duration) return;
+        var percent = audio.currentTime / audio.duration * 100;
+        fill.style.width = percent + "%";
+        thumb.style.left = percent + "%";
+        var m = Math.floor(audio.currentTime / 60);
+        var s = Math.floor(audio.currentTime % 60);
+        if (time) time.innerText = m + ":" + (s < 10 ? "0" : "") + s;
+    });
+
+    audio.addEventListener("loadedmetadata", function() {
+        var m = Math.floor(audio.duration / 60);
+        var s = Math.floor(audio.duration % 60);
+        if (dur) dur.innerText = m + ":" + (s < 10 ? "0" : "") + s;
+    });
+
+    audio.addEventListener("ended", function() {
+        var card = document.getElementById(id);
+        var icon = card && card.querySelector("i.bi-play-fill, i.bi-pause-fill");
+        if (card) card.classList.remove("playing");
+        if (icon) icon.classList.replace("bi-pause-fill", "bi-play-fill");
+        fill.style.width = "0%";
+        thumb.style.left = "0%";
+        if (time) time.innerText = "0:00";
+    });
+}
+
+function togglePlay(id) {
+    var audio = document.getElementById("audio-" + id);
+    var card  = document.getElementById(id);
+    var icon  = card && card.querySelector("i.bi-play-fill, i.bi-pause-fill");
+
+    // 停止所有其他音频
+    ALL_AUDIO_IDS.forEach(function(otherId) {
+        if (otherId === id) return;
+        var other     = document.getElementById("audio-" + otherId);
+        var otherCard = document.getElementById(otherId);
+        var otherIcon = otherCard && otherCard.querySelector("i.bi-play-fill, i.bi-pause-fill");
+        if (other && !other.paused) other.pause();
+        if (otherCard) otherCard.classList.remove("playing");
+        if (otherIcon) otherIcon.classList.replace("bi-pause-fill", "bi-play-fill");
+    });
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play();
+        if (card) card.classList.add("playing");
+        if (icon) icon.classList.replace("bi-play-fill", "bi-pause-fill");
+    } else {
+        audio.pause();
+        if (card) card.classList.remove("playing");
+        if (icon) icon.classList.replace("bi-pause-fill", "bi-play-fill");
+    }
+}
+
+ALL_AUDIO_IDS.forEach(function(id) { initAudioPlayer(id); });
+
+// ── Carousel logic ───────────────────────────────────────────
+var carouselCurrent   = 0;
+var carouselTotal     = 4;
+var carouselTimer     = null;
+var carouselPaused    = false;  // true = hover 或播放中，不自动切换
+
+function carouselShow(idx) {
+    // 切换卡片时暂停当前正在播放的音频
+    ALL_AUDIO_IDS.forEach(function(id) {
+        var audio = document.getElementById('audio-' + id);
+        var card  = document.getElementById(id);
+        var icon  = card && card.querySelector('i.bi-play-fill, i.bi-pause-fill');
+        if (audio && !audio.paused) {
+            audio.pause();
+            if (card) card.classList.remove('playing');
+            if (icon) icon.classList.replace('bi-pause-fill', 'bi-play-fill');
+        }
+    });
+    var slides = document.querySelectorAll('.audio-slide');
+    var dots   = document.querySelectorAll('.carousel-dot');
+    slides.forEach(function(s, i) {
+        s.style.opacity       = (i === idx) ? '1' : '0';
+        s.style.pointerEvents = (i === idx) ? 'auto' : 'none';
+    });
+    dots.forEach(function(d, i) {
+        d.style.background = (i === idx) ? '#0071e3' : 'rgba(0,113,227,0.25)';
+        d.style.transform  = (i === idx) ? 'scale(1.3)' : 'scale(1)';
+    });
+    var container = document.querySelector('#audio-carousel > .relative, #audio-carousel > div[style*="position:relative"]');
+    if (container) {
+        var activeSlide = slides[idx];
+        if (activeSlide) {
+            // On mobile, don't set explicit height since slides stack
+            if (window.innerWidth >= 768) {
+                container.style.minHeight = activeSlide.scrollHeight + 'px';
+            } else {
+                container.style.minHeight = '';
+            }
+        }
+    }
+    carouselCurrent = idx;
+}
+
+function carouselMove(dir) {
+    carouselResetTimer();
+    carouselShow((carouselCurrent + dir + carouselTotal) % carouselTotal);
+}
+
+function carouselGo(idx) {
+    carouselResetTimer();
+    carouselShow(idx);
+}
+
+function carouselResetTimer() {
+    if (carouselTimer) clearInterval(carouselTimer);
+    carouselTimer = setInterval(function() {
+        if (!carouselPaused) {
+            carouselShow((carouselCurrent + 1) % carouselTotal);
+        }
+    }, 15000);
+}
+
+function carouselCheckPause() {
+    // 检查是否有任何音频正在播放
+    var anyPlaying = ALL_AUDIO_IDS.some(function(id) {
+        var a = document.getElementById('audio-' + id);
+        return a && !a.paused;
+    });
+    carouselPaused = anyPlaying || carouselHovered;
+}
+
+var carouselHovered = false;
+
+// Start auto-rotate after DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    carouselShow(0);
+    carouselResetTimer();
+
+    // 鼠标悬停暂停
+    var carousel = document.getElementById('audio-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', function() {
+            carouselHovered = true;
+            carouselPaused  = true;
+        });
+        carousel.addEventListener('mouseleave', function() {
+            carouselHovered = false;
+            carouselCheckPause();
+        });
+    }
+
+     // 监听所有音频播放/暂停事件
+    ALL_AUDIO_IDS.forEach(function(id) {
+        var audio = document.getElementById('audio-' + id);
+        if (!audio) return;
+        audio.addEventListener('play',  function() { carouselPaused = true; });
+        audio.addEventListener('pause', function() { carouselCheckPause(); });
+        audio.addEventListener('ended', function() { carouselCheckPause(); });
+    });
+});
+
+
+// ══ 移动端轮播 ══
+var mobCurrent = 0;
+var mobTotal   = 4;
+var mobInner   = null;
+
+function mobCarouselInit() {
+    mobInner = document.getElementById('mob-carousel-inner');
+    if (!mobInner) return;
+    // 触摸滑动
+    var track = document.getElementById('mob-carousel-track');
+    var startX = 0, isDragging = false;
+    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; isDragging = true; }, {passive:true});
+    track.addEventListener('touchend', function(e){
+        if (!isDragging) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) mobCarouselMove(dx < 0 ? 1 : -1);
+        isDragging = false;
+    }, {passive:true});
+}
+
+function mobCarouselShow(idx) {
+    mobCurrent = (idx + mobTotal) % mobTotal;
+    if (mobInner) mobInner.style.transform = 'translateX(-' + (mobCurrent * 100) + '%)';
+    document.querySelectorAll('.mob-dot').forEach(function(d, i) {
+        d.style.background   = (i === mobCurrent) ? '#0071e3' : 'rgba(0,113,227,0.25)';
+        d.style.width        = (i === mobCurrent) ? '8px' : '6px';
+        d.style.height       = (i === mobCurrent) ? '8px' : '6px';
+    });
+    // 停止所有移动端音频
+    ['ma1','ma2','ma3','ma4'].forEach(function(id) {
+        var a = document.getElementById('audio-' + id);
+        if (a && !a.paused) {
+            a.pause();
+            var btn = document.querySelector('button[onclick="togglePlay(\''+id+'\')"]');
+            if (btn) { var ic = btn.querySelector('i'); if(ic){ ic.classList.remove('bi-pause-fill'); ic.classList.add('bi-play-fill'); } }
+        }
+    });
+}
+
+function mobCarouselMove(dir) { mobCarouselShow(mobCurrent + dir); }
+function mobCarouselGo(idx)   { mobCarouselShow(idx); }
+
+// 移动端播放器进度更新
+function initMobPlayers() {
+    ['ma1','ma2','ma3','ma4'].forEach(function(id) {
+        var audio = document.getElementById('audio-' + id);
+        if (!audio) return;
+        var fill  = document.getElementById('progress-fill-' + id);
+        var thumb = document.getElementById('progress-thumb-' + id);
+        var time  = document.getElementById('time-' + id);
+        var dur   = document.getElementById('dur-' + id);
+        var track = document.getElementById('progress-track-' + id);
+        audio.addEventListener('loadedmetadata', function() {
+            if (dur) dur.textContent = fmtTime(audio.duration);
+        });
+        audio.addEventListener('timeupdate', function() {
+            var pct = audio.duration ? (audio.currentTime / audio.duration * 100) : 0;
+            if (fill)  fill.style.width  = pct + '%';
+            if (thumb) thumb.style.left  = pct + '%';
+            if (time)  time.textContent  = fmtTime(audio.currentTime);
+        });
+        audio.addEventListener('ended', function() {
+            if (fill)  fill.style.width  = '0%';
+            if (thumb) thumb.style.left  = '0%';
+            if (time)  time.textContent  = '0:00';
+            var btn = document.querySelector('button[onclick="togglePlay(\''+id+'\')"]');
+            if (btn) { var ic = btn.querySelector('i'); if(ic){ ic.classList.remove('bi-pause-fill'); ic.classList.add('bi-play-fill'); } }
+        });
+        if (track) {
+            track.addEventListener('click', function(e) {
+                var rect = track.getBoundingClientRect();
+                var pct = (e.clientX - rect.left) / rect.width;
+                if (audio.duration) audio.currentTime = pct * audio.duration;
+            });
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    mobCarouselInit();
+    initMobPlayers();
+});
+
+
+// 移动端锚点跳转修正
+document.querySelectorAll('a[href="#audio-lab"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+        if (window.innerWidth < 768) {
+            e.preventDefault();
+            var mob = document.getElementById('audio-lab-mobile');
+            if (mob) mob.scrollIntoView({behavior:'smooth'});
+        }
+    });
+});
+</script>
+</body>
+</html>

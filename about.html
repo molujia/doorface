@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocSeek | About Us / 关于我们</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root { --brand-blue: #0071e3; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+    .tech-bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,113,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,113,227,0.03) 1px,transparent 1px); background-size: 50px 50px; z-index: -1; }
+    .logo-img { height: 32px; width: auto; object-fit: contain; }
+    .lang-btn { padding: 6px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+    .lang-btn.active { background: #0071e3; color: white; }
+    .lang-btn:not(.active) { background: white; color: #6b7280; border-color: #e5e7eb; }
+    .lang-btn:not(.active):hover { border-color: #0071e3; color: #0071e3; }
+    /* 导航栏语言切换按钮（移动端紧凑版） */
+    .nav-lang-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+        cursor: pointer; transition: all 0.2s; border: none; background: transparent;
+        color: #9ca3af; white-space: nowrap;
+    }
+    .nav-lang-btn.active { background: #0071e3; color: white; }
+    .nav-lang-btn:not(.active):hover { color: #0071e3; }
+    @media (min-width: 768px) {
+        .nav-lang-btn { padding: 5px 14px; font-size: 12px; }
+    }
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .tech-btn { background: linear-gradient(135deg, #0071e3, #0051a8); color: white; transition: all 0.3s; }
+    .tech-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,113,227,0.35); }
+    .hero-section { background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a1628 100%); color: white; padding: 60px 0 50px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.15) 0%, transparent 60%); }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #0071e3; padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+    .timeline-item { display: flex; gap: 24px; margin-bottom: 48px; }
+    .timeline-marker { width: 52px; height: 52px; background: linear-gradient(135deg, #0071e3, #0051a8); color: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .capability-card { background: white; border-radius: 16px; border: 1px solid #e5e7eb; padding: 20px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.3s; }
+    .capability-card:hover { border-color: #bfdbfe; box-shadow: 0 4px 20px rgba(0,113,227,0.08); }
+    .cap-icon { width: 40px; height: 40px; background: #eff6ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #0071e3; flex-shrink: 0; }
+    .nav-link { font-size: 14px; color: #374151; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #0071e3; }
+    .stat-card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; padding: 28px; text-align: center; }
+  </style>
+</head>
+<body class="antialiased">
+<div class="tech-bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-4 md:px-8 py-4 sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100/80 bg-white/80">
+  <a href="index.html"><img src="logo02.png" alt="VocSeek Logo" class="logo-img" style="height:28px;"></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="index.html" class="nav-link" id="nav-home">Home</a>
+    <a href="product.html" class="nav-link" id="nav-product">Product</a>
+    <a href="security.html" class="nav-link" id="nav-security">Data Security</a>
+    <a href="about.html" class="nav-link active text-blue-600 font-bold border-b-2 border-blue-600" id="nav-about">About Us</a>
+    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- 语言切换：移动端紧凑 -->
+    <div class="flex items-center bg-gray-100 rounded-full p-0.5 gap-0.5">
+      <button class="nav-lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+      <button class="nav-lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+    <!-- Login -->
+    <a href="https://www.vocseek.ai/web-pages/login" target="_blank"
+       class="tech-btn rounded-full font-bold shadow-md
+              text-xs px-3 py-1.5 md:text-sm md:px-5 md:py-2">
+      <span class="hidden sm:inline">Login / Sign Up</span>
+      <span class="sm:hidden">Login</span>
+    </a>
+    <!-- 汉堡：仅 md~lg -->
+    <button class="hidden md:flex lg:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb1"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb2"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb3"></span>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-gray-100 px-6 py-4 space-y-3 sticky top-[65px] z-40">
+  <a href="index.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-home">Home</a>
+  <a href="product.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-product">Product</a>
+  <a href="security.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-security">Data Security</a>
+  <a href="about.html" class="block text-sm font-bold text-blue-600" id="mob-about">About Us</a>
+  <a href="contact.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-contact">Contact</a>
+  <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="block text-sm font-bold text-blue-600">Login / Sign Up</a>
+</div>
+
+<!-- ===== ENGLISH CONTENT ===== -->
+<div class="content-section active" id="section-en">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-people-fill"></i> About VocSeek
+      </div>
+      <h1 class="text-5xl font-black mb-6">About Us</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">VocSeek AI — Powered by affiliated entities in the United States and China</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <div class="space-y-12">
+
+      <!-- Company Intro — NEW CONTENT -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-building"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">Company Introduction</h2>
+          <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm text-gray-600 leading-relaxed space-y-4">
+            <p>VocSeek AI is a technology platform dedicated to helping global e-commerce businesses deliver smarter and more efficient customer support.</p>
+            <p>Our AI-driven after-sales platform enables merchants to manage customer interactions across multiple channels—such as marketplace messages, email, and phone support—through a single unified system. By combining automation with structured product knowledge and service workflows, VocSeek helps support teams respond faster, reduce operational workload, and maintain consistent service quality.</p>
+            <p>VocSeek is developed and operated by affiliated entities in the United States and China, bringing together expertise in artificial intelligence, cross-border commerce, and customer-service technology.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-bullseye"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">Our Mission</h2>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
+            <p class="text-blue-800 leading-relaxed font-medium text-lg">"Help global e-commerce sellers deliver higher-quality after-sales service with greater efficiency and lower cost — using intelligent tools to elevate customer experience and brand competitiveness."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Capabilities -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-stars"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-6">Core Capabilities</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-chat-dots-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Multi-Channel After-Sales Support</h3>
+                <p class="text-sm text-gray-500">Unified management of Amazon in-app messages, emails, phone calls, SMS, and other after-sales channels for centralized processing.</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-robot"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">AI-Assisted Customer Service</h3>
+                <p class="text-sm text-gray-500">Based on product knowledge, historical after-sales data, and order information, providing intelligent reply suggestions, automated processing, and knowledge assistance.</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-cart-check-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Order-Linked After-Sales Management</h3>
+                <p class="text-sm text-gray-500">Automatically associates each after-sales message with the corresponding order, making communication more efficient and information more accurate.</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-database-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Knowledge Base &amp; Data Insights</h3>
+                <p class="text-sm text-gray-500">AI automatically processes reviews, conversation records, and product descriptions to continuously optimize the knowledge base and help sellers improve product and service quality.</p>
+              </div>
+            </div>
+            <div class="capability-card md:col-span-2">
+              <div class="cap-icon"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Secure &amp; Compliant Data Processing</h3>
+                <p class="text-sm text-gray-500">We strictly comply with Amazon's data usage policies, accessing only the data necessary to deliver functionality, and employ encryption and access control measures to ensure data security. User data is never shared with any third party without authorization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-shield-check"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">Compliance Commitment</h2>
+          <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+            <p class="text-gray-600 leading-relaxed">VocSeek AI was designed from the ground up with privacy, security, and transparency as core principles. We strictly adhere to Amazon's developer data specifications, ensuring that data collection, use, storage, and deletion all meet industry-consistent standards.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-globe2"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">Our Vision</h2>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
+            <p class="text-blue-800 leading-relaxed font-medium text-lg">"To become the preferred intelligent after-sales solution provider for global sellers — empowering every seller to achieve brand growth and global service capability through more professional and intelligent means."</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">Get in Touch</h2>
+      <p class="text-blue-200 mb-6">Have questions or want to learn more about VocSeek?</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">support@vocseek.ai</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== CHINESE CONTENT ===== -->
+<div class="content-section" id="section-zh">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-people-fill"></i> 关于 VocSeek
+      </div>
+      <h1 class="text-5xl font-black mb-6">关于我们</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">VocSeek AI — 由天津声索科技有限公司提供技术支持</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <div class="space-y-12">
+
+      <!-- Company Intro — NEW CONTENT (Chinese) -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-building"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">公司介绍</h2>
+          <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm text-gray-600 leading-relaxed space-y-4">
+            <p>VocSeek AI 是一个致力于帮助全球电子商务企业提供更智能、更高效客户支持的技术平台。</p>
+            <p>我们的 AI 驱动售后平台使商家能够通过单一的统一系统管理跨多个渠道的客户互动——例如平台消息、电子邮件和电话支持。通过将自动化与结构化的产品知识和服务工作流程相结合，VocSeek 帮助支持团队更快响应、减少运营工作量并保持一致的服务质量。</p>
+            <p>VocSeek 由美国和中国的关联实体开发和运营，汇集了人工智能、跨境商务和客户服务技术方面的专业知识。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-bullseye"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">我们的使命</h2>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
+            <p class="text-blue-800 leading-relaxed font-medium text-lg">"帮助全球电商卖家以更高效率、更低成本提供更高质量的售后服务——用智能工具提升客户体验与品牌竞争力。"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Capabilities -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-stars"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-6">核心能力</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-chat-dots-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">多渠道售后支持</h3>
+                <p class="text-sm text-gray-500">统一管理亚马逊站内信、邮件、电话、短信等售后渠道，集中处理所有客户互动。</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-robot"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">AI 辅助客服</h3>
+                <p class="text-sm text-gray-500">基于产品知识、历史售后数据和订单信息，提供智能回复建议、自动化处理和知识辅助。</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-cart-check-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">订单关联售后管理</h3>
+                <p class="text-sm text-gray-500">自动将每条售后消息与对应订单关联，让沟通更高效、信息更准确。</p>
+              </div>
+            </div>
+            <div class="capability-card">
+              <div class="cap-icon"><i class="bi bi-database-fill"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">知识库与数据洞察</h3>
+                <p class="text-sm text-gray-500">AI 自动处理评论、对话记录和产品描述，持续优化知识库，帮助卖家提升产品和服务质量。</p>
+              </div>
+            </div>
+            <div class="capability-card md:col-span-2">
+              <div class="cap-icon"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">安全合规的数据处理</h3>
+                <p class="text-sm text-gray-500">严格遵守亚马逊数据使用政策，仅访问实现功能所必需的数据，采用加密和访问控制措施确保数据安全。未经授权，用户数据绝不与任何第三方共享。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-shield-check"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">合规承诺</h2>
+          <div class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+            <p class="text-gray-600 leading-relaxed">VocSeek AI 从设计之初便将隐私、安全和透明度作为核心原则。我们严格遵守亚马逊开发者数据规范，确保数据的收集、使用、存储和删除均符合行业一致标准。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="timeline-item">
+        <div class="timeline-marker"><i class="bi bi-globe2"></i></div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-black text-gray-900 mb-4">我们的愿景</h2>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
+            <p class="text-blue-800 leading-relaxed font-medium text-lg">"成为全球卖家首选的智能售后解决方案提供商——通过更专业、更智能的方式，赋能每一位卖家实现品牌增长与全球化服务能力。"</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">联系我们</h2>
+      <p class="text-blue-200 mb-6">有任何问题或想了解更多关于 VocSeek 的信息？</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">support@vocseek.ai</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-gray-100 bg-white mt-4">
+  <div class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="logo02.png" alt="VocSeek Logo" class="h-7 mb-4">
+        <p class="text-sm text-gray-400" id="footer-desc">AI Customer Service Solution Provider</p>
+        <div class="flex gap-3 mt-4">
+          <a href="privacy.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-privacy">Privacy Policy</a>
+          <a href="service.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-terms">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-contact-title">Contact</h4>
+        <p class="text-sm text-gray-400 mb-2"><a href="mailto:support@vocseek.ai" class="text-sm text-gray-400 hover:text-blue-600">support@vocseek.ai</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-links-title">Quick Links</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-home">Home</a></li>
+          <li><a href="product.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-product">Product</a></li>
+          <li><a href="security.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-security-link">Data Security</a></li>
+          <li><a href="about.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-about">About Us</a></li>
+          <li><a href="contact.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm">VocSeek</h4>
+        <p class="text-xs text-gray-400">© 2026 VOCSEEK INC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.getElementById('section-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('section-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'VocSeek | 关于我们 / About Us' : 'VocSeek | About Us / 关于我们';
+    const navMap = {
+      'nav-home': ['首页', 'Home'], 'nav-product': ['产品介绍', 'Product'],
+      'nav-security': ['数据安全', 'Data Security'], 'nav-about': ['关于我们', 'About Us'],
+      'nav-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(navMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+    const footerMap = {
+      'footer-desc': ['AI客服解决方案提供商', 'AI Customer Service Solution Provider'],
+      'footer-privacy': ['隐私政策', 'Privacy Policy'], 'footer-terms': ['服务条款', 'Terms of Service'],
+      'footer-contact-title': ['联系方式', 'Contact'],
+      'footer-links-title': ['资源链接', 'Quick Links'],
+      'footer-home': ['首页', 'Home'], 'footer-product': ['产品介绍', 'Product'],
+      'footer-security-link': ['数据安全', 'Data Security'], 'footer-about': ['关于我们', 'About Us'],
+      'footer-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(footerMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+  }
+  switchLang('en');
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const hb1 = document.getElementById('hb1');
+    const hb2 = document.getElementById('hb2');
+    const hb3 = document.getElementById('hb3');
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    hb1.style.transform = isOpen ? '' : 'translateY(8px) rotate(45deg)';
+    hb2.style.opacity = isOpen ? '1' : '0';
+    hb3.style.transform = isOpen ? '' : 'translateY(-8px) rotate(-45deg)';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* page6186.css */
+:root {
+  --primary-color: #1890ff;
+  --secondary-color: #722ed1;
+  --text-color: #333;
+  --text-light: #666;
+  --bg-color: #fff;
+  --border-color: #eaeaea;
+  --section-bg: #f9f9f9;
+  --hover-color: #f0f7ff;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.privacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.privacy-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.privacy-header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.last-updated {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.privacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.privacy-section {
+  background-color: var(--section-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.privacy-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.privacy-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.privacy-section p {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.privacy-section ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-section li {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+address {
+  font-style: normal;
+}
+
+address p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+address i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .privacy-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .privacy-section {
+    padding: 1.5rem;
+  }
+  
+  .privacy-section h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .privacy-header {
+    margin-bottom: 2rem;
+  }
+  
+  .privacy-section {
+    padding: 1.25rem;
+  }
+}

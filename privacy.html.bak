@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="privacy.title">VocSeek - 隐私政策</title>
+  <link rel="stylesheet" href="privacy.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+
+<body>
+  <div id="header-container">
+    <div class="header-component">
+      <header class="site-header">
+        <meta charset="UTF-8">
+        <div class="header-container">
+          <div class="logo-container">
+            <a href="index.html" class="logo-link">
+              <img src="logo02.png" alt="VocSeek Logo" class="logo-icon">
+              <!-- <span class="logo-text">VocSeek</span> -->
+            </a>
+          </div>
+
+          <nav class="main-nav">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">首页</a></li>
+              <li class="nav-item"><a href="product.html" class="nav-link" data-i18n="nav.product">产品介绍</a></li>
+              <li class="nav-item"><a href="security.html" class="nav-link" data-i18n="nav.security">数据安全</a></li>
+              <li class="nav-item"><a href="about.html" class="nav-link" data-i18n="nav.about">关于我们</a></li>
+              <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contact">联系方式</a></li>
+            </ul>
+          </nav>
+
+          <div class="user-actions">
+            <div class="language-switcher">
+              <select class="lang-select" id="language-select">
+                <option value="zh">简体中文</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main>
+    <!-- 英雄区域 -->
+    <section class="privacy-hero">
+      <div class="hero-content">
+        <h1 data-i18n="privacy.hero.title">隐私政策</h1>
+        <p class="hero-updated" data-i18n="privacy.hero.updated">更新日期：2025年11月11日</p>
+        <p class="hero-effective" data-i18n="privacy.hero.effective">生效日期：2025年11月11日</p>
+        <p class="hero-subtitle" data-i18n="privacy.hero.subtitle">欢迎使用
+          VocSeek.ai（以下简称"本平台"或"我们"）。我们非常重视您的个人信息与隐私保护。本《隐私政策》旨在说明我们如何收集、使用、存储和保护您的信息，以及您享有的权利。</p>
+      </div>
+    </section>
+
+    <!-- 隐私政策内容 -->
+    <section class="privacy-content">
+      <div class="container">
+        <div class="content-wrapper">
+          <div class="policy-section">
+            <!-- 信息收集 -->
+            <h2 data-i18n="privacy.collection.title">一、我们收集的信息</h2>
+            <p data-i18n="privacy.collection.desc">我们仅收集提供服务所需的最少数据，包括：</p>
+            <ul class="policy-list">
+              <li data-i18n="privacy.collection.item1">卖家账户标识、LWA 刷新令牌、订单/工单元数据</li>
+              <li data-i18n="privacy.collection.item2">受限数据（PII）：仅在售后或客服目的下短期处理，不长期保存。</li>
+              <li data-i18n="privacy.collection.item3">站点与应用使用日志：包括访问记录、错误日志及使用统计。</li>
+            </ul>
+
+            <!-- 信息使用 -->
+            <h2 data-i18n="privacy.usage.title">二、信息的使用</h2>
+            <p data-i18n="privacy.usage.desc">我们收集的信息用于以下目的：</p>
+            <ul class="policy-list">
+              <li data-i18n="privacy.usage.item1">提供服务功能：售后工单处理、AI 助手、语音转写与知识库功能。</li>
+              <li data-i18n="privacy.usage.item2">履行合同与法定义务，并提升安全与性能。</li>
+              <li data-i18n="privacy.usage.item3">生成去标识化统计数据，用于系统优化与业务分析。</li>
+            </ul>
+
+            <!-- 信息保留与删除 -->
+            <h2 data-i18n="privacy.retention.title">三、信息的保留与删除</h2>
+            <ul class="policy-list">
+              <li data-i18n="privacy.retention.item1">订单/工单元数据：保存 12 个月，用于售后分析与历史追踪。</li>
+              <li data-i18n="privacy.retention.item2">受限数据（PII）：在售后或客服目的完成后 30 天内删除或去标识化。</li>
+              <li data-i18n="privacy.retention.item3">用户可通过 <a href="https://vocseek.ai/#/uninstall"
+                  target="_blank">https://vocseek.ai/#/uninstall</a> 发起删除请求，或发送邮件至 <a
+                  href="mailto:support@vocseek.ai">support@vocseek.ai</a>。</li>
+            </ul>
+
+            <!-- 共享与跨境传输 -->
+            <h2 data-i18n="privacy.sharing.title">四、共享与跨境传输</h2>
+            <ul class="policy-list">
+              <li data-i18n="privacy.sharing.item1">仅与签署数据处理协议（DPA）的处理商共享，如语音转写或 AI 模型服务提供商。</li>
+              <li data-i18n="privacy.sharing.item2">跨境数据传输通过加密通道与标准合同条款（SCC）执行。</li>
+              <li data-i18n="privacy.sharing.item3">我们不出售个人信息，也不会将您的数据用于未经授权的广告用途。</li>
+            </ul>
+
+            <!-- 安全措施 -->
+            <h2 data-i18n="privacy.security.title">五、安全措施</h2>
+            <p data-i18n="privacy.security.desc">我们采取行业标准的安全技术和管理措施，包括：</p>
+            <ul class="policy-list">
+              <li data-i18n="privacy.security.item1">TLS 加密传输与静态加密存储；</li>
+              <li data-i18n="privacy.security.item2">分权访问控制与密钥轮换机制；</li>
+              <li data-i18n="privacy.security.item3">系统监控与日志审计，确保访问安全可追溯；</li>
+              <li data-i18n="privacy.security.item4">若发生安全事件，我们将在 72 小时内通知用户与监管机构。</li>
+            </ul>
+
+            <!-- 用户权利 -->
+            <h2 data-i18n="privacy.rights.title">六、您的权利</h2>
+            <p data-i18n="privacy.rights.desc">您享有以下权利，可通过 support@vocseek.ai 与我们联系行使：</p>
+            <ul class="policy-list">
+              <li data-i18n="privacy.rights.item1">访问权：请求查看我们持有的您的数据；</li>
+              <li data-i18n="privacy.rights.item2">更正权：请求修正不准确的信息；</li>
+              <li data-i18n="privacy.rights.item3">删除权：请求删除您的个人数据；</li>
+              <li data-i18n="privacy.rights.item4">限制处理权：限制我们处理您的个人信息；</li>
+              <li data-i18n="privacy.rights.item5">数据可携权：以结构化、常用格式获取您的数据。</li>
+            </ul>
+            <p data-i18n="privacy.rights.contact">联系地址：</p>
+            <p data-i18n="privacy.rights.address">天津市河北区望海楼街新大路185号院内2号楼109A-1</p>
+
+            <!-- 政策更新 -->
+            <h2 data-i18n="privacy.changes.title">七、政策更新</h2>
+            <p data-i18n="privacy.changes.desc">我们可能会不时更新本隐私政策。若发生重大变更，我们将在站内明显位置提前公告。</p>
+
+            <!-- 版权信息 -->
+            <p class="copyright" data-i18n="privacy.copyright">© 2025 VocSeek.ai 保留所有权利</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container">
+    <div class="footer-component">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">VocSeek</h3>
+            <p class="footer-text" data-i18n="footer.description">AI客服解决方案提供商</p>
+            <div class="footer-links-container">
+              <a href="privacy.html" class="footer-link" data-i18n="footer.privacy">隐私政策</a>
+              <a href="service.html" class="footer-link" data-i18n="footer.terms">服务条款</a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-subtitle" data-i18n="footer.contact.title">联系方式</h4>
+            <p class="footer-text"><span data-i18n="footer.contact.email">邮箱</span>: support@vocseek.ai</p>
+            <p class="footer-text"><span data-i18n="footer.contact.address">地址</span>: <span data-i18n="footer.contact.addressValue">天津市河北区望海楼街新大路185号院内2号楼109A-1</span></p>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-subtitle" data-i18n="footer.links.title">资源链接</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link" data-i18n="footer.links.home">首页</a></li>
+              <li><a href="product.html" class="footer-link" data-i18n="footer.links.product">产品介绍</a></li>
+              <li><a href="security.html" class="footer-link" data-i18n="footer.links.security">数据安全</a></li>
+              <li><a href="about.html" class="footer-link" data-i18n="footer.links.about">关于我们</a></li>
+              <li><a href="contact.html" class="footer-link" data-i18n="footer.links.contact">联系方式</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright" data-i18n="footer.copyright">© 2025 VocSeek 版权所有</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="privacy.js"></script>
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

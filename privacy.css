@@ -1,0 +1,286 @@
+/* 全局样式 */
+:root {
+  --primary-color: #1890ff;
+  --secondary-color: #722ed1;
+  --text-color: #333;
+  --text-light: #666;
+  --bg-color: #fff;
+  --bg-light: #f5f7ff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 隐私政策英雄区域 */
+.privacy-hero {
+  background: linear-gradient(135deg, var(--bg-light), rgba(255, 255, 255, 0.8));
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.privacy-hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.hero-updated {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.hero-effective {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+
+/* 隐私政策内容区域 */
+.privacy-content {
+  background-color: var(--bg-color);
+  padding: 4rem 0;
+}
+
+.content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.policy-section {
+  margin-bottom: 3rem;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.policy-section:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.policy-section h2 {
+  font-size: 1.75rem;
+  color: var(--text-color);
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.policy-section h2:first-child {
+  margin-top: 0;
+}
+
+.policy-section h3 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-section p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.policy-section .copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--bg-light);
+}
+
+.policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.policy-list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-light);
+  line-height: 1.8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.policy-list li:last-child {
+  border-bottom: none;
+}
+
+.policy-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-info strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* 导航链接激活状态 */
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .privacy-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .privacy-hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .hero-updated,
+  .hero-effective {
+    font-size: 0.875rem;
+  }
+
+
+  .privacy-content {
+    padding: 3rem 0;
+  }
+
+  .policy-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .policy-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .policy-section h3 {
+    font-size: 1.125rem;
+  }
+
+  .policy-list li {
+    padding: 0.625rem 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+  }
+}

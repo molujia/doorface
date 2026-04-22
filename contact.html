@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocSeek | Contact / 联系我们</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root { --brand-blue: #0071e3; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+    .tech-bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,113,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,113,227,0.03) 1px,transparent 1px); background-size: 50px 50px; z-index: -1; }
+    .logo-img { height: 32px; width: auto; object-fit: contain; }
+    .lang-btn { padding: 6px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+    .lang-btn.active { background: #0071e3; color: white; }
+    .lang-btn:not(.active) { background: white; color: #6b7280; border-color: #e5e7eb; }
+    .lang-btn:not(.active):hover { border-color: #0071e3; color: #0071e3; }
+    /* 导航栏语言切换按钮（移动端紧凑版） */
+    .nav-lang-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+        cursor: pointer; transition: all 0.2s; border: none; background: transparent;
+        color: #9ca3af; white-space: nowrap;
+    }
+    .nav-lang-btn.active { background: #0071e3; color: white; }
+    .nav-lang-btn:not(.active):hover { color: #0071e3; }
+    @media (min-width: 768px) {
+        .nav-lang-btn { padding: 5px 14px; font-size: 12px; }
+    }
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .tech-btn { background: linear-gradient(135deg, #0071e3, #0051a8); color: white; transition: all 0.3s; }
+    .tech-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,113,227,0.35); }
+    .hero-section { background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a1628 100%); color: white; padding: 60px 0 50px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.15) 0%, transparent 60%); }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #0071e3; padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+    .contact-card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; padding: 32px; transition: all 0.3s; }
+    .contact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,113,227,0.1); border-color: #bfdbfe; }
+    .contact-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #0071e3; margin-bottom: 16px; }
+    .faq-item { background: white; border-radius: 16px; border: 1px solid #e5e7eb; overflow: hidden; margin-bottom: 12px; }
+    .faq-question { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #1d1d1f; transition: background 0.2s; }
+    .faq-question:hover { background: #f9fafb; }
+    .faq-answer { padding: 0 24px 20px; color: #6b7280; font-size: 14px; line-height: 1.7; display: none; }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-question { color: #0071e3; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.3s; }
+    .nav-link { font-size: 14px; color: #374151; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #0071e3; }
+  </style>
+</head>
+<body class="antialiased">
+<div class="tech-bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-4 md:px-8 py-4 sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100/80 bg-white/80">
+  <a href="index.html"><img src="logo02.png" alt="VocSeek Logo" class="logo-img" style="height:28px;"></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="index.html" class="nav-link" id="nav-home">Home</a>
+    <a href="product.html" class="nav-link" id="nav-product">Product</a>
+    <a href="security.html" class="nav-link" id="nav-security">Data Security</a>
+    <a href="about.html" class="nav-link" id="nav-about">About Us</a>
+    <a href="contact.html" class="nav-link active text-blue-600 font-bold border-b-2 border-blue-600" id="nav-contact">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- 语言切换：移动端紧凑 -->
+    <div class="flex items-center bg-gray-100 rounded-full p-0.5 gap-0.5">
+      <button class="nav-lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+      <button class="nav-lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+    <!-- Login -->
+    <a href="https://www.vocseek.ai/web-pages/login" target="_blank"
+       class="tech-btn rounded-full font-bold shadow-md
+              text-xs px-3 py-1.5 md:text-sm md:px-5 md:py-2">
+      <span class="hidden sm:inline">Login / Sign Up</span>
+      <span class="sm:hidden">Login</span>
+    </a>
+    <!-- 汉堡：仅 md~lg -->
+    <button class="hidden md:flex lg:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb1"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb2"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb3"></span>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-gray-100 px-6 py-4 space-y-3 sticky top-[65px] z-40">
+  <a href="index.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-home">Home</a>
+  <a href="product.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-product">Product</a>
+  <a href="security.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-security">Data Security</a>
+  <a href="about.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-about">About Us</a>
+  <a href="contact.html" class="block text-sm font-bold text-blue-600" id="mob-contact">Contact</a>
+  <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="block text-sm font-bold text-blue-600">Login / Sign Up</a>
+</div>
+
+<!-- ===== ENGLISH CONTENT ===== -->
+<div class="content-section active" id="section-en">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-envelope-fill"></i> Get in Touch
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black mb-6">Contact Us</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">We look forward to connecting with you and providing professional AI customer service solutions</p>
+    </div>
+  </section>
+
+  <!-- Contact Cards -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
+        <p class="text-gray-500 text-sm mb-4">Send us an email and we'll respond within 24 hours</p>
+        <a href="mailto:support@vocseek.ai" class="flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">
+          support@vocseek.ai <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Business Hours</h3>
+        <p class="text-gray-500 text-sm mb-4">Our team is here to help you</p>
+        <div class="text-sm text-gray-600 space-y-1">
+          <p><strong>Weekdays:</strong> Mon–Fri 9:00–18:00</p>
+          <p><strong>Weekends:</strong> Sat–Sun 10:00–17:00</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-headset"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Technical Support</h3>
+        <p class="text-gray-500 text-sm mb-4">Experiencing a technical issue? Our team is ready to help</p>
+        <p class="text-sm text-gray-600">Response time: typically within 24 hours</p>
+      </div>
+    </div>
+
+    <!-- WeChat Enterprise QR Card EN -->
+    <div class="contact-card mb-16" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-color: #bbf7d0;">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0 flex flex-col items-center">
+          <div class="bg-white rounded-2xl p-3.5 shadow-lg inline-block">
+            <img src="WeChat_entrance.png" alt="WeChat Enterprise QR Code" class="w-36 h-36 block rounded-md">
+          </div>
+          <p class="text-xs text-gray-400 mt-3 font-medium tracking-wide">Scan to add on WeCom</p>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+            <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-gray-200 shadow-sm">
+              <img src="wecom.png" alt="企业微信" style="width:22px;height:22px;">
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">WeCom</h3>
+          </div>
+          <p class="text-gray-500 text-sm mb-4 max-w-md">Scan the QR code to connect with our team on WeCom. Get real-time support, product consultations, and stay updated on the latest VocSeek news.</p>
+          <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-lightning-charge-fill"></i> Real-time Response</span>
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-shield-check-fill"></i> Official Channel</span>
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-person-check-fill"></i> Dedicated Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="text-center mb-12">
+      <div class="section-badge">
+        <i class="bi bi-question-circle-fill"></i> FAQ
+      </div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
+      <p class="text-gray-500">Quick answers to common questions</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          How do I get started with VocSeek?
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">You can start using VocSeek by creating an account. Once registered, you can connect your Amazon store, configure the AI customer service, and begin using the platform. Feel free to contact us if you need any assistance.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          Which platforms does VocSeek support?
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">VocSeek currently focuses on the Amazon platform and supports integration with Amazon Seller Central. Support for additional platforms is on our roadmap.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          How is my data kept secure?
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">VocSeek uses end-to-end encryption and follows the principle of minimal permissions to ensure your data is safe. We comply with GDPR, CCPA, and Amazon's data protection policies. For more details, please visit our Data Security page.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          How can I get technical support?
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">You can reach our technical team by email at <a href="mailto:support@vocseek.ai">support@vocseek.ai</a>. We typically respond within 24 hours. For urgent issues, we prioritize faster resolution.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">Ready to Get Started?</h2>
+      <p class="text-blue-200 mb-6">Contact us today and discover how VocSeek can transform your after-sales service</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">Send Us an Email</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== CHINESE CONTENT ===== -->
+<div class="content-section" id="section-zh">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-envelope-fill"></i> 联系我们
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black mb-6">联系方式</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto">我们期待与您交流，为您提供专业的 AI 客服解决方案</p>
+    </div>
+  </section>
+
+  <!-- Contact Cards -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">邮箱联系</h3>
+        <p class="text-gray-500 text-sm mb-4">发送邮件至我们的邮箱，我们会在 24 小时内回复</p>
+        <a href="mailto:support@vocseek.ai" class="flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors">
+          support@vocseek.ai <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">服务时间</h3>
+        <p class="text-gray-500 text-sm mb-4">我们的团队随时为您服务</p>
+        <div class="text-sm text-gray-600 space-y-1">
+          <p><strong>工作日：</strong>周一至周五 9:00–18:00</p>
+          <p><strong>周末：</strong>周六至周日 10:00–17:00</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="bi bi-headset"></i></div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">技术支持</h3>
+        <p class="text-gray-500 text-sm mb-4">遇到技术问题？我们的技术团队随时为您提供帮助</p>
+        <p class="text-sm text-gray-600">响应时间：通常在 24 小时内回复</p>
+      </div>
+    </div>
+
+    <!-- 企业微信二维码卡片 ZH -->
+    <div class="contact-card mb-16" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-color: #bbf7d0;">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="flex-shrink-0 flex flex-col items-center">
+          <div class="bg-white rounded-2xl p-3.5 shadow-lg inline-block">
+            <img src="WeChat_entrance.png" alt="企业微信二维码" style="width:148px;height:148px;display:block;border-radius:6px;">
+          </div>
+          <p class="text-xs text-gray-400 mt-3 font-medium tracking-wide">扫码添加企业微信</p>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+            <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-gray-200 shadow-sm">
+            <!-- <div class="w-11 h-11 flex items-center justify-center rounded-xl" style="background:linear-gradient(135deg,#07c160,#05a14e);"> -->
+              <!-- <i class="bi bi-wechat text-xl text-white"></i> -->
+              <img src="wecom.png" alt="企业微信" style="width:22px;height:22px;">
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">企业微信</h3>
+          </div>
+          <p class="text-gray-500 text-sm mb-4 max-w-md">扫描左侧二维码，通过企业微信与我们的团队取得联系。获取实时支持、产品咨询，随时了解 VocSeek 的最新动态。</p>
+          <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-lightning-charge-fill"></i> 实时响应</span>
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-shield-check-fill"></i> 官方渠道</span>
+            <span class="flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1.5 rounded-full"><i class="bi bi-person-check-fill"></i> 专属服务</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="text-center mb-12">
+      <div class="section-badge"><i class="bi bi-question-circle-fill"></i> 常见问题</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">常见问题解答</h2>
+      <p class="text-gray-500">快速了解常见问题的答案</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          如何开始使用 VocSeek？
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">您可以通过注册账号开始使用 VocSeek。注册后，您可以关联您的亚马逊店铺，设置 AI 客服，然后开始使用。如需帮助，请随时联系我们。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          VocSeek 支持哪些平台？
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">目前 VocSeek 主要支持亚马逊平台，可以接入亚马逊 Seller Central。更多平台支持正在规划中。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          数据安全如何保障？
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">VocSeek 采用端到端加密技术，遵循最小权限原则，确保您的数据安全。我们符合 GDPR、CCPA 等数据保护法规。更多详情请查看我们的数据安全页面。</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          如何获取技术支持？
+          <i class="bi bi-chevron-down faq-icon"></i>
+        </div>
+        <div class="faq-answer">您可以通过邮件 <a href="mailto:support@vocseek.ai">support@vocseek.ai</a> 联系我们获取技术支持。我们的技术团队会在 24 小时内回复您的问题。对于紧急问题，我们会优先处理。</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-12 text-center text-white">
+      <h2 class="text-3xl font-black mb-3">准备好开始了吗？</h2>
+      <p class="text-blue-200 mb-6">立即联系我们，了解 VocSeek 如何改变您的售后服务</p>
+      <a href="mailto:support@vocseek.ai" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all inline-block">发送邮件给我们</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-gray-100 bg-white mt-4">
+  <div class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="logo02.png" alt="VocSeek Logo" class="h-7 mb-4">
+        <p class="text-sm text-gray-400" id="footer-desc">AI Customer Service Solution Provider</p>
+        <div class="flex gap-3 mt-4">
+          <a href="privacy.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-privacy">Privacy Policy</a>
+          <a href="service.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-terms">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-contact-title">Contact</h4>
+        <p class="text-xs text-gray-400 mb-1"><a href="mailto:support@vocseek.ai">support@vocseek.ai</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-links-title">Quick Links</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-home">Home</a></li>
+          <li><a href="product.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-product">Product</a></li>
+          <li><a href="security.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-security-link">Data Security</a></li>
+          <li><a href="about.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-about">About Us</a></li>
+          <li><a href="contact.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm">VocSeek</h4>
+        <p class="text-xs text-gray-400">© 2026 VOCSEEK INC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleFaq(el) {
+    el.classList.toggle('open');
+  }
+  function switchLang(lang) {
+    document.getElementById('section-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('section-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'VocSeek | 联系我们 / Contact' : 'VocSeek | Contact / 联系我们';
+    const navMap = {
+      'nav-home': ['首页', 'Home'], 'nav-product': ['产品介绍', 'Product'],
+      'nav-security': ['数据安全', 'Data Security'], 'nav-about': ['关于我们', 'About Us'],
+      'nav-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(navMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+    const footerMap = {
+      'footer-desc': ['AI客服解决方案提供商', 'AI Customer Service Solution Provider'],
+      'footer-privacy': ['隐私政策', 'Privacy Policy'], 'footer-terms': ['服务条款', 'Terms of Service'],
+      'footer-contact-title': ['联系方式', 'Contact'],
+      'footer-links-title': ['资源链接', 'Quick Links'],
+      'footer-home': ['首页', 'Home'], 'footer-product': ['产品介绍', 'Product'],
+      'footer-security-link': ['数据安全', 'Data Security'], 'footer-about': ['关于我们', 'About Us'],
+      'footer-contact': ['联系方式', 'Contact']
+    };
+    Object.entries(footerMap).forEach(([id, texts]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+  }
+  switchLang('en');
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const hb1 = document.getElementById('hb1');
+    const hb2 = document.getElementById('hb2');
+    const hb3 = document.getElementById('hb3');
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    hb1.style.transform = isOpen ? '' : 'translateY(8px) rotate(45deg)';
+    hb2.style.opacity = isOpen ? '1' : '0';
+    hb3.style.transform = isOpen ? '' : 'translateY(-8px) rotate(-45deg)';
+  }
+</script>
+</body>
+</html>

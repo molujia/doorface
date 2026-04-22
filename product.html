@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocSeek | Product / 产品介绍</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root { --brand-blue: #0071e3; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+    .tech-bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,113,227,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,113,227,0.03) 1px,transparent 1px); background-size: 50px 50px; z-index: -1; }
+    .logo-img { height: 32px; width: auto; object-fit: contain; }
+    .lang-btn { padding: 6px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+    .lang-btn.active { background: #0071e3; color: white; }
+    .lang-btn:not(.active) { background: white; color: #6b7280; border-color: #e5e7eb; }
+    .lang-btn:not(.active):hover { border-color: #0071e3; color: #0071e3; }
+    /* 导航栏语言切换按钮（移动端紧凑版） */
+    .nav-lang-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+        cursor: pointer; transition: all 0.2s; border: none; background: transparent;
+        color: #9ca3af; white-space: nowrap;
+    }
+    .nav-lang-btn.active { background: #0071e3; color: white; }
+    .nav-lang-btn:not(.active):hover { color: #0071e3; }
+    @media (min-width: 768px) {
+        .nav-lang-btn { padding: 5px 14px; font-size: 12px; }
+    }
+    .content-section { display: none; }
+    .content-section.active { display: block; }
+    .tech-btn { background: linear-gradient(135deg, #0071e3, #0051a8); color: white; transition: all 0.3s; }
+    .tech-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,113,227,0.35); }
+    .hero-section { background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a1628 100%); color: white; padding: 60px 0 50px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.15) 0%, transparent 60%); }
+    .feature-card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; padding: 32px; transition: all 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,113,227,0.12); border-color: #bfdbfe; }
+    .feature-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 24px; color: #0071e3; }
+    .pricing-card { background: white; border-radius: 24px; border: 2px solid #e5e7eb; padding: 32px; transition: all 0.3s; }
+    .pricing-card:hover { border-color: #0071e3; box-shadow: 0 12px 40px rgba(0,113,227,0.12); transform: translateY(-4px); }
+    .pricing-card.featured { border-color: #0071e3; background: linear-gradient(135deg, #eff6ff, #f0f9ff); }
+    .advantage-item { display: flex; gap: 20px; align-items: flex-start; padding: 28px; background: white; border-radius: 20px; border: 1px solid #e5e7eb; margin-bottom: 16px; }
+    .advantage-num { width: 48px; height: 48px; background: linear-gradient(135deg, #0071e3, #0051a8); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; flex-shrink: 0; }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; color: #0071e3; padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+    .nav-link { font-size: 14px; color: #374151; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #0071e3; }
+    .scenario-card { background: white; border-radius: 20px; border: 1px solid #e5e7eb; padding: 28px; text-align: center; transition: all 0.3s; }
+    .scenario-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,113,227,0.1); border-color: #bfdbfe; }
+    .scenario-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; color: #0071e3; }
+
+    /* ═══ New Pricing Table Styles ═══ */
+    .vp-wrap { font-family: 'Noto Sans SC','Inter',-apple-system,BlinkMacSystemFont,sans-serif; }
+    .vp-toggle-bar { display:flex; align-items:center; justify-content:flex-end; gap:10px; margin-bottom:20px; }
+    .vp-toggle { display:flex; background:#f0f2f5; border-radius:20px; padding:3px; gap:2px; }
+    .vp-toggle-btn { padding:5px 16px; border-radius:16px; border:none; font-size:13px; font-family:inherit; font-weight:500; cursor:pointer; background:transparent; color:#909399; transition:all .2s; outline:none; }
+    .vp-toggle-btn.active { background:#fff; color:#303133; box-shadow:0 1px 4px rgba(0,0,0,.12); }
+    .vp-discount-badge { font-size:12px; font-weight:600; color:#52966a; background:rgba(103,194,58,.12); padding:3px 9px; border-radius:10px; white-space:nowrap; }
+    .vp-grid { display:grid; grid-template-columns:0.97fr 0.97fr 0.97fr 1.09fr; gap:16px; padding:4px; align-items:stretch; }
+    .vp-card { position:relative; border:2px solid #e4e7ed; border-radius:12px; padding:20px; cursor:pointer; transition:border-color .25s, box-shadow .25s, background .25s; background:#fff; display:flex; flex-direction:column; }
+    .vp-card:not(.vp-entplus):hover { border-color:#409eff; box-shadow:0 2px 12px rgba(64,158,255,.15); }
+    .vp-card.vp-selected { border-color:#409eff; background:#f0f9ff; box-shadow:0 2px 12px rgba(64,158,255,.18),0 8px 28px rgba(64,158,255,.22); }
+    .vp-entplus { background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); border-color:transparent; }
+    .vp-entplus:hover { border-color:#fbbf24 !important; box-shadow:0 2px 20px rgba(245,158,11,.25) !important; }
+    .vp-entplus.vp-selected { border-color:#fbbf24 !important; box-shadow:0 2px 16px rgba(245,158,11,.28),0 8px 28px rgba(245,158,11,.28) !important; }
+    .vp-entplus .vp-plan-name, .vp-entplus .vp-feature-text { color:#e8edf5; }
+    .vp-entplus .vp-check { color:#f59e0b !important; }
+    .vp-entplus .vp-contact-main { color:#f59e0b; }
+    .vp-plan-name { font-size:clamp(15px,4vw,20px); font-weight:600; color:#303133; margin-bottom:12px; }
+    .vp-price-wrap { margin-bottom:16px; }
+    .vp-price-amount { font-size:clamp(18px,5vw,24px); font-weight:700; color:#409eff; transition:all .2s; }
+    .vp-price-unit { font-size:14px; color:#909399; margin-left:4px; }
+    .vp-price-discount { font-size:11px; color:#67c23a; margin-top:4px; }
+    .vp-quarterly-note { display:none; font-size:11px; color:#67c23a; margin-top:4px; }
+    .vp-contact-main { font-size:15px; font-weight:600; color:#f59e0b; letter-spacing:.03em; }
+    .vp-features { display:flex; flex-direction:column; gap:8px; }
+    .vp-feature-item { display:flex; align-items:center; gap:8px; font-size:13px; color:#606266; line-height:1.4; }
+    .vp-check { color:#67c23a; font-size:15px; flex-shrink:0; }
+    .vp-cross { color:#e5e7eb; font-size:15px; flex-shrink:0; }
+    .vp-feature-text { flex:1; }
+    .vp-cs-tag { font-size:8.8px; color:#f59e0b; background:rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.3); padding:1px 6px; border-radius:8px; display:inline-block; margin-left:4px; vertical-align:middle; white-space:nowrap; }
+    .vp-buy-row { display:flex; justify-content:center; margin-top:24px; padding-top:24px; border-top:1px solid #e4e7ed; }
+    .vp-buy-btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 32px; font-size:15px; font-family:inherit; border-radius:6px; border:none; background:#409eff; color:#fff; cursor:pointer; font-weight:500; transition:background .15s,transform .1s; outline:none; }
+    .vp-buy-btn:hover { background:#337ecc; transform:translateY(-1px); }
+    .vp-buy-btn:disabled { background:#a0cfff; cursor:not-allowed; transform:none; }
+    @media (max-width: 900px) { .vp-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width: 560px) { .vp-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="antialiased">
+<div class="tech-bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="flex justify-between items-center px-4 md:px-8 py-4 sticky top-0 z-50 backdrop-blur-xl border-b border-gray-100/80 bg-white/80">
+  <a href="index.html"><img src="logo02.png" alt="VocSeek Logo" class="logo-img" style="height:28px;"></a>
+  <div class="hidden md:flex items-center gap-6">
+    <a href="index.html" class="nav-link" id="nav-home">Home</a>
+    <a href="product.html" class="nav-link active text-blue-600 font-bold border-b-2 border-blue-600" id="nav-product">Product</a>
+    <a href="security.html" class="nav-link" id="nav-security">Data Security</a>
+    <a href="about.html" class="nav-link" id="nav-about">About Us</a>
+    <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- 语言切换：移动端紧凑 -->
+    <div class="flex items-center bg-gray-100 rounded-full p-0.5 gap-0.5">
+      <button class="nav-lang-btn" id="btn-zh" onclick="switchLang('zh')">中文</button>
+      <button class="nav-lang-btn active" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+    <!-- Login -->
+    <a href="https://www.vocseek.ai/web-pages/login" target="_blank"
+       class="tech-btn rounded-full font-bold shadow-md
+              text-xs px-3 py-1.5 md:text-sm md:px-5 md:py-2">
+      <span class="hidden sm:inline">Login / Sign Up</span>
+      <span class="sm:hidden">Login</span>
+    </a>
+    <!-- 汉堡：仅 md~lg -->
+    <button class="hidden md:flex lg:hidden flex-col gap-1.5 p-2" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb1"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb2"></span>
+      <span class="block w-5 h-0.5 bg-gray-700 transition-all" id="hb3"></span>
+    </button>
+  </div>
+</nav>
+<div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur border-b border-gray-100 px-6 py-4 space-y-3 sticky top-[65px] z-40">
+  <a href="index.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-home">Home</a>
+  <a href="product.html" class="block text-sm font-bold text-blue-600" id="mob-product">Product</a>
+  <a href="security.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-security">Data Security</a>
+  <a href="about.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-about">About Us</a>
+  <a href="contact.html" class="block text-sm font-semibold text-gray-700 hover:text-blue-600" id="mob-contact">Contact</a>
+  <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="block text-sm font-bold text-blue-600">Login / Sign Up</a>
+</div>
+
+<!-- ===== ENGLISH CONTENT ===== -->
+<div class="content-section active" id="section-en">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-grid-3x3-gap-fill"></i> Product Overview
+      </div>
+      <h1 class="text-5xl font-black mb-6 leading-tight">VocSeek AI Customer Service Solution</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto mb-10">Intelligent, efficient, and secure after-sales management platform for global cross-border sellers</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="contact.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 md:px-8 md:py-3 rounded-full font-bold transition-all hover:-translate-y-1 text-sm md:text-base">Schedule a Demo</a>
+        <a href="#features" class="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 md:px-8 md:py-3 rounded-full font-bold transition-all border border-white/20 text-sm md:text-base">Explore Features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Advantages -->
+  <section class="max-w-5xl mx-auto px-4 md:px-6 py-10 md:py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge">
+        <i class="bi bi-star-fill"></i> Core Capabilities
+      </div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">Product Features</h2>
+      <p class="text-gray-500 text-lg">Everything you need to deliver exceptional after-sales service</p>
+    </div>
+    <div class="space-y-4">
+      <div class="advantage-item">
+        <div class="advantage-num">01</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Unified Ticket System</h3>
+          <p class="text-gray-500">Aggregate Amazon buyer-seller messages, emails, SMS, and voice calls into a single order-centric view for centralized management.</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">02</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">AI Assistant</h3>
+          <p class="text-gray-500">Use machine learning to generate reply suggestions, summarize conversations, and detect customer sentiment based on Amazon order and message data.</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">03</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Knowledge Base Integration</h3>
+          <p class="text-gray-500">Help sellers build and reuse standard after-sales templates, providing usage help, troubleshooting, and compliance guidance.</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">04</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Performance &amp; Compliance Dashboard</h3>
+          <p class="text-gray-500">Generate SLA metrics, quality audits, and keyword-based search from historical order data to continuously improve service quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section id="features" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge">
+          <i class="bi bi-lightning-charge-fill"></i> Core Advantages
+        </div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">Comprehensive Intelligent Customer Service</h2>
+        <p class="text-gray-500 text-lg">Boost your business growth with our full-stack AI solution</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shop"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Amazon Store Integration</h3>
+          <p class="text-gray-500 text-sm">One-click integration with Amazon Seller Central. Automatically sync orders, customer information, and product data in real time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-envelope-heart"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Multi-Channel Ticket Management</h3>
+          <p class="text-gray-500 text-sm">Unified management of customer inquiries from messages, emails, SMS, and voice channels with intelligent priority assignment.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-cpu"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">RAG + LLM</h3>
+          <p class="text-gray-500 text-sm">An intelligent knowledge base leveraging RAG technology, integrated with large language models for precise and natural customer service responses.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-clipboard-check"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Quality Scoring System</h3>
+          <p class="text-gray-500 text-sm">Automatically score customer service responses across multiple dimensions to ensure service quality and customer satisfaction.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-search"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Keyword Search</h3>
+          <p class="text-gray-500 text-sm">Intelligent keyword extraction and matching to quickly locate historical conversations, solutions, and hotspot analysis.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Data Security</h3>
+          <p class="text-gray-500 text-sm">Privacy-first and minimal permissions principle. End-to-end encryption with compliance for GDPR, CCPA, and Amazon data policies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge">
+        <i class="bi bi-tag-fill"></i> Pricing Plans
+      </div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">Flexible Plans for Every Business</h2>
+      <p class="text-gray-500 text-lg">Choose the plan that fits your scale and needs</p>
+    </div>
+    <div class="vp-wrap">
+      <div class="vp-toggle-bar">
+        <div class="vp-toggle">
+          <button class="vp-toggle-btn active" id="vp-btn-monthly-en" onclick="vpSetBilling('en','monthly')">Monthly</button>
+          <button class="vp-toggle-btn" id="vp-btn-quarterly-en" onclick="vpSetBilling('en','quarterly')">Quarterly</button>
+        </div>
+        <span class="vp-discount-badge">10% Off Quarterly</span>
+      </div>
+      <div class="vp-grid" id="vp-grid-en">
+        <div class="vp-card" onclick="vpSelect(this,'Starter','en')">
+          <div class="vp-plan-name">Starter</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥299" data-quarterly="¥269">¥299</span><span class="vp-price-unit">/mo</span>
+            <div class="vp-price-discount">10% off quarterly</div>
+            <div class="vp-quarterly-note">Quarterly price &middot; ¥807/quarter</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Agents: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Local Phone Number: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Summary</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Caller ID</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Minutes: 50/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Store: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Messages</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Category: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">SMS: 50/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Smart Ticket Sorting</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Email Channel</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Emotion Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Safety Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Priority Ticket Pinning</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Industry Knowledge Base</span></div>
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">Custom SMS Templates</span></div>
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">Dedicated Customer Success</span></div>
+          </div>
+        </div>
+        <div class="vp-card" onclick="vpSelect(this,'Pro','en')">
+          <div class="vp-plan-name">Pro</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥1,499" data-quarterly="¥1,349">¥1,499</span><span class="vp-price-unit">/mo</span>
+            <div class="vp-price-discount">10% off quarterly</div>
+            <div class="vp-quarterly-note">Quarterly price &middot; ¥4,047/quarter</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Agents: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Local Phone Numbers: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Summary</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Caller ID</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Minutes: 300/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Stores: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Messages</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Categories: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">SMS: 120/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Custom SMS Templates</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Smart Ticket Sorting</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Email Channel</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Emotion Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Safety Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Priority Ticket Pinning</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Industry Knowledge Base</span></div>
+            <!-- <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">Custom SMS Templates</span></div> -->
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">Dedicated Customer Success</span></div>
+          </div>
+        </div>
+        <div class="vp-card" onclick="vpSelect(this,'Enterprise','en')">
+          <div class="vp-plan-name">Enterprise</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥3,699" data-quarterly="¥3,329">¥3,699</span><span class="vp-price-unit">/mo</span>
+            <div class="vp-price-discount">10% off quarterly</div>
+            <div class="vp-quarterly-note">Quarterly price &middot; ¥9,987/quarter</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Agents: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Local Phone Numbers: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Summary</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Caller ID</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI Call Minutes: 1,000/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Stores: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Messages</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Amazon Categories: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">SMS: 600/mo</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Custom SMS Templates</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Smart Ticket Sorting</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Email Channel</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Emotion Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Safety Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Priority Ticket Pinning</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Industry Knowledge Base</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">Dedicated Customer Success</span></div>
+          </div>
+        </div>
+        <div class="vp-card vp-entplus" onclick="vpSelect(this,'Enterprise+','en')">
+          <div class="vp-plan-name">Enterprise+</div>
+          <div class="vp-price-wrap">
+            <div class="vp-contact-main">Contact Sales</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI Agents<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Local Phone Numbers<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI Call Summary</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Caller ID</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI Call Minutes<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Amazon Stores<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Amazon Messages</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Amazon Categories<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">SMS<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Custom SMS Templates</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Smart Ticket Sorting</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Email Channel</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Emotion Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Safety Engine</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Priority Ticket Pinning</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Industry Knowledge Base</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Dedicated Customer Success</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Auto Reply &middot; Messages</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Auto Reply &middot; Email</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI Outbound Calls</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Manual Outbound Calls</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">Free-form SMS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Scenarios -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge">
+          <i class="bi bi-map-fill"></i> Use Cases
+        </div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">Application Scenarios</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-bag-check"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Order Inquiries</h3>
+          <p class="text-sm text-gray-500">Automatically handle common inquiries about order status and logistics</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Returns &amp; Exchanges</h3>
+          <p class="text-sm text-gray-500">Intelligently process return applications and auto-generate workflows</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-question-circle"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">FAQ</h3>
+          <p class="text-sm text-gray-500">Quickly answer common questions using the knowledge base</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-emoji-smile"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">Sentiment Recognition</h3>
+          <p class="text-sm text-gray-500">Monitor customer review sentiment and respond promptly to negative feedback</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-20 text-center">
+    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-16 text-white">
+      <h2 class="text-4xl font-black mb-4">Start Using VocSeek Today</h2>
+      <p class="text-blue-200 text-lg mb-8">Experience the efficiency and cost savings of intelligent customer service</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="contact.html" class="bg-white text-blue-700 px-5 py-2.5 md:px-8 md:py-3 rounded-full font-bold hover:bg-blue-50 transition-all text-sm md:text-base">Contact Us</a>
+        <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="bg-white/10 border border-white/30 text-white px-5 py-2.5 md:px-8 md:py-3 rounded-full font-bold hover:bg-white/20 transition-all text-sm md:text-base">Get Started Free</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== CHINESE CONTENT ===== -->
+<div class="content-section" id="section-zh">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+      <div class="section-badge bg-blue-600/15 text-blue-400 mx-auto mb-5">
+        <i class="bi bi-grid-3x3-gap-fill"></i> 产品概览
+      </div>
+      <h1 class="text-5xl font-black mb-6 leading-tight">VocSeek AI 客服解决方案</h1>
+      <p class="text-xl text-blue-200 max-w-2xl mx-auto mb-10">为全球跨境卖家提供智能、高效、安全的一体化售后管理平台</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="contact.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition-all hover:-translate-y-1">预约演示</a>
+        <a href="#features-zh" class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-full font-bold transition-all border border-white/20">探索功能</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Advantages -->
+  <section class="max-w-5xl mx-auto px-4 md:px-6 py-10 md:py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge"><i class="bi bi-star-fill"></i> 核心能力</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">产品功能</h2>
+      <p class="text-gray-500 text-lg">为您的售后服务提供全方位支持</p>
+    </div>
+    <div class="space-y-4">
+      <div class="advantage-item">
+        <div class="advantage-num">01</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">统一工单系统</h3>
+          <p class="text-gray-500">将亚马逊买卖双方消息、电子邮件、短信和语音通话聚合到一个以订单为中心的视图中，实现集中化管理。</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">02</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">AI 助手</h3>
+          <p class="text-gray-500">利用机器学习生成回复建议、总结对话内容，并基于亚马逊订单和消息数据检测客户情绪。</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">03</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">知识库集成</h3>
+          <p class="text-gray-500">帮助卖家构建和复用标准售后模板，提供使用帮助、故障排除、合规性指导。</p>
+        </div>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-num">04</div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">绩效与合规仪表板</h3>
+          <p class="text-gray-500">从历史订单数据生成 SLA 指标、质量审核和基于关键词的搜索，持续提升服务质量。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section id="features-zh" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge"><i class="bi bi-lightning-charge-fill"></i> 核心优势</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">全方位智能客服解决方案</h2>
+        <p class="text-gray-500 text-lg">助力您的业务增长</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shop"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">亚马逊店铺接入</h3>
+          <p class="text-gray-500 text-sm">一键接入亚马逊 Seller Central，自动同步订单、客户信息和产品数据，实时监控店铺消息。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-envelope-heart"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">多渠道工单管理</h3>
+          <p class="text-gray-500 text-sm">统一管理站内信、邮件、短信、语音等多种渠道的客户咨询，智能工单分配和优先级管理。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-cpu"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">RAG 知识库 + 大语言模型</h3>
+          <p class="text-gray-500 text-sm">基于 RAG 技术的智能知识库，结合大语言模型，提供精准自然的客户服务响应。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-clipboard-check"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">质检评分系统</h3>
+          <p class="text-gray-500 text-sm">AI 自动质检，多维度评分：准确性、专业性、响应速度，生成质检报告和改进建议。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-search"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">关键词检索</h3>
+          <p class="text-gray-500 text-sm">智能关键词提取和匹配，支持模糊搜索和语义搜索，快速定位历史对话和解决方案。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">数据安全保障</h3>
+          <p class="text-gray-500 text-sm">隐私优先与最小权限原则，端到端加密，符合 GDPR、CCPA 等数据保护法规。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-20">
+    <div class="text-center mb-14">
+      <div class="section-badge"><i class="bi bi-tag-fill"></i> 产品套餐</div>
+      <h2 class="text-4xl font-black text-gray-900 mb-4">灵活多样的套餐选择</h2>
+      <p class="text-gray-500 text-lg">满足不同规模企业的需求</p>
+    </div>
+    <div class="vp-wrap">
+      <div class="vp-toggle-bar">
+        <div class="vp-toggle">
+          <button class="vp-toggle-btn active" id="vp-btn-monthly-zh" onclick="vpSetBilling('zh','monthly')">月付</button>
+          <button class="vp-toggle-btn" id="vp-btn-quarterly-zh" onclick="vpSetBilling('zh','quarterly')">季付</button>
+        </div>
+        <span class="vp-discount-badge">季付九折</span>
+      </div>
+      <div class="vp-grid" id="vp-grid-zh">
+        <div class="vp-card" onclick="vpSelect(this,'Starter','zh')">
+          <div class="vp-plan-name">Starter</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥299" data-quarterly="¥269">¥299</span><span class="vp-price-unit">/月</span>
+            <div class="vp-price-discount">季付享9折</div>
+            <div class="vp-quarterly-note">季付价格，每季度共 ¥807</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 智能体数量: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">本地电话号码: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话摘要</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">来电显示</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话时长: 50 分钟/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊店铺对接: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊站内信</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊类目: 1</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">短信发送次数: 50 条/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">智能工单分拣</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">邮箱渠道</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">情绪引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">安全引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">紧急工单置顶</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">行业知识库</span></div>
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">自定义短信模板</span></div>
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">客户成功经理</span></div>
+          </div>
+        </div>
+        <div class="vp-card" onclick="vpSelect(this,'Pro','zh')">
+          <div class="vp-plan-name">Pro</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥1,499" data-quarterly="¥1,349">¥1,499</span><span class="vp-price-unit">/月</span>
+            <div class="vp-price-discount">季付享9折</div>
+            <div class="vp-quarterly-note">季付价格，每季度共 ¥4,047</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 智能体数量: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">本地电话号码: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话摘要</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">来电显示</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话时长: 300 分钟/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊店铺对接: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊站内信</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊类目: 2</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">短信发送次数: 120 条/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">自定义短信模板</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">智能工单分拣</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">邮箱渠道</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">情绪引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">安全引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">紧急工单置顶</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">行业知识库</span></div>
+            <!-- <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">自定义短信模板</span></div> -->
+            <div class="vp-feature-item"><span class="vp-cross">✗</span><span class="vp-feature-text" style="color:#c0c4cc;">客户成功经理</span></div>
+          </div>
+        </div>
+        <div class="vp-card" onclick="vpSelect(this,'Enterprise','zh')">
+          <div class="vp-plan-name">Enterprise</div>
+          <div class="vp-price-wrap">
+            <span class="vp-price-amount" data-monthly="¥3,699" data-quarterly="¥3,329">¥3,699</span><span class="vp-price-unit">/月</span>
+            <div class="vp-price-discount">季付享9折</div>
+            <div class="vp-quarterly-note">季付价格，每季度共 ¥9,987</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 智能体数量: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">本地电话号码: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话摘要</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">来电显示</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">AI 通话时长: 1000 分钟/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊店铺对接: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊站内信</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">亚马逊类目: 4</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">短信发送次数: 600 条/月</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">自定义短信模板</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">智能工单分拣</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">邮箱渠道</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">情绪引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">安全引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">紧急工单置顶</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">行业知识库</span></div>
+            <div class="vp-feature-item"><span class="vp-check">✓</span><span class="vp-feature-text">客户成功经理</span></div>
+          </div>
+        </div>
+        <div class="vp-card vp-entplus" onclick="vpSelect(this,'Enterprise+','zh')">
+          <div class="vp-plan-name">Enterprise+</div>
+          <div class="vp-price-wrap">
+            <div class="vp-contact-main">Contact Sales</div>
+          </div>
+          <div class="vp-features">
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 智能体数量<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">本地电话号码<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 通话摘要</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">来电显示</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 通话时长<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">亚马逊店铺对接<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">亚马逊站内信</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">亚马逊类目<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">短信发送次数<span class="vp-cs-tag">contact sales</span></span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">自定义短信模板</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">智能工单分拣</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">邮箱渠道</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">情绪引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">安全引擎</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">紧急工单置顶</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">行业知识库</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">客户成功经理</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 站内信自动回复</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 邮件自动回复</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">AI 外呼</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">人工外呼</span></div>
+            <div class="vp-feature-item"><span class="vp-check" style="color:#f59e0b">✓</span><span class="vp-feature-text">自由短信</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Scenarios -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="section-badge"><i class="bi bi-map-fill"></i> 应用场景</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-4">应用场景</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-bag-check"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">订单咨询</h3>
+          <p class="text-sm text-gray-500">自动处理订单状态、物流信息等常见咨询</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">退换货处理</h3>
+          <p class="text-sm text-gray-500">智能处理退换货申请，自动生成处理流程</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-question-circle"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">常见问题解答</h3>
+          <p class="text-sm text-gray-500">基于知识库快速回答客户常见问题</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon"><i class="bi bi-emoji-smile"></i></div>
+          <h3 class="font-bold text-gray-900 mb-2">情绪识别</h3>
+          <p class="text-sm text-gray-500">自动监控客户评价的情绪，及时响应负面情绪</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-20 text-center">
+    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-16 text-white">
+      <h2 class="text-4xl font-black mb-4">立即开始使用 VocSeek</h2>
+      <p class="text-blue-200 text-lg mb-8">体验智能客服带来的效率提升和成本节约</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="contact.html" class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all">联系我们</a>
+        <a href="https://www.vocseek.ai/web-pages/login" target="_blank" class="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition-all">免费开始</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-gray-100 bg-white mt-4">
+  <div class="max-w-6xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="logo02.png" alt="VocSeek Logo" class="h-6 md:h-7 mb-4">
+        <p class="text-sm text-gray-400" id="footer-desc">AI Customer Service Solution Provider</p>
+        <div class="flex gap-3 mt-4">
+          <a href="privacy.html" class="text-xs text-gray-400 hover:text-blue-600">Privacy Policy</a>
+          <a href="service.html" class="text-xs text-gray-400 hover:text-blue-600">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-contact-title">Contact</h4>
+        <p class="text-sm text-gray-400 mb-2"><a href="mailto:support@vocseek.ai" class="text-sm text-gray-400 hover:text-blue-600">support@vocseek.ai</a></p>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm" id="footer-links-title">Quick Links</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-home">Home</a></li>
+          <li><a href="product.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-product">Product</a></li>
+          <li><a href="security.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-security">Data Security</a></li>
+          <li><a href="about.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-about">About Us</a></li>
+          <li><a href="contact.html" class="text-xs text-gray-400 hover:text-blue-600" id="footer-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-gray-900 mb-3 text-sm">VocSeek</h4>
+        <p class="text-xs text-gray-400">© 2026 VOCSEEK INC. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function switchLang(lang) {
+    document.getElementById('section-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('section-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'VocSeek | 产品介绍 / Product' : 'VocSeek | Product / 产品介绍';
+    var navMap = {
+      'nav-home': ['首页','Home'], 'nav-product': ['产品介绍','Product'],
+      'nav-security': ['数据安全','Data Security'], 'nav-about': ['关于我们','About Us'],
+      'nav-contact': ['联系方式','Contact']
+    };
+    Object.entries(navMap).forEach(function([id, texts]) {
+      var el = document.getElementById(id); if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+    var footerMap = {
+      'footer-desc': ['AI客服解决方案提供商','AI Customer Service Solution Provider'],
+      'footer-contact-title': ['联系方式','Contact'],
+      'footer-links-title': ['资源链接','Quick Links'],
+      'footer-home': ['首页','Home'], 'footer-product': ['产品介绍','Product'],
+      'footer-security': ['数据安全','Data Security'], 'footer-about': ['关于我们','About Us'],
+      'footer-contact': ['联系方式','Contact']
+    };
+    Object.entries(footerMap).forEach(function([id, texts]) {
+      var el = document.getElementById(id); if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+    var mobMap = {
+      'mob-home': ['首页','Home'], 'mob-product': ['产品介绍','Product'],
+      'mob-security': ['数据安全','Data Security'], 'mob-about': ['关于我们','About Us'],
+      'mob-contact': ['联系方式','Contact']
+    };
+    Object.entries(mobMap).forEach(function([id, texts]) {
+      var el = document.getElementById(id); if (el) el.textContent = lang === 'zh' ? texts[0] : texts[1];
+    });
+  }
+  switchLang('en');
+
+  function toggleMobileMenu() {
+    var menu = document.getElementById('mobile-menu');
+    var hb1 = document.getElementById('hb1');
+    var hb2 = document.getElementById('hb2');
+    var hb3 = document.getElementById('hb3');
+    var isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    if (!isOpen) {
+      hb1.style.transform = 'translateY(7px) rotate(45deg)';
+      hb2.style.opacity = '0';
+      hb3.style.transform = 'translateY(-7px) rotate(-45deg)';
+    } else {
+      hb1.style.transform = '';
+      hb2.style.opacity = '';
+      hb3.style.transform = '';
+    }
+  }
+
+  // ── Pricing table ──
+  var vpSelectedCard = { en: null, zh: null };
+
+  function vpSelect(el, name, lang) {
+    if (vpSelectedCard[lang]) vpSelectedCard[lang].classList.remove('vp-selected');
+    el.classList.add('vp-selected');
+    vpSelectedCard[lang] = el;
+    var btn = document.getElementById('vp-buy-' + lang);
+    btn.disabled = false;
+    btn.textContent = name === 'Enterprise+'
+      ? (lang === 'zh' ? '联系销售 →' : 'Contact Sales →')
+      : (lang === 'zh' ? '立即购买 ' + name + ' →' : 'Get ' + name + ' →');
+  }
+
+  function vpSetBilling(lang, type) {
+    document.getElementById('vp-btn-monthly-' + lang).classList.toggle('active', type === 'monthly');
+    document.getElementById('vp-btn-quarterly-' + lang).classList.toggle('active', type === 'quarterly');
+    var grid = document.getElementById('vp-grid-' + lang);
+    grid.querySelectorAll('.vp-price-amount[data-monthly]').forEach(function(el) {
+      el.textContent = type === 'quarterly' ? el.dataset.quarterly : el.dataset.monthly;
+    });
+    grid.querySelectorAll('.vp-price-discount').forEach(function(el) {
+      el.style.display = type === 'quarterly' ? 'none' : '';
+    });
+    grid.querySelectorAll('.vp-quarterly-note').forEach(function(el) {
+      el.style.display = type === 'quarterly' ? 'block' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

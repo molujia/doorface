@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消费者洞察 - VocSeek</title>
+  <link rel="stylesheet" href="insights.css">
+  <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <script src="https://gcore.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <div id="header-container"><div class="header-component">
+  <header class="site-header">
+<meta charset="UTF-8">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="home.html" class="logo-link">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21M6 9V15M9 7V17M12 5V19M15 7V17M18 9V15" stroke="url(#logo-gradient)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="logo-gradient" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#1890FF"/>
+                  <stop offset="1" stop-color="#722ED1"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text">VocSeek</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="home.html" class="nav-link">首页</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">服务介绍</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">客户案例</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">帮助中心</a></li>
+        </ul>
+      </nav>
+      
+      <div class="user-actions">
+        <div class="search-container">
+          <input type="text" placeholder="搜索..." class="search-input">
+          <button class="search-button">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21L16.65 16.65" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="btn btn-login">登录</a>
+          <a href="register.html" class="btn btn-primary">注册</a>
+        </div>
+        
+        <div class="user-menu hidden">
+          <button class="user-avatar">
+            <img loading="lazy" src="https://placeholder.pics/svg/40x40/DEDEDE/555555/头像" alt="用户头像">
+          </button>
+          <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-item">控制台</a>
+            <a href="#" class="dropdown-item">账户设置</a>
+            <a href="#" class="dropdown-item">退出登录</a>
+          </div>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+</div></div>
+  
+  <main class="insights-container">
+    <section class="page-header">
+      <h1><i class="bi bi-graph-up"></i> 消费者洞察</h1>
+      <p class="subtitle">基于AI客服数据分析的消费者行为洞察与优化建议</p>
+    </section>
+
+    <div class="insights-grid">
+      <!-- 高频词分析 -->
+      <section class="insight-card">
+        <div class="card-header">
+          <h2><i class="bi bi-wordpress"></i> 高频词分析</h2>
+          <div class="time-filter">
+            <select id="word-frequency-period">
+              <option value="7">最近7天</option>
+              <option value="30" selected>最近30天</option>
+              <option value="90">最近90天</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="word-cloud-container" id="word-cloud">
+            <!-- 词云将通过JavaScript动态生成 -->
+          </div>
+          <div class="word-frequency-list">
+            <h3>TOP 10 高频词</h3>
+            <ul>
+              <li><span class="word">质量</span><span class="count">328次</span></li>
+              <li><span class="word">退货</span><span class="count">256次</span></li>
+              <li><span class="word">发货</span><span class="count">198次</span></li>
+              <li><span class="word">色差</span><span class="count">156次</span></li>
+              <li><span class="word">客服</span><span class="count">132次</span></li>
+              <li><span class="word">退款</span><span class="count">128次</span></li>
+              <li><span class="word">物流</span><span class="count">112次</span></li>
+              <li><span class="word">尺寸</span><span class="count">98次</span></li>
+              <li><span class="word">优惠</span><span class="count">86次</span></li>
+              <li><span class="word">破损</span><span class="count">72次</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 常见问题统计 -->
+      <section class="insight-card">
+        <div class="card-header">
+          <h2><i class="bi bi-question-circle"></i> 常见问题统计</h2>
+          <div class="chart-controls">
+            <div class="time-filter">
+              <select id="issue-period">
+                <option value="7">最近7天</option>
+                <option value="30" selected>最近30天</option>
+                <option value="90">最近90天</option>
+              </select>
+            </div>
+            <div class="chart-toggle">
+              <button class="toggle-btn active" data-type="count">按数量</button>
+              <button class="toggle-btn" data-type="amount">按金额</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="issue-chart">
+            <canvas id="issuePieChart" width="600" height="300"></canvas>
+          </div>
+          <div class="issue-categories">
+            <div class="issue-category">
+              <span class="category-name">物流问题</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 42%;"></div>
+              </div>
+              <span class="percentage">42%</span>
+            </div>
+            <div class="issue-category">
+              <span class="category-name">产品质量</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 28%;"></div>
+              </div>
+              <span class="percentage">28%</span>
+            </div>
+            <div class="issue-category">
+              <span class="category-name">售后服务</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 18%;"></div>
+              </div>
+              <span class="percentage">18%</span>
+            </div>
+            <div class="issue-category">
+              <span class="category-name">其他问题</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 12%;"></div>
+              </div>
+              <span class="percentage">12%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 消费者画像 -->
+      <section class="insight-card">
+        <div class="card-header">
+          <h2><i class="bi bi-people"></i> 消费者画像</h2>
+          <div class="time-filter">
+            <select id="profile-period">
+              <option value="7">最近7天</option>
+              <option value="30" selected>最近30天</option>
+              <option value="90">最近90天</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="region">地域分布</button>
+            <button class="tab-btn" data-tab="gender">性别比例</button>
+            <button class="tab-btn" data-tab="age">年龄分布</button>
+          </div>
+          <div class="tab-content active" id="region-tab">
+            <div class="region-stats">
+              <div class="region-stat">
+                <span class="region-name">美西地区</span>
+                <span class="region-percentage">45%</span>
+              </div>
+              <div class="region-stat">
+                <span class="region-name">美中地区</span>
+                <span class="region-percentage">28%</span>
+              </div>
+              <div class="region-stat">
+                <span class="region-name">美东地区</span>
+                <span class="region-percentage">27%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="gender-tab">
+            <img loading="lazy" src="https://placeholder.pics/svg/600x300/F5F7FA/1890FF/消费者性别比例图" alt="消费者性别比例图">
+            <div class="gender-stats">
+              <div class="gender-stat">
+                <span class="gender-name">女性</span>
+                <span class="gender-percentage">68%</span>
+              </div>
+              <div class="gender-stat">
+                <span class="gender-name">男性</span>
+                <span class="gender-percentage">32%</span>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="age-tab">
+            <img loading="lazy" src="https://placeholder.pics/svg/600x300/F5F7FA/722ED1/消费者年龄分布图" alt="消费者年龄分布图">
+            <div class="age-stats">
+              <div class="age-stat">
+                <span class="age-range">18-25岁</span>
+                <span class="age-percentage">22%</span>
+              </div>
+              <div class="age-stat">
+                <span class="age-range">26-35岁</span>
+                <span class="age-percentage">45%</span>
+              </div>
+              <div class="age-stat">
+                <span class="age-range">36-45岁</span>
+                <span class="age-percentage">25%</span>
+              </div>
+              <div class="age-stat">
+                <span class="age-range">46岁以上</span>
+                <span class="age-percentage">8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 优化建议 -->
+      <section class="insight-card">
+        <div class="card-header">
+          <h2><i class="bi bi-lightbulb"></i> 优化建议</h2>
+          <button class="refresh-btn" id="refresh-suggestions"><i class="bi bi-arrow-clockwise"></i> 刷新建议</button>
+        </div>
+        <div class="card-content">
+          <div class="suggestion-tabs">
+            <button class="tab-btn active" data-tab="wording">话术优化</button>
+            <button class="tab-btn" data-tab="product">产品优化</button>
+          </div>
+          <div class="tab-content active" id="wording-tab">
+            <div class="suggestion-item">
+              <h3>物流问题话术优化</h3>
+              <p>当前话术："我们会尽快处理您的物流问题"</p>
+              <p class="suggestion-text">建议改为："我们已联系物流公司优先处理您的订单(订单号)，预计24小时内更新物流信息。为表歉意，我们将赠送您一张10元优惠券，可在下次购物时使用。"</p>
+              <div class="suggestion-actions">
+                <button class="btn-accept">采纳建议</button>
+                <button class="btn-modify">修改后采纳</button>
+              </div>
+            </div>
+            <div class="suggestion-item">
+              <h3>退货流程话术优化</h3>
+              <p>当前话术："请按照退货流程操作"</p>
+              <p class="suggestion-text">建议改为："退货流程已发送至您的邮箱，包含图文指导。为简化您的操作，我们提供一键生成退货标签服务，点击此处即可获取。"</p>
+              <div class="suggestion-actions">
+                <button class="btn-accept">采纳建议</button>
+                <button class="btn-modify">修改后采纳</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="product-tab">
+            <div class="suggestion-item">
+              <h3>产品尺寸描述优化</h3>
+              <p>问题：28%的退货与尺寸不符有关</p>
+              <p class="suggestion-text">建议：1. 在产品页面增加真人试穿视频；2. 提供更详细的尺寸对照表；3. 针对高频退货款式，考虑提供"尺寸保险"服务，客户可免费更换一次尺寸。</p>
+              <div class="suggestion-actions">
+                <button class="btn-accept">采纳建议</button>
+                <button class="btn-modify">修改后采纳</button>
+              </div>
+            </div>
+            <div class="suggestion-item">
+              <h3>产品包装改进</h3>
+              <p>问题：15%的投诉与运输破损有关</p>
+              <p class="suggestion-text">建议：1. 对易碎商品升级为防震包装；2. 在外包装明显位置添加"易碎品"标识；3. 针对高价值商品提供"加固包装"选项(可适当收费)。</p>
+              <div class="suggestion-actions">
+                <button class="btn-accept">采纳建议</button>
+                <button class="btn-modify">修改后采纳</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 主动营销策略 -->
+      <section class="insight-card">
+        <div class="card-header">
+          <h2><i class="bi bi-megaphone"></i> 主动营销策略</h2>
+          <button class="generate-btn" id="generate-strategy"><i class="bi bi-magic"></i> 生成新策略</button>
+        </div>
+        <div class="card-content">
+          <div class="marketing-strategy">
+            <h3>基于高频退货客户的策略</h3>
+            <p>针对过去3个月有2次以上退货记录的客户(共328人)：</p>
+            <ul>
+              <li>发送个性化邮件，提供专属客服经理服务</li>
+              <li>赠送"无忧购物券"(满200减30，限无退货使用)</li>
+              <li>邀请参加新品预览会，提前体验产品</li>
+            </ul>
+            <div class="strategy-execution">
+              <button class="btn-call"><i class="bi bi-telephone"></i> 外呼执行</button>
+              <button class="btn-sms"><i class="bi bi-chat-text"></i> 短信执行</button>
+            </div>
+          </div>
+          <div class="marketing-strategy">
+            <h3>基于高满意度客户的策略</h3>
+            <p>针对问题解决后给予5星评价的客户(共892人)：</p>
+            <ul>
+              <li>邀请成为产品体验官，提供新品试用机会</li>
+              <li>创建VIP客户群，提供专属优惠和优先购买权</li>
+              <li>鼓励分享购物体验，提供分享奖励计划</li>
+            </ul>
+            <div class="strategy-execution">
+              <button class="btn-call"><i class="bi bi-telephone"></i> 外呼执行</button>
+              <button class="btn-sms"><i class="bi bi-chat-text"></i> 短信执行</button>
+            </div>
+          </div>
+          <div class="marketing-strategy">
+            <h3>高客单价消费者策略</h3>
+            <p>针对过去6个月平均客单价超过500元的客户(共156人)：</p>
+            <ul>
+              <li>提供专属产品定制服务</li>
+              <li>赠送高端会员礼盒</li>
+              <li>邀请参加线下VIP活动</li>
+            </ul>
+            <div class="strategy-execution">
+              <button class="btn-call"><i class="bi bi-telephone"></i> 外呼执行</button>
+              <button class="btn-sms"><i class="bi bi-chat-text"></i> 短信执行</button>
+            </div>
+          </div>
+          <div class="marketing-strategy">
+            <h3>低频消费者策略</h3>
+            <p>针对过去6个月仅购买1次的客户(共1,245人)：</p>
+            <ul>
+              <li>发送个性化唤醒优惠券</li>
+              <li>提供新用户专享优惠</li>
+              <li>推送个性化产品推荐</li>
+            </ul>
+            <div class="strategy-execution">
+              <button class="btn-call"><i class="bi bi-telephone"></i> 外呼执行</button>
+              <button class="btn-sms"><i class="bi bi-chat-text"></i> 短信执行</button>
+            </div>
+          </div>
+          <div class="strategy-actions">
+            <button class="btn-export">导出策略文档</button>
+            <button class="btn-implement">一键实施策略</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"><div class="footer-component">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">VocSeek</h3>
+        <p class="footer-text">AI客服解决方案提供商</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">联系方式</h4>
+        <p class="footer-text">邮箱: michaelpeng1025@gmail.com</p>
+        <p class="footer-text">电话: +86 138 1234 5678</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">友情链接</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Amazon</a></li>
+          <li><a href="#" class="footer-link">Temu</a></li>
+          <li><a href="#" class="footer-link">Tiktok</a></li>
+          <li><a href="#" class="footer-link">Shopify</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© 2023 VocSeek. All rights reserved.</p>
+      <p class="record">备案号: 津ICP备0810232307号-3</p>
+    </div>
+  </div>
+</div></div>
+
+  <script src="insights.js"></script>
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
