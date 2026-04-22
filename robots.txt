@@ -1,3 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /oauth.html
+Disallow: /user.html
+Disallow: /settings.html
+Disallow: /setup.html
+Disallow: /reports.html
+Disallow: /review.html
 Sitemap: https://www.vocseek.ai/sitemap.xml

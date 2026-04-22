@@ -5,6 +5,9 @@
   <url><loc>https://www.vocseek.ai/security.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.vocseek.ai/about.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.vocseek.ai/contact.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/cases.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/insights.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.vocseek.ai/home.html</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.vocseek.ai/privacy.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.vocseek.ai/service.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
 </urlset>
