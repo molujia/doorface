@@ -1,0 +1,67 @@
+# VocSeek
+
+> AI-powered after-sales management platform for global e-commerce sellers, specializing in Amazon seller support automation.
+
+VocSeek unifies customer messages, phone calls, and order data into one intelligent system. It helps e-commerce businesses reduce returns, resolve disputes faster, and improve customer loyalty through AI-driven automation — available 24/7.
+
+VocSeek is operated by VocSeek Inc. (Delaware, USA) and Tianjin VocSeek Technology Co., Ltd. (China). The platform is designed for cross-border Amazon sellers who need to manage high volumes of after-sales inquiries across multiple channels.
+
+## Problem VocSeek Solves
+
+Amazon sellers face growing challenges managing post-purchase interactions: buyer messages, phone support requests, return/refund disputes, and review management — all from multiple channels with no unified system. VocSeek consolidates these into a single AI-assisted platform.
+
+## Key Features
+
+- **Multi-channel Messaging Hub**: Unified inbox for Amazon buyer messages, email, phone calls, and SMS in one platform
+- **AI Phone Support (Audio Lab)**: Local phone numbers, AI call recording, transcription, and summarization; meets Amazon Brand Registry PLS requirements
+- **Amazon Integration**: One-click connection to Amazon Seller Central; automatic sync of orders, customer data, and product information
+- **RAG Knowledge Base**: AI trained on your product documents, FAQs, and historical service data for accurate, product-specific replies
+- **Intelligent Reply Suggestions**: AI recommends responses based on order context, customer history, and knowledge base
+- **Sentiment Detection**: Automated monitoring of customer review sentiment; early alerts for negative feedback
+- **Quality Scoring**: Agent performance analytics, SLA tracking, and keyword-based search across historical cases
+- **Data Export**: Export service records and analytics for business intelligence
+
+## Target Users
+
+- Amazon FBA and FBM sellers (global)
+- Cross-border e-commerce businesses managing customer service at scale
+- Brand owners with Amazon Brand Registry
+- E-commerce enterprises with multi-store operations
+
+## Pricing Plans
+
+| Plan | Monthly Price | AI Agents | AI Call Minutes |
+|------|--------------|-----------|-----------------|
+| Starter | ¥299/month | 1 | 50 min/month |
+| Pro | ¥1,499/month | 2 | 300 min/month |
+| Enterprise | Custom | 4+ | Unlimited |
+| Enterprise Pro | Custom | 8 | Unlimited |
+
+Quarterly billing available at 10% discount.
+
+## Data Security
+
+- AES-256 encryption for stored data
+- TLS 1.3 for data transmission
+- Multi-factor authentication (MFA)
+- GDPR and CCPA compliant
+- Minimal permissions principle — only accesses Amazon data necessary for requested features
+- Customer data is never sold or shared with third parties
+
+## Company Information
+
+- **Legal name**: VocSeek Inc. (US entity) / 天津声索科技有限公司 (China entity)
+- **Founded**: Delaware, USA
+- **Support email**: support@vocseek.ai
+- **Support hours**: Monday–Friday 09:00–18:00 (CST); Saturday–Sunday 10:00–17:00
+- **Response time**: Within 24 hours
+
+## Pages
+
+- [Home](https://www.vocseek.ai/): Platform overview, key features, and use cases with real AI call examples
+- [Product & Pricing](https://www.vocseek.ai/product.html): Detailed feature breakdown and pricing plans (Starter, Pro, Enterprise)
+- [Data Security](https://www.vocseek.ai/security.html): Security measures, encryption standards, and compliance certifications
+- [About Us](https://www.vocseek.ai/about.html): Company background, mission, core capabilities, and compliance commitment
+- [Contact](https://www.vocseek.ai/contact.html): Contact form, email, FAQ, and support hours
+- [Privacy Policy](https://www.vocseek.ai/privacy.html): How VocSeek collects, uses, and protects personal information
+- [Terms of Service](https://www.vocseek.ai/service.html): User agreement governing platform use
